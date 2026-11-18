@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+
+<html lang="th"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>TeleCare Terra</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..700&amp;family=Nunito+Sans:ital,opsz,wght@0,6..12,300..800;1,6..12,300..800&amp;family=Prompt:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;font-family:'Prompt','Nunito Sans',sans-serif;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"inverse-on-surface":"#f5f0e8","inverse-surface":"#2e3230","surface-bright":"#faf6f0","error-container":"#ffdad8","on-secondary-fixed-variant":"#4a4538","on-primary-fixed-variant":"#2a6038","surface-variant":"#e4e0d8","primary-fixed-dim":"#8ecf9e","surface-container-lowest":"#ffffff","on-surface-variant":"#4a4e4a","on-error":"#ffffff","outline":"#74796e","tertiary-container":"#c4a66a","on-primary-container":"#d8f0de","primary":"#4a7c59","on-error-container":"#690005","secondary-fixed-dim":"#d4ccbf","outline-variant":"#c4c8bc","surface-container-low":"#f5f1ea","error":"#b83230","primary-container":"#78a886","tertiary-fixed-dim":"#dcc48e","surface-container":"#f0ece4","inverse-primary":"#8ecf9e","on-tertiary-container":"#554020","secondary":"#6b6358","surface-container-high":"#eae6de","on-secondary":"#ffffff","on-secondary-fixed":"#1e1a13","on-background":"#2e3230","tertiary":"#705c30","secondary-fixed":"#f0e8db","surface":"#faf6f0","surface-container-highest":"#e4e0d8","surface-tint":"#4a7c59","primary-fixed":"#c8e8d0","tertiary-fixed":"#f8e0a8","on-tertiary-fixed":"#221a05","on-primary":"#ffffff","secondary-container":"#f0e8db","on-secondary-container":"#5e5548","on-tertiary-fixed-variant":"#554020","background":"#faf6f0","on-surface":"#2e3230","on-primary-fixed":"#002110","surface-dim":"#dbd7cf","on-tertiary":"#ffffff"},"borderRadius":{"DEFAULT":"0.5rem","lg":"1rem","xl":"1.5rem","full":"9999px"},"spacing":{},"fontFamily":{"headline":["Literata"],"display":["Literata"],"body":["Nunito Sans"],"label":["Nunito Sans"]},"fontSize":{}}}}</script></head><body class="bg-surface font-body text-on-surface antialiased"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(46,50,48,0.05)]"><div class="h-20 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-4"><div class="flex items-center gap-3 shrink-0"><img alt="TelePharma Terra Logo" class="h-9 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrBJVeZoULwasqZVK0GTgSih12soivh4SDdtb5grWa2Y2E-PjMo9GumhAM7hdx79MI1bTbPFpwBJWIE5custEwAJ1ofDVnTnDBK86uz7DpB4yiuTZW-8Fpyy-mGxWadg-3AoGZophzvf-C9G6n1aqyqqU8ezqZTQxQNYoJyT3Iz7BQNvt00JxPlFxJzlnSvaPVWhS4P0L7238t801BlW1HbdPD1kwPVSS7Tx5kQ026I"/><div class="flex flex-col"><span class="font-headline font-bold text-lg text-primary leading-tight tracking-tight">TeleCare Terra</span><span class="text-xs text-on-surface-variant font-medium tracking-wide">เทเลแคร์</span></div></div><nav class="hidden xl:flex items-center gap-1" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a class="px-3.5 py-2 text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all rounded-lg" data-path="หน้าแรก" href="#">หน้าแรก</a><a class="px-3.5 py-2 text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all rounded-lg" data-path="ร้านยาและคลินิกใกล้บ้าน" href="#">ร้านยาและคลินิกใกล้บ้าน</a><a class="px-3.5 py-2 text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all rounded-lg" data-path="พบแพทย์เฉพาะทาง" href="#">พบแพทย์เฉพาะทาง</a><a class="px-3.5 py-2 text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all rounded-lg" data-path="ประวัติการรักษาและใบสั่งยา" href="#">ประวัติการรักษาและใบสั่งยา</a><a aria-current="page" class="px-3.5 py-2 transition-all bg-primary-container text-on-primary-container font-semibold rounded-lg" data-path="ติดตามการจัดส่ง" href="#">ติดตามการจัดส่ง</a></nav><div class="flex items-center gap-3 shrink-0"><div class="relative hidden sm:block"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg">search</span><input class="w-48 lg:w-60 pl-9 pr-4 py-2 bg-surface-container-low text-xs rounded-xl text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all" placeholder="ค้นหายา แพทย์ อาการ..." type="text"/></div><a class="hidden md:flex items-center gap-1.5 px-3 py-1.5 bg-error-container text-error rounded-xl text-xs font-semibold hover:bg-error hover:text-on-error transition-colors" href="tel:1669"><span class="material-symbols-outlined text-base">emergency</span><span>ฉุกเฉิน 1669</span></a><button aria-label="การแจ้งเตือน" class="relative p-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span></button><div class="flex items-center pl-2 ml-1"><img alt="Profile" class="w-9 h-9 rounded-full object-cover ring-2 ring-primary/20 hover:ring-primary transition-all cursor-pointer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBg9aHif9DuZEfMi7vNihyt9YwvaMpfG_hvEsEUI8Mwa1sK-OKPd6lBDlQ6qXHDHzXqXA3q1Axt8IrrUPzrLWMqCUa2FLd-uRK1jUIk9koH0PjA63bCtLNg2ljeWQMmFOiDgW93tW228ZeDUX4n5ztz1t2Xvyw3A1MT2_BKGzhMmuPdiJ-bKkVy1XXebkCLmJrRMsM75b1vPTWqQ-EjEpnRQwhpYzHzWnY1fMXdbA"/></div></div></div></header><main class="w-full pt-20 bg-surface min-h-[calc(100vh-5rem)]"><div class="flex flex-col w-full">
+<!-- Subtle organic background accent glow -->
+<div class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10">
+<div class="absolute -top-12 -left-20 w-96 h-96 bg-primary-fixed/20 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<div class="absolute top-1/3 -right-24 w-80 h-80 bg-tertiary-fixed/25 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<!-- Top Section: Header & Operational Summary -->
+<div class="flex flex-col gap-6 mb-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-xs font-semibold uppercase tracking-wider mb-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            ระบบติดตามเวชภัณฑ์แบบเรียลไทม์
+          </div>
+<h1 class="text-2xl sm:text-3xl lg:text-4xl font-headline font-bold text-on-surface tracking-tight">
+            รายการสั่งยาและติดตามการจัดส่ง
+          </h1>
+<p class="text-sm text-on-surface-variant mt-1.5 font-normal">
+            ตรวจสอบความคืบหน้าการปรุงยา บรรจุภัณฑ์ควบคุมอุณหภูมิ และพิกัดส่งมอบยาด่วนถึงมือคุณ
+          </p>
+</div>
+<!-- Quick Status Metrics Bar -->
+<div class="flex items-center gap-3 bg-surface-container-low p-2 rounded-2xl shadow-sm self-start md:self-auto">
+<div class="flex items-center gap-3 px-4 py-2 bg-surface-container-lowest rounded-xl shadow-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg">inventory_2</span>
+</div>
+<div>
+<span class="text-[11px] text-outline block font-medium">คำสั่งซื้อทั้งหมด</span>
+<span class="text-base font-bold text-on-surface leading-none">4 รายการ</span>
+</div>
+</div>
+<div class="flex items-center gap-3 px-4 py-2 bg-primary/10 rounded-xl">
+<div class="w-8 h-8 rounded-lg bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-lg animate-spin" style="animation-duration: 4s;">moped</span>
+</div>
+<div>
+<span class="text-[11px] text-primary block font-medium">กำลังจัดส่งด่วน</span>
+<span class="text-base font-bold text-primary leading-none">1 รายการ</span>
+</div>
+</div>
+<div class="hidden sm:flex items-center gap-3 px-4 py-2 bg-surface-container-lowest rounded-xl shadow-sm">
+<div class="w-8 h-8 rounded-lg bg-secondary-container text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">task_alt</span>
+</div>
+<div>
+<span class="text-[11px] text-outline block font-medium">จัดส่งสำเร็จแล้ว</span>
+<span class="text-base font-bold text-on-surface leading-none">3 รายการ</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Filter Tabs & Order Search -->
+<div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 pt-3">
+<!-- Filter Pills -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0" id="filterContainer">
+<button class="filter-tab px-4 py-2 text-xs font-semibold rounded-xl bg-primary text-on-primary shadow-sm hover:opacity-90 transition-all shrink-0">
+            ทั้งหมด (4)
+          </button>
+<button class="filter-tab px-4 py-2 text-xs font-medium rounded-xl bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest transition-all shrink-0">
+            กำลังจัดส่ง (1)
+          </button>
+<button class="filter-tab px-4 py-2 text-xs font-medium rounded-xl bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest transition-all shrink-0">
+            จัดส่งสำเร็จแล้ว (3)
+          </button>
+<button class="filter-tab px-4 py-2 text-xs font-medium rounded-xl bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest transition-all shrink-0 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-tertiary">autorenew</span>
+            คำสั่งซื้อยาประจำ (Refill)
+          </button>
+</div>
+<!-- Search Bar -->
+<div class="relative w-full lg:w-80">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-lg">search</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-surface-container-low text-xs rounded-xl text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:shadow-md transition-all" placeholder="ค้นหาเลขอ้างอิง #MED / ชื่อร้านยา..." type="text"/>
+</div>
+</div>
+</div>
+<!-- Master-Detail Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- LEFT PANEL: Order List Panel (Col 1-5) -->
+<div class="lg:col-span-5 flex flex-col gap-4">
+<div class="flex items-center justify-between px-1">
+<span class="text-xs font-bold text-outline uppercase tracking-wider">ประวัติการสั่งยาและสถานะ</span>
+<span class="text-xs text-primary font-medium hover:underline cursor-pointer">เรียงตามล่าสุด</span>
+</div>
+<!-- Order Card 1 (Active / Selected) -->
+<div class="order-card relative p-5 rounded-2xl bg-surface-container-lowest shadow-md transition-all cursor-pointer ring-2 ring-primary/60 bg-gradient-to-br from-surface-container-lowest via-surface-container-lowest to-primary-fixed/20">
+<div class="flex items-start justify-between gap-3 mb-3">
+<div>
+<div class="flex items-center gap-2">
+<span class="font-headline font-bold text-base text-on-surface">#MED-2410-098</span>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-primary text-on-primary uppercase tracking-wide">กำลังดู</span>
+</div>
+<p class="text-xs text-outline mt-0.5">วันนี้ • 25 ต.ค. 2567, 15:45 น.</p>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/15 text-primary text-xs font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+              กำลังนำส่ง (~18 นาที)
+            </div>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low mb-3 space-y-1.5">
+<div class="flex items-center gap-2 text-xs font-semibold text-on-surface">
+<span class="material-symbols-outlined text-sm text-primary">local_pharmacy</span>
+<span>ร้านฟาร์มาแคร์ พลัส สาขาอารีย์</span>
+</div>
+<div class="text-[11px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-outline">clinical_notes</span>
+<span>ภก. ธีรภัทร เอกมงคล (ตรวจใบสั่งยาเรียบร้อย)</span>
+</div>
+</div>
+<div class="text-xs text-on-surface-variant space-y-1 mb-4">
+<div class="text-outline text-[11px]">เวชภัณฑ์ในกล่อง (3 รายการ):</div>
+<p class="font-medium text-on-surface truncate">พาราเซตามอล 500mg, Bromhexine 8mg ขับเสมหะ, เกลือแร่ ORS</p>
+</div>
+<div class="flex items-center justify-between pt-3 border-t border-surface-container-high/60 text-xs">
+<div>
+<span class="text-[11px] text-outline block">ยอดชำระสุทธิ</span>
+<span class="font-bold text-sm text-on-surface">฿225</span>
+<span class="text-[10px] text-primary ml-1 font-medium">(พร้อมเพย์ ชำระแล้ว)</span>
+</div>
+<div class="flex items-center gap-1 text-primary font-bold hover:underline">
+<span>ดูข้อมูล GPS</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Order Card 2 (Completed) -->
+<div class="order-card p-5 rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all cursor-pointer opacity-90 hover:opacity-100">
+<div class="flex items-start justify-between gap-3 mb-3">
+<div>
+<span class="font-headline font-bold text-base text-on-surface">#MED-2410-085</span>
+<p class="text-xs text-outline mt-0.5">18 ต.ค. 2567 • 11:20 น.</p>
+</div>
+<div class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant text-xs font-semibold">
+<span class="material-symbols-outlined text-xs text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              จัดส่งสำเร็จแล้ว
+            </div>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low mb-3 space-y-1">
+<div class="flex items-center gap-2 text-xs font-semibold text-on-surface">
+<span class="material-symbols-outlined text-sm text-secondary">local_pharmacy</span>
+<span>โอสถศาลา สเตนเล็ช (พญาไท)</span>
+</div>
+<div class="text-[11px] text-tertiary flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-xs">autorenew</span>
+<span>คำสั่งซื้อยาโรคประจำตัว รอบ 30 วัน</span>
+</div>
+</div>
+<div class="text-xs text-on-surface-variant space-y-1 mb-4">
+<p class="font-medium text-on-surface">Amlodipine 5mg (ยาควบคุมความดันโลหิต)</p>
+</div>
+<div class="flex items-center justify-between pt-3 border-t border-surface-container-high/60 text-xs">
+<div>
+<span class="text-[11px] text-outline block">ยอดชำระสุทธิ</span>
+<span class="font-bold text-sm text-on-surface">฿320</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container text-xs font-semibold text-on-surface hover:bg-surface-container-highest transition-colors">
+                ใบเสร็จ
+              </button>
+<button class="px-3 py-1.5 rounded-lg bg-primary-container/40 text-on-primary-fixed-variant text-xs font-bold hover:bg-primary-container/60 transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">replay</span>
+                สั่งซ้ำ
+              </button>
+</div>
+</div>
+</div>
+<!-- Order Card 3 (Completed) -->
+<div class="order-card p-5 rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all cursor-pointer opacity-90 hover:opacity-100">
+<div class="flex items-start justify-between gap-3 mb-2">
+<div>
+<span class="font-headline font-bold text-base text-on-surface">#MED-2410-042</span>
+<p class="text-xs text-outline mt-0.5">10 ต.ค. 2567 • 09:15 น.</p>
+</div>
+<div class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant text-xs font-semibold">
+<span class="material-symbols-outlined text-xs text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              จัดส่งสำเร็จแล้ว
+            </div>
+</div>
+<div class="text-xs text-on-surface font-semibold mb-1">คลินิกเวชกรรมและร้านยากรุงเทพใจดี</div>
+<p class="text-xs text-on-surface-variant truncate mb-3">Cetirizine 10mg, Hydrocortisone Cream 1%</p>
+<div class="flex items-center justify-between pt-2 border-t border-surface-container-high/60 text-xs text-outline">
+<span>ยอดชำระ ฿190</span>
+<span class="text-primary hover:underline font-medium">ดูประวัติคำสั่งซื้อ</span>
+</div>
+</div>
+<!-- Order Card 4 (Completed) -->
+<div class="order-card p-5 rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all cursor-pointer opacity-75 hover:opacity-100">
+<div class="flex items-start justify-between gap-3 mb-2">
+<div>
+<span class="font-headline font-bold text-base text-on-surface">#MED-2409-911</span>
+<p class="text-xs text-outline mt-0.5">28 ก.ย. 2567 • 14:02 น.</p>
+</div>
+<div class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant text-xs font-semibold">
+<span class="material-symbols-outlined text-xs text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              จัดส่งสำเร็จแล้ว
+            </div>
+</div>
+<div class="text-xs text-on-surface font-semibold mb-1">กรีนแคร์ ฟาร์มาซี (สะพานควาย)</div>
+<p class="text-xs text-on-surface-variant truncate mb-3">น้ำเกลือล้างจมูก 500ml, ชุดไซริงค์ล้างจมูก, หน้ากากอนามัย</p>
+<div class="flex items-center justify-between pt-2 border-t border-surface-container-high/60 text-xs text-outline">
+<span>ยอดชำระ ฿280</span>
+<span class="text-primary hover:underline font-medium">ดูประวัติคำสั่งซื้อ</span>
+</div>
+</div>
+</div>
+<!-- RIGHT PANEL: Detailed Order Tracking & Dispatch Map (Col 6-12) -->
+<div class="lg:col-span-7 flex flex-col gap-6">
+<!-- Detail Header Card -->
+<div class="p-6 rounded-2xl bg-surface-container-lowest shadow-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+<div>
+<div class="flex items-center gap-2">
+<span class="text-xs px-2.5 py-0.5 rounded-md bg-secondary-container text-on-secondary-container font-semibold">เทเลฟาร์มาซีด่วน</span>
+<h2 class="text-xl sm:text-2xl font-headline font-bold text-on-surface">คำสั่งซื้อ #MED-2410-098</h2>
+</div>
+<p class="text-xs text-outline mt-1">ออกโดย ร้านฟาร์มาแคร์ พลัส สาขาอารีย์ • ออกใบรับรองเวชกรรมเทเลแคร์</p>
+</div>
+<div class="flex items-center gap-2 self-stretch sm:self-auto">
+<button class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl bg-surface-container text-xs font-semibold text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-base">share</span>
+<span>แชร์ลิงก์</span>
+</button>
+<button class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl bg-surface-container text-xs font-semibold text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-base">receipt_long</span>
+<span>ใบเสร็จ / ใบสั่งยา</span>
+</button>
+</div>
+</div>
+<!-- 4-Step Visual Timeline Progress -->
+<div class="p-6 rounded-2xl bg-surface-container-lowest shadow-md">
+<div class="flex items-center justify-between mb-6">
+<div>
+<h3 class="text-sm font-bold text-on-surface">ลำดับขั้นตอนการจัดส่งเวชภัณฑ์</h3>
+<p class="text-xs text-outline">ระบบติดตามมาตรฐานระบบยาชุมชนปลอดภัย</p>
+</div>
+<span class="px-3 py-1 rounded-full text-xs font-bold bg-primary text-on-primary animate-pulse">
+              ไรเดอร์กำลังนำส่ง
+            </span>
+</div>
+<!-- Step Indicators -->
+<div class="relative">
+<!-- Connecting background line -->
+<div class="absolute top-5 left-6 right-6 h-1 bg-surface-container -z-0 hidden md:block"></div>
+<!-- Dynamic filled progress line -->
+<div class="absolute top-5 left-6 w-2/3 h-1 bg-primary -z-0 hidden md:block"></div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 relative z-10">
+<!-- Step 1 -->
+<div class="flex md:flex-col items-center md:text-center gap-3 md:gap-2">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-sm shrink-0">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div>
+<h4 class="text-xs font-bold text-on-surface">ตรวจใบสั่งยา</h4>
+<p class="text-[11px] text-outline">15:30 น. (เสร็จสิ้น)</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex md:flex-col items-center md:text-center gap-3 md:gap-2">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-sm shrink-0">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div>
+<h4 class="text-xs font-bold text-on-surface">บรรจุยาและติดฉลาก</h4>
+<p class="text-[11px] text-outline">15:40 น. (เสร็จสิ้น)</p>
+</div>
+</div>
+<!-- Step 3 (Active) -->
+<div class="flex md:flex-col items-center md:text-center gap-3 md:gap-2">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container ring-4 ring-primary-fixed/40 flex items-center justify-center shadow-md shrink-0">
+<span class="material-symbols-outlined text-lg">moped</span>
+</div>
+<div>
+<h4 class="text-xs font-bold text-primary">ไรเดอร์กำลังนำส่ง</h4>
+<p class="text-[11px] text-primary font-semibold">15:52 น. (ปัจจุบัน)</p>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="flex md:flex-col items-center md:text-center gap-3 md:gap-2 opacity-60">
+<div class="w-10 h-10 rounded-full bg-surface-container text-outline flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-lg">home</span>
+</div>
+<div>
+<h4 class="text-xs font-medium text-on-surface">ผู้ป่วยรับมอบยา</h4>
+<p class="text-[11px] text-outline">คาดการณ์ 16:10 น.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Live GPS Map Tracking Container -->
+<div class="relative rounded-2xl overflow-hidden shadow-md bg-surface-container">
+<!-- Live Status Overlay Header -->
+<div class="absolute top-4 left-4 right-4 z-20 flex flex-wrap items-center justify-between gap-2 pointer-events-none">
+<div class="pointer-events-auto bg-surface/90 backdrop-blur-md px-3.5 py-2 rounded-xl shadow-md flex items-center gap-2 text-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-ping"></span>
+<span class="font-bold text-on-surface">ระยะทางคงเหลือ 1.8 กม.</span>
+<span class="text-outline">•</span>
+<span class="text-primary font-bold">อีกประมาณ 18 นาที</span>
+</div>
+<div class="pointer-events-auto bg-surface/90 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-md text-xs font-semibold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-tertiary">thermostat</span>
+<span>อุณหภูมิกระเป๋า 22.4°C (ปกติ)</span>
+</div>
+</div>
+<!-- Interactive Map Canvas / Simulation -->
+<div class="relative w-full h-80 sm:h-96 bg-surface-container-high overflow-hidden" data-location="Ari, Phaya Thai, Bangkok" style="">
+<!-- Simulated Stylized Vector Map Elements -->
+<svg class="w-full h-full object-cover" preserveaspectratio="xMidYMid slice" viewbox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient id="routeGradient" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#4a7c59"></stop>
+<stop offset="100%" stop-color="#78a886"></stop>
+</lineargradient>
+</defs>
+<!-- Map Background Blocks -->
+<rect fill="#f0ece4" height="450" width="800"></rect>
+<!-- Green areas/Parks -->
+<path d="M 600,40 Q 670,80 720,180 T 640,320 Z" fill="#c8e8d0" opacity="0.45"></path>
+<path d="M 50,280 Q 120,300 160,400 T 50,450 Z" fill="#c8e8d0" opacity="0.4"></path>
+<!-- Road network -->
+<path d="M 0,120 L 800,100" fill="none" opacity="0.8" stroke="#ffffff" stroke-width="16"></path>
+<path d="M 0,260 L 800,300" fill="none" opacity="0.8" stroke="#ffffff" stroke-width="20"></path>
+<path d="M 180,0 L 220,450" fill="none" opacity="0.8" stroke="#ffffff" stroke-width="14"></path>
+<path d="M 420,0 L 390,450" fill="none" opacity="0.8" stroke="#ffffff" stroke-width="18"></path>
+<path d="M 640,0 L 610,450" fill="none" opacity="0.8" stroke="#ffffff" stroke-width="12"></path>
+<!-- Minor lanes -->
+<path d="M 220,180 L 400,200 L 520,150" fill="none" stroke="#e4e0d8" stroke-width="8"></path>
+<path d="M 390,320 L 500,340 L 620,290" fill="none" stroke="#e4e0d8" stroke-width="8"></path>
+<!-- Active Delivery Route -->
+<path d="M 180,115 L 300,110 L 310,210 L 400,230 L 410,285 L 530,295 L 560,340" fill="none" id="deliveryPath" stroke="url(#routeGradient)" stroke-dasharray="8 6" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"></path>
+<!-- Pharmacy Origin Marker (ร้านฟาร์มาแคร์) -->
+<g transform="translate(180, 115)">
+<circle fill="#4a7c59" opacity="0.2" r="18"></circle>
+<circle fill="#4a7c59" r="12"></circle>
+<text fill="#ffffff" font-family="'Nunito Sans', sans-serif" font-size="11" font-weight="bold" text-anchor="middle" x="0" y="4">+</text>
+</g>
+<!-- Rider Live Position -->
+<g transform="translate(410, 285)">
+<circle fill="#78a886" opacity="0.3" r="22">
+<animate attributename="r" dur="2s" repeatcount="indefinite" values="16;26;16"></animate>
+<animate attributename="opacity" dur="2s" repeatcount="indefinite" values="0.4;0.05;0.4"></animate>
+</circle>
+<circle fill="#4a7c59" r="14" stroke="#ffffff" stroke-width="2"></circle>
+<text fill="#ffffff" font-family="'Material Symbols Outlined'" font-size="11" text-anchor="middle" x="0" y="4">moped</text>
+</g>
+<!-- Destination Marker (คอนโดโนเบิล รีฟอร์ม) -->
+<g transform="translate(560, 340)">
+<circle fill="#c4a66a" opacity="0.25" r="16"></circle>
+<circle fill="#705c30" r="11"></circle>
+<circle fill="#ffffff" r="5"></circle>
+</g>
+</svg>
+<!-- Map Floating Card: Origin & Destination -->
+<div class="absolute bottom-4 left-4 right-4 bg-surface/95 backdrop-blur-md p-4 rounded-xl shadow-lg border border-outline-variant/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary shrink-0"></span>
+<span class="font-bold text-on-surface">ต้นทาง: ร้านฟาร์มาแคร์ พลัส สาขาอารีย์</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary shrink-0"></span>
+<span class="text-on-surface-variant font-medium">ปลายทาง: คอนโดโนเบิล รีฟอร์ม ซอยอารีย์ 2</span>
+</div>
+</div>
+<div class="flex items-center gap-2 w-full sm:w-auto">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface text-[11px] font-semibold hover:bg-surface-container-highest transition-colors flex items-center gap-1 w-full sm:w-auto justify-center">
+<span class="material-symbols-outlined text-xs">fullscreen</span>
+<span>ขยายแผนที่</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Contact & Care Professionals (Rider & Pharmacist Grid) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Rider Info Card -->
+<div class="p-5 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="text-[11px] uppercase tracking-wider font-bold text-outline">ผู้จัดส่งเวชภัณฑ์ด่วน</span>
+<span class="flex items-center gap-1 text-xs font-bold text-tertiary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                  4.95
+                </span>
+</div>
+<div class="flex items-center gap-3 mb-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Portrait of an approachable Thai delivery rider wearing a neat green polo shirt and a warm friendly smile, modern clean outdoor background with warm daylight, natural organic tone" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7UdJA8VEqfdaUoUMtU45VDOANJvn5R5q3VHBV2_L5jUoUG6tzBttClmCe_iZvFy-NoHz5xgmgRECpmLlB7mSlGq2qO6KH-XoBOO4bDP7NgvwmgVF_FfxqqN3UBjyqBEtNZj3oQNo54Gvk8d60Jm22pRTevOBgOVfZoCwOrzPfOQ99ynP7h4wZsHeW6RrTkDg3V-GMUe10oK43qUpLTm1I1_O9S3beUSdFeV3aLA"/>
+</div>
+<div>
+<h4 class="text-sm font-bold text-on-surface">คุณสมศักดิ์ ใจบริการ</h4>
+<p class="text-xs text-on-surface-variant">มอเตอร์ไซค์ ทะเบียน 3กข-4920 กทม.</p>
+<p class="text-[11px] text-primary font-medium">ผ่านการอบรมการจัดส่งยา GPP</p>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-3 border-t border-surface-container">
+<a class="flex-1 py-2 px-3 rounded-xl bg-primary text-on-primary text-xs font-bold text-center flex items-center justify-center gap-1.5 hover:opacity-90 transition-opacity" href="tel:0891234567">
+<span class="material-symbols-outlined text-sm">call</span>
+                โทรหาไรเดอร์
+              </a>
+<button class="py-2 px-3 rounded-xl bg-surface-container text-on-surface text-xs font-bold flex items-center justify-center gap-1.5 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-sm">chat</span>
+                ข้อความ
+              </button>
+</div>
+</div>
+<!-- Pharmacist Info Card -->
+<div class="p-5 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="text-[11px] uppercase tracking-wider font-bold text-outline">เภสัชกรผู้ตรวจสอบยา</span>
+<span class="text-[11px] font-semibold text-primary px-2 py-0.5 rounded-full bg-primary/10">รับรองวิชาชีพ</span>
+</div>
+<div class="flex items-center gap-3 mb-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Portrait of a professional Thai male pharmacist wearing a white coat and glasses, looking compassionate and reliable in a bright pharmacy setting with organic green herbal accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFqCWluJcddmnIUq6TijJ0byYpWHuVDf99nrGnxghilp8aOTDpQ1WLPbCe3x9R1FefLJt69pJUlLYOxtZ_DfZhgZmtv7k9iun77nRWi3iZlFEmGBHPPROG3EjV_NIkoZ0sfgHSD-1wpgzzr-qxBz5dy2M0_rBxLO_bov-fUzm8Zcd9ABiGWNyZWB7xGAAz5_Bk9Ns13PlpD0Ike6W0j_ppHRXTaSSMZYOebifD1Q"/>
+</div>
+<div>
+<h4 class="text-sm font-bold text-on-surface">ภก. ธีรภัทร เอกมงคล</h4>
+<p class="text-xs text-on-surface-variant">ใบอนุญาตประกอบวิชาชีพ ภ. 28941</p>
+<p class="text-[11px] text-outline">ร้านฟาร์มาแคร์ พลัส</p>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-3 border-t border-surface-container">
+<button class="w-full py-2 px-3 rounded-xl bg-secondary-container text-on-secondary-container text-xs font-bold flex items-center justify-center gap-1.5 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-sm">video_call</span>
+                วิดีโอคอลปรึกษาวิธีใช้ยากับเภสัชกร
+              </button>
+</div>
+</div>
+</div>
+<!-- Medication Quality & Storage Guarantee Banner -->
+<div class="p-4 rounded-2xl bg-primary-fixed/30 flex items-start gap-3">
+<div class="w-9 h-9 rounded-xl bg-primary text-on-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-lg">shield_with_heart</span>
+</div>
+<div>
+<h4 class="text-xs font-bold text-on-primary-fixed">มาตรฐานความปลอดภัยการขนส่งเวชภัณฑ์ (GPP Delivery)</h4>
+<p class="text-[11px] text-on-surface-variant leading-relaxed mt-0.5">
+              ยาถูกบรรจุในกระเป๋าควบคุมอุณหภูมิคงที่ 20–25°C ซีลมิดชิด ป้องกันแสงแดดและความชื้น พร้อมบันทึกฉลากคำแนะนำวิธีใช้ยาภาษาไทยถูกต้องตามประกาศกระทรวงสาธารณสุข
+            </p>
+</div>
+</div>
+<!-- Prescribed Items Detail Table -->
+<div class="p-6 rounded-2xl bg-surface-container-lowest shadow-md">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-sm font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base">medication</span>
+              รายการยาและเวชภัณฑ์ในกล่องส่งมอบ
+            </h3>
+<span class="text-xs text-outline font-medium">3 รายการ</span>
+</div>
+<div class="space-y-3">
+<!-- Item 1 -->
+<div class="p-3.5 rounded-xl bg-surface-container-low flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-xl">pill</span>
+</div>
+<div>
+<h4 class="text-xs font-bold text-on-surface">พาราเซตามอล (Paracetamol 500mg)</h4>
+<p class="text-[11px] text-on-surface-variant">รับประทานครั้งละ 1 เม็ด ทุก 4-6 ชม. เมื่อมีไข้หรือปวด</p>
+</div>
+</div>
+<div class="flex items-center justify-between sm:justify-end w-full sm:w-auto gap-6 text-xs pl-13 sm:pl-0">
+<span class="text-outline">1 แผง (10 เม็ด)</span>
+<span class="font-bold text-on-surface">฿45</span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="p-3.5 rounded-xl bg-surface-container-low flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-xl">vaccines</span>
+</div>
+<div>
+<h4 class="text-xs font-bold text-on-surface">บรอมเฮกซีน (Bromhexine 8mg ขับเสมหะ)</h4>
+<p class="text-[11px] text-on-surface-variant">รับประทานครั้งละ 1 เม็ด วันละ 3 ครั้ง หลังอาหาร เช้า-กลางวัน-เย็น</p>
+</div>
+</div>
+<div class="flex items-center justify-between sm:justify-end w-full sm:w-auto gap-6 text-xs pl-13 sm:pl-0">
+<span class="text-outline">1 แผง (10 เม็ด)</span>
+<span class="font-bold text-on-surface">฿120</span>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="p-3.5 rounded-xl bg-surface-container-low flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-xl">water_bottle</span>
+</div>
+<div>
+<h4 class="text-xs font-bold text-on-surface">ผงเกลือแร่ทดแทนน้ำ (ORS Hydration Sachet)</h4>
+<p class="text-[11px] text-on-surface-variant">ละลายน้ำดื่ม 250 มล. จิบบ่อยๆ ตลอดวัน</p>
+</div>
+</div>
+<div class="flex items-center justify-between sm:justify-end w-full sm:w-auto gap-6 text-xs pl-13 sm:pl-0">
+<span class="text-outline">3 ซอง</span>
+<span class="font-bold text-on-surface">฿60</span>
+</div>
+</div>
+</div>
+<!-- Price & Payment Summary -->
+<div class="mt-4 pt-4 border-t border-surface-container-high space-y-2 text-xs">
+<div class="flex justify-between text-on-surface-variant">
+<span>รวมค่าเวชภัณฑ์</span>
+<span>฿225</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>ค่าบริการจัดส่งยาควบคุมอุณหภูมิด่วน (Express Delivery)</span>
+<span class="text-primary font-medium">ฟรี (ใช้โค้ดสมาชิกเทเลแคร์)</span>
+</div>
+<div class="flex justify-between text-sm font-bold text-on-surface pt-2 border-t border-dashed border-surface-container-high">
+<span>ยอดรวมทั้งสิ้น</span>
+<span class="text-primary">฿225</span>
+</div>
+</div>
+</div>
+<!-- Delivery Address & Recipient Info -->
+<div class="p-6 rounded-2xl bg-surface-container-lowest shadow-md grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="space-y-1.5">
+<span class="text-[11px] font-bold text-outline uppercase tracking-wider block">สถานที่ส่งมอบยา</span>
+<div class="flex items-start gap-2 text-xs">
+<span class="material-symbols-outlined text-primary text-base mt-0.5">location_on</span>
+<div>
+<p class="font-bold text-on-surface">คอนโดโนเบิล รีฟอร์ม (ซอยอารีย์ 2)</p>
+<p class="text-on-surface-variant">ห้อง 88/142 ชั้น 14 แขวงพญาไท เขตพญาไท กทม. 10400</p>
+<p class="text-outline text-[11px] mt-1">บันทึก: ฝากนิติด้านล่างหากผู้ป่วยติดสาย</p>
+</div>
+</div>
+</div>
+<div class="space-y-1.5 md:border-l md:border-surface-container md:pl-4">
+<span class="text-[11px] font-bold text-outline uppercase tracking-wider block">ข้อมูลการชำระเงิน</span>
+<div class="flex items-start gap-2 text-xs">
+<span class="material-symbols-outlined text-primary text-base mt-0.5">verified_user</span>
+<div>
+<p class="font-bold text-on-surface">PromptPay QR Code (ชำระเสร็จสมบูรณ์)</p>
+<p class="text-on-surface-variant">เลขอ้างอิงสลิป: TXN-994821034</p>
+<p class="text-primary text-[11px] font-semibold mt-1">ได้รับคะแนนสะสมสุขภาพ Terra Points +22 แต้ม</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Help & Safety Action Bar -->
+<div class="p-4 rounded-2xl bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-tertiary">support_agent</span>
+<span>มีข้อสงสัยเกี่ยวกับยาหรือการจัดส่งล่าช้า?</span>
+</div>
+<div class="flex items-center gap-3">
+<a class="font-bold text-primary hover:underline flex items-center gap-1" href="tel:021234567">
+<span class="material-symbols-outlined text-sm">call</span>
+              สายด่วนเทเลแคร์ 02-123-4567
+            </a>
+<span class="text-outline">|</span>
+<button class="font-bold text-on-surface hover:text-primary transition-colors">
+              แจ้งปัญหาคำสั่งซื้อ
+            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple micro-interaction for tab buttons and card selection
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.filter-tab');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => {
+          t.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+          t.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+        });
+        tab.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+        tab.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+      });
+    });
+
+    const cards = document.querySelectorAll('.order-card');
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        // Toggle visual selected ring
+        cards.forEach(c => {
+          c.classList.remove('ring-2', 'ring-primary/60', 'bg-gradient-to-br', 'from-surface-container-lowest', 'via-surface-container-lowest', 'to-primary-fixed/20');
+        });
+        card.classList.add('ring-2', 'ring-primary/60', 'bg-gradient-to-br', 'from-surface-container-lowest', 'via-surface-container-lowest', 'to-primary-fixed/20');
+      });
+    });
+  });
+</script></main><footer class="w-full bg-surface-container-low py-16 text-on-surface-variant mt-20"><div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-4 gap-10"><div class="space-y-4"><div class="flex items-center gap-3"><img alt="TelePharma Terra Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrBJVeZoULwasqZVK0GTgSih12soivh4SDdtb5grWa2Y2E-PjMo9GumhAM7hdx79MI1bTbPFpwBJWIE5custEwAJ1ofDVnTnDBK86uz7DpB4yiuTZW-8Fpyy-mGxWadg-3AoGZophzvf-C9G6n1aqyqqU8ezqZTQxQNYoJyT3Iz7BQNvt00JxPlFxJzlnSvaPVWhS4P0L7238t801BlW1HbdPD1kwPVSS7Tx5kQ026I"/><span class="font-headline font-bold text-lg text-primary">TeleCare Terra</span></div><p class="text-xs leading-relaxed text-on-surface-variant">แพลตฟอร์มการแพทย์ทางไกลและระบบส่งยาเภสัชกรรมชุมชน ดูแลสุขภาพด้วยความอุ่นใจ เข้าถึงได้ง่ายและยั่งยืน</p><div class="flex items-center gap-2 pt-2"><span class="material-symbols-outlined text-primary text-base">verified</span><span class="text-xs text-on-surface font-medium">รับรองมาตรฐานวิชาชีพเวชกรรมและเภสัชกรรมสภา</span></div></div><div><h4 class="font-headline text-sm font-semibold text-on-surface mb-4">บริการสุขภาพ</h4><ul class="space-y-2.5 text-xs"><li class="hover:text-primary transition-colors cursor-pointer">นัดหมายแพทย์เฉพาะทางออนไลน์</li><li class="hover:text-primary transition-colors cursor-pointer">จัดส่งยาตามใบสั่งแพทย์ด่วน</li><li class="hover:text-primary transition-colors cursor-pointer">ติดตามสถานะการจัดส่งเวชภัณฑ์และยา</li><li class="hover:text-primary transition-colors cursor-pointer">ปรึกษาเภสัชกรชุมชน 24 ชม.</li><li class="hover:text-primary transition-colors cursor-pointer">แผนตรวจสุขภาพประจำปี</li></ul></div><div><h4 class="font-headline text-sm font-semibold text-on-surface mb-4">เครือข่ายและพันธมิตร</h4><ul class="space-y-2.5 text-xs"><li class="hover:text-primary transition-colors cursor-pointer">เครือข่ายร้านยาคุณภาพกว่า 500 แห่ง</li><li class="hover:text-primary transition-colors cursor-pointer">โรงพยาบาลและคลินิกพันธมิตร</li><li class="hover:text-primary transition-colors cursor-pointer">สำหรับแพทย์และบุคลากรทางการแพทย์</li><li class="hover:text-primary transition-colors cursor-pointer">ร่วมเป็นพันธมิตรร้านยากับเทเลแคร์</li></ul></div><div><h4 class="font-headline text-sm font-semibold text-on-surface mb-4">สายด่วนสุขภาพ &amp; ติดต่อ</h4><div class="p-4 rounded-xl bg-surface-container space-y-2 mb-3"><div class="text-xs font-semibold text-error flex items-center gap-1.5"><span class="material-symbols-outlined text-sm">phone_in_talk</span>ศูนย์รับแจ้งเหตุฉุกเฉินแห่งชาติ: 1669</div><div class="text-xs text-on-surface flex items-center gap-1.5"><span class="material-symbols-outlined text-sm">support_agent</span>สายด่วนเภสัชกรเทเลแคร์: 02-123-4567</div></div><p class="text-[11px] text-outline leading-tight">ใบอนุญาตสถานพยาบาลและเทเลเมดิซีนเลขที่ ภ.ส. 10294/2567</p></div></div><div class="max-w-7xl mx-auto px-6 lg:px-12 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-outline gap-4"><p>© 2025 TeleCare Terra Co., Ltd. สงวนลิขสิทธิ์ทุกประการ</p><div class="flex items-center gap-6"><span class="hover:text-on-surface cursor-pointer">นโยบายความเป็นส่วนตัวของข้อมูลสุขภาพ</span><span class="hover:text-on-surface cursor-pointer">ข้อกำหนดการใช้งานระบบการแพทย์ทางไกล</span></div></div></footer></body></html>

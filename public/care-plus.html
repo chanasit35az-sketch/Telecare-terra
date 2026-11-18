@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+
+<html lang="th"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>TeleCare Terra</title><link rel="icon" href="/assets/logo.svg" type="image/svg+xml"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..700&amp;family=Nunito+Sans:ital,opsz,wght@0,6..12,300..800;1,6..12,300..800&amp;family=Prompt:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>::-webkit-scrollbar{display:none;}</style><link href="/css/tailwind.css" rel="stylesheet"/><link href="/css/app.css" rel="stylesheet"/></head><body class="bg-surface font-body text-on-surface antialiased" data-mode="connect"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(46,50,48,0.05)]"><div class="h-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex items-center justify-between gap-2 sm:gap-4"><a class="flex items-center gap-3 shrink-0" href="/"><img alt="TeleCare Terra Logo" class="h-9 w-auto object-contain" src="/assets/logo.svg"/><div class="hidden min-[400px]:flex flex-col"><span class="font-headline font-bold text-lg text-primary leading-tight tracking-tight">TeleCare Terra</span><span class="text-xs text-on-surface-variant font-medium tracking-wide">เทเลแคร์</span></div></a><nav class="hidden xl:flex items-center gap-1" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a class="px-3.5 py-2 text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all rounded-lg" data-path="หน้าแรก" href="/">หน้าแรก</a><a class="px-3.5 py-2 text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all rounded-lg" data-path="ร้านยาและคลินิกใกล้บ้าน" href="/pharmacies">ร้านยาและคลินิกใกล้บ้าน</a><a class="px-3.5 py-2 text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all rounded-lg" data-path="พบแพทย์เฉพาะทาง" href="/doctors">พบแพทย์เฉพาะทาง</a><a class="px-3.5 py-2 text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all rounded-lg" data-path="ประวัติการรักษาและใบสั่งยา" href="/records">ประวัติการรักษาและใบสั่งยา</a><a class="px-3.5 py-2 text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all rounded-lg" data-path="ติดตามการจัดส่ง" href="/orders">ติดตามการจัดส่ง</a><a aria-current="page" class="px-3.5 py-2 transition-all bg-primary-container text-on-primary-container font-semibold rounded-lg" data-path="แพ็กเกจสมาชิก" href="/care-plus">แพ็กเกจสมาชิก</a></nav><div class="flex items-center gap-1 sm:gap-3 shrink-0"><div class="relative hidden sm:block" id="global-search-wrap"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg">search</span><input autocomplete="off" class="w-48 lg:w-60 pl-9 pr-4 py-2 bg-surface-container-low text-xs rounded-xl text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all" id="global-search" placeholder="ค้นหายา แพทย์ อาการ..." type="search"/><div class="hidden absolute right-0 top-full mt-2 w-80 max-h-[70vh] overflow-y-auto bg-surface-container-lowest rounded-xl shadow-xl p-2 z-50" id="global-search-results"></div></div><a class="hidden md:flex items-center gap-1.5 px-3 py-1.5 bg-error-container text-error rounded-xl text-xs font-semibold hover:bg-error hover:text-on-error transition-colors" href="tel:1669"><span class="material-symbols-outlined text-base">emergency</span><span>ฉุกเฉิน 1669</span></a><div class="relative" id="notif-wrap"><button aria-label="การแจ้งเตือน" class="relative p-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" id="notif-btn" type="button"><span class="material-symbols-outlined text-xl">notifications</span><span class="hidden absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error" id="notif-dot"></span></button><div class="hidden absolute right-0 top-full mt-2 w-80 max-w-[calc(100vw-2rem)] bg-surface-container-lowest rounded-xl shadow-xl z-50 overflow-hidden" id="notif-panel"></div></div><div class="relative flex items-center pl-1 sm:pl-2 sm:ml-1" id="profile-slot"><a class="px-3 py-2 rounded-xl bg-primary text-on-primary text-xs font-semibold hover:bg-primary/90 transition-colors whitespace-nowrap" href="/login">เข้าสู่ระบบ</a></div><button aria-label="เมนู" class="xl:hidden p-2 rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors" id="mobile-menu-btn" type="button"><span class="material-symbols-outlined text-xl">menu</span></button></div></div><div class="hidden xl:hidden bg-surface-container-lowest shadow-lg px-4 pb-4 pt-2 flex-col gap-1 max-h-[calc(100vh-5rem)] overflow-y-auto" id="mobile-nav"><div class="relative sm:hidden mb-2"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg">search</span><input class="w-full pl-9 pr-4 py-2.5 bg-surface-container-low text-sm rounded-xl text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary/40" id="mobile-search" placeholder="ค้นหายา แพทย์ อาการ..." type="search"/></div><a class="px-4 py-3 rounded-lg text-sm text-on-surface hover:bg-surface-container" href="/">หน้าแรก</a><a class="px-4 py-3 rounded-lg text-sm text-on-surface hover:bg-surface-container" href="/pharmacies">ร้านยาและคลินิกใกล้บ้าน</a><a class="px-4 py-3 rounded-lg text-sm text-on-surface hover:bg-surface-container" href="/doctors">พบแพทย์เฉพาะทาง</a><a class="px-4 py-3 rounded-lg text-sm text-on-surface hover:bg-surface-container" href="/records">ประวัติการรักษาและใบสั่งยา</a><a class="px-4 py-3 rounded-lg text-sm text-on-surface hover:bg-surface-container" href="/orders">ติดตามการจัดส่ง</a><a class="px-4 py-3 rounded-lg text-sm bg-primary-container text-on-primary-container font-semibold" href="/care-plus">แพ็กเกจสมาชิก</a><a class="md:hidden mt-1 px-4 py-3 rounded-lg text-sm bg-error-container text-error font-semibold flex items-center gap-2" href="tel:1669"><span class="material-symbols-outlined text-base">emergency</span>ฉุกเฉิน 1669</a></div></header><main class="w-full pt-20 bg-surface min-h-[calc(100vh-5rem)]"><div class="flex flex-col w-full">
+<!-- Subtle Ambient Glow Element -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[720px] h-[360px] bg-primary-fixed/25 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<div class="absolute top-80 right-0 w-[420px] h-[420px] bg-tertiary-fixed/20 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<!-- Header & Overline Intro -->
+<section class="max-w-6xl mx-auto px-6 lg:px-12 pt-10 pb-8 text-center">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-semibold uppercase tracking-wider mb-5 shadow-sm">
+<span class="material-symbols-outlined text-sm text-tertiary">workspace_premium</span>
+<span>สิทธิพิเศษระดับพรีเมียมรายเดือน</span>
+</div>
+<h1 class="font-headline text-3xl md:text-5xl font-bold text-on-surface leading-tight tracking-tight mb-4">
+        ยกระดับการดูแลสุขภาพแบบองค์รวม<br class="hidden sm:inline"/>
+        ด้วยแพ็กเกจสมาชิก <span class="text-primary italic">Terra Care+</span>
+</h1>
+<p class="max-w-2xl mx-auto text-sm md:text-base text-on-surface-variant font-normal leading-relaxed">
+        หมดกังวลเรื่องเวลาและค่าใช้จ่าย เข้าถึงแพทย์เฉพาะทางและเภสัชกรส่วนตัวได้อย่างอิสระ ให้คุณและคนที่คุณรักได้รับการดูแลที่ลึกซึ้ง ไร้การเร่งรีบ
+      </p>
+</section>
+<!-- Pricing Hero Showcase & Value Card -->
+<section class="max-w-5xl mx-auto px-6 lg:px-12 pb-16">
+<div class="bg-surface-container-lowest rounded-2xl shadow-xl overflow-hidden">
+<div class="grid grid-cols-1 lg:grid-cols-12">
+<!-- Plan Presentation Column -->
+<div class="lg:col-span-7 p-8 md:p-12 flex flex-col justify-between bg-surface-container-low/40">
+<div>
+<div class="flex items-center justify-between gap-4 mb-6">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed text-xs font-semibold shadow-xs">
+<span class="material-symbols-outlined text-xs">hotel_class</span>
+<span>แพ็กเกจยอดนิยม คุ้มค่าที่สุดสำหรับคุณและครอบครัว</span>
+</div>
+<span class="text-xs font-bold text-primary tracking-wide">TELECARE TERRA</span>
+</div>
+<h2 class="font-headline text-2xl md:text-3xl font-bold text-on-surface mb-2">
+                TeleCare Terra Care+
+              </h2>
+<p class="text-xs md:text-sm text-on-surface-variant leading-relaxed mb-6">
+                คุ้มครองสุขภาพประจำเดือนแบบครบวงจร ทั้งการปรึกษาแพทย์เฉพาะทาง การจ่ายยาปลอดภัยโดยเภสัชกร และระบบติดตามสุขภาพส่วนตัว
+              </p>
+<!-- Monthly Price Indicator -->
+<div class="flex items-baseline gap-2 mb-2">
+<span class="text-xs text-on-surface-variant font-medium">เพียง</span>
+<span class="font-headline text-4xl md:text-5xl font-extrabold text-primary">฿1,200</span>
+<span class="text-sm md:text-base text-on-surface-variant font-medium">/ เดือน</span>
+<span class="ml-2 px-2 py-0.5 rounded-md bg-primary-fixed text-on-primary-fixed-variant text-[11px] font-bold">ประหยัดกว่า 68%</span>
+</div>
+<p class="text-[12px] text-outline mb-8">
+                เฉลี่ยเพียงวันละ 40 บาท เข้าถึงทีมแพทย์และเภสัชกรระดับประเทศได้ตลอด 30 วัน
+              </p>
+<!-- Quick Highlights Summary -->
+<div class="space-y-3 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-6 h-6 rounded-full bg-primary-container/30 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<span class="text-xs md:text-sm text-on-surface font-medium">ปรึกษาแพทย์เฉพาะทางได้ <strong class="text-primary font-semibold">1 ชั่วโมงเต็ม</strong> ต่อครั้ง</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-6 h-6 rounded-full bg-primary-container/30 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<span class="text-xs md:text-sm text-on-surface font-medium"><strong class="text-primary font-semibold">ไม่จำกัดจำนวนครั้ง</strong> ในการพบแพทย์เฉพาะทางทุกสาขา</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-6 h-6 rounded-full bg-primary-container/30 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<span class="text-xs md:text-sm text-on-surface font-medium">จัดส่งยาฟรีด่วนตามมาตรฐาน GPP &amp; ส่วนลดเวชภัณฑ์ 15%</span>
+</div>
+</div>
+</div>
+<!-- CTA Zone -->
+<div class="pt-4">
+<button class="w-full py-4 px-6 rounded-xl bg-primary hover:bg-primary-container text-on-primary hover:text-on-primary-container font-headline font-semibold text-base transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 group cursor-pointer" type="button">
+<span>สมัครสมาชิกรายเดือน 1,200 บาท / เดือน</span>
+<span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+</button>
+<div class="flex items-center justify-center gap-2 mt-3 text-xs text-on-surface-variant font-medium">
+<span class="material-symbols-outlined text-sm text-primary">lock_reset</span>
+<span>ยกเลิกได้ทุกเมื่อ ไม่มีข้อผูกมัดระยะยาว ไม่มีค่าธรรมเนียมแอบแฝง</span>
+</div>
+</div>
+</div>
+<!-- Hero Graphic & Stats Backdrop -->
+<div class="lg:col-span-5 p-8 md:p-10 flex flex-col justify-between bg-surface-container relative overflow-hidden">
+<div class="relative z-10 space-y-6">
+<div class="rounded-xl overflow-hidden shadow-md">
+<img class="w-full h-48 object-cover" data-alt="Warm and compassionate Asian doctor smiling calmly during a teleconsultation via modern digital screen with leafy indoor plants in background, bathed in natural soft sunlit atmosphere, Terra organic colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtH5HB24cbCz96Fqovm9_z6K_2Q435w4BcRInGbw8vQt1vFz546KH3CnyuCH8PIcah8M1y0YtGEp8R71r_dMbmpeiYDZ4dWRkE6qpwNnsNTukxfFyTCg3KlZ6A_pkEKah5DKP5ax6Vd272V4H3pTAShzt404apuV7w0Q4NfpjkH2o8k7vBuBJ4fVogX8bu6bKSC0NddQU5Smxmz-pwAr1UyBPZ-Q5gjq4gRBbRbg"/>
+</div>
+<!-- Interactive Experience Badge -->
+<div class="bg-surface-container-lowest/90 backdrop-blur-md rounded-xl p-4 shadow-sm space-y-2">
+<div class="flex items-center justify-between">
+<span class="text-[11px] font-bold text-tertiary uppercase tracking-wider">ความคุ้มค่าเทียบรายครั้ง</span>
+<span class="text-xs text-primary font-bold">ประหยัดเฉลี่ย ฿3,600+</span>
+</div>
+<!-- Mini visual progress indicator -->
+<div class="w-full bg-surface-container-high rounded-full h-2 overflow-hidden">
+<div class="bg-primary h-2 rounded-full w-4/5"></div>
+</div>
+<p class="text-[11px] text-on-surface-variant leading-relaxed">
+                  หากพบแพทย์เฉพาะทาง 2 ครั้งต่อเดือน + ค่ายาปกติ จะมีค่าใช้จ่ายมากกว่า ฿4,800 แต่ด้วย Terra Care+ คุณจ่ายเพียง ฿1,200 คงที่
+                </p>
+</div>
+<!-- Member Perks Micro-grid -->
+<div class="grid grid-cols-2 gap-3">
+<div class="p-3 bg-surface-container-low rounded-xl text-center">
+<span class="material-symbols-outlined text-primary text-2xl mb-1">schedule</span>
+<div class="font-headline font-bold text-base text-on-surface">60 นาที</div>
+<div class="text-[11px] text-on-surface-variant">ระยะเวลาคุยแพทย์</div>
+</div>
+<div class="p-3 bg-surface-container-low rounded-xl text-center">
+<span class="material-symbols-outlined text-tertiary text-2xl mb-1">all_inclusive</span>
+<div class="font-headline font-bold text-base text-on-surface">ไม่จำกัด</div>
+<div class="text-[11px] text-on-surface-variant">จำนวนครั้งต่อเดือน</div>
+</div>
+</div>
+</div>
+<!-- Certified Trust footnote -->
+<div class="relative z-10 pt-6 flex items-center justify-center gap-2 text-xs text-outline font-medium">
+<span class="material-symbols-outlined text-sm text-primary">verified_user</span>
+<span>ออกใบเสร็จรับเงินทางอิเล็กทรอนิกส์ e-Tax Invoice</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Detailed 4 Core Benefits (Verbatim & Enriched) -->
+<section class="max-w-6xl mx-auto px-6 lg:px-12 py-12">
+<div class="text-center max-w-xl mx-auto mb-12">
+<span class="text-xs font-bold text-primary tracking-widest uppercase mb-2 block">4 สิทธิประโยชน์เหนือระดับ</span>
+<h2 class="font-headline text-2xl md:text-3xl font-bold text-on-surface">
+          สิทธิประโยชน์ที่ออกแบบมาเพื่อสุขภาพที่แท้จริง
+        </h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+<!-- Benefit 1: 1-hour consultation (Verbatim Highlight) -->
+<div class="p-8 rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="absolute -right-6 -bottom-6 w-32 h-32 bg-primary-fixed/20 rounded-full blur-xl pointer-events-none group-hover:scale-125 transition-transform duration-500"></div>
+<div class="flex items-center gap-3 mb-4">
+<div class="w-12 h-12 rounded-xl bg-primary-container/20 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">hourglass_top</span>
+</div>
+<div>
+<span class="text-[11px] font-bold text-tertiary uppercase tracking-wider">สิทธิประโยชน์ที่ 1</span>
+<h3 class="font-headline text-lg md:text-xl font-bold text-on-surface">ขยายเวลาปรึกษาเป็น 1 ชั่วโมงเต็ม</h3>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+            ขยายระยะเวลาปรึกษาแพทย์เพิ่มเป็น 1 ชั่วโมงเต็มต่อครั้ง (จากปกติ 15-20 นาที) ให้เวลาคุณได้พูดคุย ซักถาม และวิเคราะห์ปัญหาสุขภาพกับแพทย์อย่างละเอียด ไม่ต้องเร่งรีบ ให้คุณเล่าอาการและข้อกังวลใจได้อย่างสบายใจที่สุด
+          </p>
+<div class="mt-4 pt-4 flex items-center gap-2 text-xs font-semibold text-primary">
+<span class="material-symbols-outlined text-base">forum</span>
+<span>ไม่ต้องตัดสายหรือจำกัดเวลาเมื่อยังคุยไม่จบ</span>
+</div>
+</div>
+<!-- Benefit 2: Unlimited Specialist consultations (Verbatim Highlight) -->
+<div class="p-8 rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="absolute -right-6 -bottom-6 w-32 h-32 bg-tertiary-fixed/25 rounded-full blur-xl pointer-events-none group-hover:scale-125 transition-transform duration-500"></div>
+<div class="flex items-center gap-3 mb-4">
+<div class="w-12 h-12 rounded-xl bg-secondary-container text-tertiary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">clinical_notes</span>
+</div>
+<div>
+<span class="text-[11px] font-bold text-tertiary uppercase tracking-wider">สิทธิประโยชน์ที่ 2</span>
+<h3 class="font-headline text-lg md:text-xl font-bold text-on-surface">แพทย์เฉพาะทางฟรี ไม่จำกัดครั้ง</h3>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+            ปรึกษาแพทย์ผู้เชี่ยวชาญเฉพาะทางได้ฟรี ไม่จำกัดจำนวนครั้งต่อเดือน (ครอบคลุมทุกสาขา อาทิ อายุรกรรม, กุมารเวช, ตจวิทยา/ผิวหนัง, สุขภาพจิต, กระดูกและข้อ) พร้อมระบบนัดหมายล่วงหน้าที่ยืดหยุ่นตามตารางของคุณ
+          </p>
+<div class="mt-4 pt-4 flex items-center gap-2 text-xs font-semibold text-tertiary">
+<span class="material-symbols-outlined text-base">medical_services</span>
+<span>ดูแลครอบคลุมทั้งแพทย์เวชปฏิบัติและแพทย์เชี่ยวชาญเฉพาะทาง</span>
+</div>
+</div>
+<!-- Benefit 3: Free Express GPP Delivery (Fit Telepharmacy) -->
+<div class="p-8 rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="absolute -right-6 -bottom-6 w-32 h-32 bg-primary-fixed/20 rounded-full blur-xl pointer-events-none group-hover:scale-125 transition-transform duration-500"></div>
+<div class="flex items-center gap-3 mb-4">
+<div class="w-12 h-12 rounded-xl bg-primary-container/20 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">local_shipping</span>
+</div>
+<div>
+<span class="text-[11px] font-bold text-tertiary uppercase tracking-wider">สิทธิประโยชน์ที่ 3</span>
+<h3 class="font-headline text-lg md:text-xl font-bold text-on-surface">ส่งยาและเวชภัณฑ์ด่วนฟรีถึงบ้าน</h3>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+            บริการจัดส่งยาและเวชภัณฑ์ด่วนฟรีถึงบ้านแบบไม่จำกัดครั้ง ควบคุมอุณหภูมิตามมาตรฐาน GPP (Good Pharmacy Practice) จัดส่งไวถึงมือใน 1 ชั่วโมงสำหรับเขตเมือง พร้อมกล่องบรรจุยาปิดผนึกรักษ์โลกที่ปลอดภัย
+          </p>
+<div class="mt-4 pt-4 flex items-center gap-2 text-xs font-semibold text-primary">
+<span class="material-symbols-outlined text-base">thermostat</span>
+<span>ควบคุมคุณภาพและความเย็นของยาตลอดการเดินทาง</span>
+</div>
+</div>
+<!-- Benefit 4: Dedicated 24/7 Pharmacist & 15% discount -->
+<div class="p-8 rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="absolute -right-6 -bottom-6 w-32 h-32 bg-secondary-container/30 rounded-full blur-xl pointer-events-none group-hover:scale-125 transition-transform duration-500"></div>
+<div class="flex items-center gap-3 mb-4">
+<div class="w-12 h-12 rounded-xl bg-secondary-container text-tertiary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">medication</span>
+</div>
+<div>
+<span class="text-[11px] font-bold text-tertiary uppercase tracking-wider">สิทธิประโยชน์ที่ 4</span>
+<h3 class="font-headline text-lg md:text-xl font-bold text-on-surface">เภสัชกรประจำตัว &amp; ส่วนลดยา 15%</h3>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+            มีเภสัชกรชุมชนประจำตัวคอยดูแลตรวจสอบประวัติการใช้ยาและการแพ้ยาตลอด 24 ชั่วโมง พร้อมรับสิทธิ์ส่วนลดค่ายาและเวชภัณฑ์แท้ 15% ทุกคำสั่งซื้อ ตลอดอายุสมาชิกแบบไม่มีขั้นต่ำ
+          </p>
+<div class="mt-4 pt-4 flex items-center gap-2 text-xs font-semibold text-tertiary">
+<span class="material-symbols-outlined text-base">support_agent</span>
+<span>ทักแชตหรือโทรปรึกษาการใช้ยากับเภสัชกรได้ตลอดเวลา</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Side-by-Side Plan Comparison Table Section -->
+<section class="max-w-5xl mx-auto px-6 lg:px-12 py-12">
+<div class="text-center max-w-xl mx-auto mb-10">
+<h2 class="font-headline text-2xl md:text-3xl font-bold text-on-surface mb-2">
+          เปรียบเทียบความคุ้มค่า
+        </h2>
+<p class="text-xs md:text-sm text-on-surface-variant">
+          ดูความแตกต่างที่ชัดเจนระหว่างการใช้งานแบบรายครั้ง กับการสมัครสมาชิก Terra Care+
+        </p>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl shadow-md overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left text-xs md:text-sm">
+<thead>
+<tr class="bg-surface-container-low text-on-surface">
+<th class="py-4 px-6 font-headline font-semibold">ฟีเจอร์และสิทธิประโยชน์</th>
+<th class="py-4 px-6 font-headline font-semibold text-on-surface-variant">ผู้ใช้งานทั่วไป (Pay-per-use)</th>
+<th class="py-4 px-6 font-headline font-bold text-primary bg-primary-fixed/20">สมาชิก Terra Care+ (฿1,200/เดือน)</th>
+</tr>
+</thead>
+<tbody class="divide-none">
+<tr class="hover:bg-surface-container/40 transition-colors">
+<td class="py-4 px-6 font-medium text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-primary">stethoscope</span>
+<span>ค่าปรึกษาแพทย์เฉพาะทาง</span>
+</td>
+<td class="py-4 px-6 text-on-surface-variant">฿800 - ฿1,500 / ครั้ง</td>
+<td class="py-4 px-6 font-semibold text-primary bg-primary-fixed/10">ฟรี ไม่จำกัดจำนวนครั้ง</td>
+</tr>
+<tr class="bg-surface-container-low/20 hover:bg-surface-container/40 transition-colors">
+<td class="py-4 px-6 font-medium text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-primary">timer</span>
+<span>ระยะเวลาการปรึกษาต่อครั้ง</span>
+</td>
+<td class="py-4 px-6 text-on-surface-variant">15 - 20 นาที</td>
+<td class="py-4 px-6 font-bold text-primary bg-primary-fixed/10">1 ชั่วโมงเต็ม (60 นาที)</td>
+</tr>
+<tr class="hover:bg-surface-container/40 transition-colors">
+<td class="py-4 px-6 font-medium text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-primary">support_agent</span>
+<span>การปรึกษาเภสัชกรชุมชน</span>
+</td>
+<td class="py-4 px-6 text-on-surface-variant">เฉพาะช่วงเวลาทำการ (9.00 - 18.00 น.)</td>
+<td class="py-4 px-6 font-semibold text-primary bg-primary-fixed/10">ตลอด 24 ชั่วโมง พร้อมเภสัชกรประจำตัว</td>
+</tr>
+<tr class="bg-surface-container-low/20 hover:bg-surface-container/40 transition-colors">
+<td class="py-4 px-6 font-medium text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-primary">moped</span>
+<span>ค่าจัดส่งยาตามใบสั่งแพทย์</span>
+</td>
+<td class="py-4 px-6 text-on-surface-variant">฿40 - ฿80 ต่อออเดอร์</td>
+<td class="py-4 px-6 font-bold text-primary bg-primary-fixed/10">ฟรีทุกครั้ง จัดส่งด่วนใน 1 ชม.</td>
+</tr>
+<tr class="hover:bg-surface-container/40 transition-colors">
+<td class="py-4 px-6 font-medium text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-primary">receipt_long</span>
+<span>เวชระเบียนดิจิทัล &amp; e-Prescription</span>
+</td>
+<td class="py-4 px-6 text-on-surface-variant">ดูย้อนหลังได้ 30 วัน</td>
+<td class="py-4 px-6 font-semibold text-primary bg-primary-fixed/10">บันทึกถาวร พร้อมส่งออกรายงานสุขภาพ</td>
+</tr>
+<tr class="bg-surface-container-low/20 hover:bg-surface-container/40 transition-colors">
+<td class="py-4 px-6 font-medium text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-primary">percent</span>
+<span>ส่วนลดค่ายาและเวชภัณฑ์</span>
+</td>
+<td class="py-4 px-6 text-on-surface-variant">ราคาปกติ</td>
+<td class="py-4 px-6 font-bold text-primary bg-primary-fixed/10">ลด 15% ทุกคำสั่งซื้อ</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- Testimonials / Real Member Reviews -->
+<section class="max-w-6xl mx-auto px-6 lg:px-12 py-12">
+<div class="text-center max-w-xl mx-auto mb-10">
+<span class="text-xs font-bold text-tertiary tracking-widest uppercase mb-2 block">เสียงตอบรับจากผู้ใช้จริง</span>
+<h2 class="font-headline text-2xl md:text-3xl font-bold text-on-surface">
+          ความประทับใจจากสมาชิกครอบครัว Terra Care+
+        </h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Review 1 -->
+<div class="p-6 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-1 text-tertiary mb-3">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-xs md:text-sm text-on-surface-variant leading-relaxed mb-6 italic">
+              "สิ่งที่ประทับใจที่สุดคือการได้คุยกับคุณหมอ 1 ชั่วโมงเต็มจริง ๆ ไม่เคยมีที่ไหนให้เวลาฟังเราเล่าอาการเครียดและอาการนอนไม่หลับอย่างใจเย็นขนาดนี้ สบายใจขึ้นมาก คุ้มเกินราคา 1,200 บาทต่อเดือนค่ะ"
+            </p>
+</div>
+<div class="flex items-center gap-3 pt-4 bg-surface-container-low/30 -mx-6 -mb-6 p-4 rounded-b-2xl">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Portrait of a friendly Thai woman in her late 30s with gentle natural smile, wearing neutral cozy clothing in daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmx9-e0b5PwNN0kW2H3CoirsYKEZStJXwzDEaadojOubAfHvBE7MDb2k-6E6vHCx2LyhN9x7Sq_67zOxg1NTL_ISiftd6dRxiJavSW7LaS1HoQ1tXaj0CJdO-2sHhhvVsFhjGjj1J3mfc-7bL3kdwqs2sFeMPET0zHrdc7lBQjlQMXR6IgOHUNfDBKL5r5iUg7pkDGw43RAtcMhTqLL3sXTjk9KaGqNkjjxIESOA"/>
+<div>
+<div class="font-headline font-semibold text-xs md:text-sm text-on-surface">คุณสุภัสสร วิริยะคุณ</div>
+<div class="text-[11px] text-on-surface-variant">สมาชิกต่อเนื่อง 6 เดือน • กรุงเทพฯ</div>
+</div>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="p-6 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-1 text-tertiary mb-3">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-xs md:text-sm text-on-surface-variant leading-relaxed mb-6 italic">
+              "ลูกสาวผื่นขึ้นบ่อยและเป็นภูมิแพ้ ปรึกษาหมอเด็กได้ตลอดไม่ต้องกระเตงลูกไปรอคิวที่โรงพยาบาล แถมยาส่งถึงคอนโดภายใน 45 นาที มีเภสัชกรโทรมาแนะนำวิธีทายาอย่างละเอียด ปลื้มมากครับ"
+            </p>
+</div>
+<div class="flex items-center gap-3 pt-4 bg-surface-container-low/30 -mx-6 -mb-6 p-4 rounded-b-2xl">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Warm portrait of a Thai father in his early 40s, wearing casual organic linen shirt with home setting background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJp00gx3aeUOMnLEbM-1kTXUIRImDmWfGzUNkYC9_ut0X4ZHep-7gztC72TbrtsgNed5klHR2K3wm2PuPf_qhf5ZHjVDMwxMbOZvOOlauFb2NDMB79ni3eUOrpuxN1Ul3pCy0moW-gHcOCpjKvl4x0htgcBsZDuMuA9QLtpHs-2U2f4i65cCdP7dYZJqAR5psWvjZRz15-j_qwiujziIxZNk3OEQE7MOYCgiZ6hw"/>
+<div>
+<div class="font-headline font-semibold text-xs md:text-sm text-on-surface">คุณธนภัทร เลิศพงศ์ธร</div>
+<div class="text-[11px] text-on-surface-variant">สมาชิกเพื่อครอบครัว • นนทบุรี</div>
+</div>
+</div>
+</div>
+<!-- Review 3 -->
+<div class="p-6 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-1 text-tertiary mb-3">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-xs md:text-sm text-on-surface-variant leading-relaxed mb-6 italic">
+              "คุณแม่เป็นโรคเบาหวานและความดัน ต้องปรับยาเรื่อย ๆ มีแพทย์อายุรกรรมคอยดูแลต่อเนื่อง และเภสัชช่วยเช็กปฏิกิริยาระหว่างยา สบายใจเรื่องความปลอดภัยของแม่มากค่ะ"
+            </p>
+</div>
+<div class="flex items-center gap-3 pt-4 bg-surface-container-low/30 -mx-6 -mb-6 p-4 rounded-b-2xl">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Portrait of an Asian female caregiver in late 20s smiling warmly and confidently, soft warm illumination" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmpgxyvNOpEJVWSwGMxYdHFHxCfQ-FrbLGnXZt6WteNxIbVE2t2IvtUoog8DxP7cz6eZw6XiZYu6OVLW7aUP5VYFim0PCAytxeA8ifW2cvdnjSR9JS5pSWCBNlKoJFxao5XPO1ZxdpZwaTAApXGruivNBNJ5FS2fTDz0dBePY9VVfY3pyyejOMe4wNYE4XlfzjW5pdHr4RCgfTgRGRYTBUvH7v0kyDKyOZxo5RgQ"/>
+<div>
+<div class="font-headline font-semibold text-xs md:text-sm text-on-surface">พญ. พิมพ์มาดา (ผู้ดูแลคุณแม่)</div>
+<div class="text-[11px] text-on-surface-variant">สมาชิกดูแลผู้สูงอายุ • เชียงใหม่</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Accordion Section -->
+<section class="max-w-4xl mx-auto px-6 lg:px-12 py-12">
+<div class="text-center max-w-xl mx-auto mb-10">
+<h2 class="font-headline text-2xl md:text-3xl font-bold text-on-surface mb-2">
+          คำถามที่พบบ่อย (FAQ)
+        </h2>
+<p class="text-xs md:text-sm text-on-surface-variant">
+          ไขข้อข้องใจเกี่ยวกับการใช้งานแพ็กเกจสมาชิก Terra Care+
+        </p>
+</div>
+<div class="space-y-4" id="faq-container">
+<!-- FAQ Item 1 -->
+<div class="rounded-2xl bg-surface-container-lowest p-6 shadow-xs cursor-pointer select-none transition-all duration-200" onclick="toggleFaq(this)">
+<div class="flex items-center justify-between gap-4">
+<span class="font-headline font-semibold text-sm md:text-base text-on-surface">ปรึกษาแพทย์ได้บ่อยแค่ไหน มีการจำกัดครั้งหรือไม่?</span>
+<span class="material-symbols-outlined text-primary text-xl faq-icon transition-transform duration-300">expand_more</span>
+</div>
+<div class="faq-content mt-3 pt-3 text-xs md:text-sm text-on-surface-variant leading-relaxed hidden">
+            สามารถปรึกษาแพทย์ได้ <strong>ไม่จำกัดจำนวนครั้งตลอดทั้งเดือน</strong> ไม่มีค่าใช้จ่ายแอบแฝงเพิ่มเติมในการเข้ารับการปรึกษา คุณสามารถนัดหมายและเลือกเวลาที่คุณสะดวกได้โดยตรงผ่านแอปพลิเคชันหรือเว็บไซต์
+          </div>
+</div>
+<!-- FAQ Item 2 -->
+<div class="rounded-2xl bg-surface-container-lowest p-6 shadow-xs cursor-pointer select-none transition-all duration-200" onclick="toggleFaq(this)">
+<div class="flex items-center justify-between gap-4">
+<span class="font-headline font-semibold text-sm md:text-base text-on-surface">ครอบคลุมแพทย์เฉพาะทางสาขาใดบ้าง?</span>
+<span class="material-symbols-outlined text-primary text-xl faq-icon transition-transform duration-300">expand_more</span>
+</div>
+<div class="faq-content hidden mt-3 pt-3 text-xs md:text-sm text-on-surface-variant leading-relaxed">
+            ครอบคลุมทุกสาขาหลัก ได้แก่ อายุรกรรมทั่วไป, กุมารเวชศาสตร์ (โรคเด็ก), ตจวิทยา (ผิวหนังและความงามเชิงการแพทย์), สุขภาพจิตและจิตเวชศาสตร์, ออร์โธปิดิกส์ (กระดูกและข้อ), สูตินรีเวชวิทยา และเวชศาสตร์ชะลอวัย โดยแพทย์ทุกคนมีใบอนุญาตประกอบวิชาชีพเวชกรรมถูกต้อง
+          </div>
+</div>
+<!-- FAQ Item 3 -->
+<div class="rounded-2xl bg-surface-container-lowest p-6 shadow-xs cursor-pointer select-none transition-all duration-200" onclick="toggleFaq(this)">
+<div class="flex items-center justify-between gap-4">
+<span class="font-headline font-semibold text-sm md:text-base text-on-surface">สามารถยกเลิกการสมัครสมาชิกได้เมื่อไหร่?</span>
+<span class="material-symbols-outlined text-primary text-xl faq-icon transition-transform duration-300">expand_more</span>
+</div>
+<div class="faq-content hidden mt-3 pt-3 text-xs md:text-sm text-on-surface-variant leading-relaxed">
+            คุณสามารถกดยกเลิกการต่ออายุสมาชิกได้ตลอด 24 ชั่วโมงด้วยตนเองผ่านเมนู "การจัดการสมาชิก" ไม่มีข้อผูกมัดหรือสัญญาผูกมัดระยะยาว เมื่อกดยกเลิกแล้ว สิทธิ์การใช้งานจะยังคงอยู่จนครบกำหนดรอบบิลปัจจุบัน และจะไม่ถูกตัดเงินในรอบถัดไป
+          </div>
+</div>
+<!-- FAQ Item 4 -->
+<div class="rounded-2xl bg-surface-container-lowest p-6 shadow-xs cursor-pointer select-none transition-all duration-200" onclick="toggleFaq(this)">
+<div class="flex items-center justify-between gap-4">
+<span class="font-headline font-semibold text-sm md:text-base text-on-surface">ยาที่สั่งซื้อผ่านแพ็กเกจมีมาตรฐานและความปลอดภัยอย่างไร?</span>
+<span class="material-symbols-outlined text-primary text-xl faq-icon transition-transform duration-300">expand_more</span>
+</div>
+<div class="faq-content hidden mt-3 pt-3 text-xs md:text-sm text-on-surface-variant leading-relaxed">
+            ยาทุกรายการถูกจ่ายโดยเภสัชกรที่มีใบประกอบวิชาชีพเภสัชกรรม และส่งตรงจากเครือข่ายร้านยาคุณภาพที่ผ่านมาตรฐาน GPP (Good Pharmacy Practice) และการรับรองจากสำนักงานคณะกรรมการอาหารและยา (อย.) มั่นใจได้ในของแท้ 100% พร้อมกล่องควบคุมอุณหภูมิมาตรฐานโรงพยาบาล
+          </div>
+</div>
+</div>
+</section>
+<!-- Trust, Security, & Institutional Endorsement Badges -->
+<section class="max-w-5xl mx-auto px-6 lg:px-12 py-10 mb-8">
+<div class="p-8 rounded-2xl bg-surface-container-low text-center">
+<div class="text-xs font-bold text-outline tracking-wider uppercase mb-6">
+          ความปลอดภัยและมาตรฐานที่คุณวางใจได้ในทุกมิติ
+        </div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 items-center">
+<div class="flex flex-col items-center gap-2">
+<div class="w-12 h-12 rounded-xl bg-surface-container-lowest flex items-center justify-center text-primary shadow-xs">
+<span class="material-symbols-outlined text-2xl">verified</span>
+</div>
+<span class="text-xs font-semibold text-on-surface">รับรองมาตรฐานวิชาชีพ</span>
+<span class="text-[11px] text-on-surface-variant">แพทยสภา &amp; สภาเภสัชกรรม</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-12 h-12 rounded-xl bg-surface-container-lowest flex items-center justify-center text-primary shadow-xs">
+<span class="material-symbols-outlined text-2xl">shield</span>
+</div>
+<span class="text-xs font-semibold text-on-surface">ความปลอดภัยข้อมูลสูงสุด</span>
+<span class="text-[11px] text-on-surface-variant">PDPA &amp; HIPAA Compliant</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-12 h-12 rounded-xl bg-surface-container-lowest flex items-center justify-center text-primary shadow-xs">
+<span class="material-symbols-outlined text-2xl">lock</span>
+</div>
+<span class="text-xs font-semibold text-on-surface">ชำระเงินปลอดภัย 100%</span>
+<span class="text-[11px] text-on-surface-variant">256-bit SSL เข้ารหัสสากล</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-12 h-12 rounded-xl bg-surface-container-lowest flex items-center justify-center text-primary shadow-xs">
+<span class="material-symbols-outlined text-2xl">local_pharmacy</span>
+</div>
+<span class="text-xs font-semibold text-on-surface">เครือข่ายยามาตรฐาน GPP</span>
+<span class="text-[11px] text-on-surface-variant">ร้านยาคุณภาพกว่า 500 แห่ง</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Sticky/Subtle CTA Reminder Bar -->
+<section class="max-w-4xl mx-auto px-6 lg:px-12 pb-12">
+<div class="p-6 md:p-8 rounded-2xl bg-gradient-to-r from-primary to-primary-container text-on-primary shadow-lg flex flex-col sm:flex-row items-center justify-between gap-6">
+<div>
+<h3 class="font-headline text-lg md:text-xl font-bold mb-1">พร้อมดูแลสุขภาพอย่างเต็มอิ่มและอุ่นใจแล้วหรือยัง?</h3>
+<p class="text-xs md:text-sm text-on-primary-container leading-relaxed">
+            เริ่มต้นสมาชิก TeleCare Terra Care+ วันนี้ สัมผัสการดูแล 1 ชั่วโมงเต็มได้ทันที
+          </p>
+</div>
+<button class="shrink-0 px-6 py-3 rounded-xl bg-surface-container-lowest text-primary hover:bg-surface-container font-headline font-semibold text-sm shadow-md transition-all cursor-pointer" type="button">
+          สมัครสมาชิก 1,200 บ./ด.
+        </button>
+</div>
+</section>
+</div>
+</div>
+</main><footer class="w-full bg-surface-container-low py-16 text-on-surface-variant mt-20"><div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-4 gap-10"><div class="space-y-4"><a class="flex items-center gap-3" href="/"><img alt="TeleCare Terra Logo" class="h-8 w-auto object-contain" src="/assets/logo.svg"/><span class="font-headline font-bold text-lg text-primary">TeleCare Terra</span></a><p class="text-xs leading-relaxed text-on-surface-variant">แพลตฟอร์มการแพทย์ทางไกลและระบบส่งยาเภสัชกรรมชุมชน ดูแลสุขภาพด้วยความอุ่นใจ เข้าถึงได้ง่ายและยั่งยืน</p><div class="flex items-center gap-2 pt-2"><span class="material-symbols-outlined text-primary text-base">verified</span><span class="text-xs text-on-surface font-medium">รับรองมาตรฐานวิชาชีพเวชกรรมและเภสัชกรรมสภา</span></div></div><div><h4 class="font-headline text-sm font-semibold text-on-surface mb-4">บริการสุขภาพ</h4><ul class="space-y-2.5 text-xs"><li><a class="hover:text-primary transition-colors cursor-pointer" href="/doctors">นัดหมายแพทย์เฉพาะทางออนไลน์</a></li><li><a class="hover:text-primary transition-colors cursor-pointer" href="/orders">จัดส่งยาตามใบสั่งแพทย์ด่วน</a></li><li><a class="hover:text-primary transition-colors cursor-pointer" href="/pharmacies">ปรึกษาเภสัชกรชุมชน 24 ชม.</a></li><li><a class="hover:text-primary transition-colors cursor-pointer" href="/care-plus">แผนตรวจสุขภาพประจำปี</a></li></ul></div><div><h4 class="font-headline text-sm font-semibold text-on-surface mb-4">เครือข่ายและพันธมิตร</h4><ul class="space-y-2.5 text-xs"><li><a class="hover:text-primary transition-colors cursor-pointer" href="/pharmacies">เครือข่ายร้านยาคุณภาพกว่า 500 แห่ง</a></li><li><a class="hover:text-primary transition-colors cursor-pointer" href="/pharmacies?filters=rx">โรงพยาบาลและคลินิกพันธมิตร</a></li><li><a class="hover:text-primary transition-colors cursor-pointer" href="/provider">สำหรับแพทย์และบุคลากรทางการแพทย์</a></li><li><a class="hover:text-primary transition-colors cursor-pointer" data-action="partner" href="#">ร่วมเป็นพันธมิตรร้านยากับเทเลแคร์</a></li></ul></div><div><h4 class="font-headline text-sm font-semibold text-on-surface mb-4">สายด่วนสุขภาพ &amp; ติดต่อ</h4><div class="p-4 rounded-xl bg-surface-container space-y-2 mb-3"><a class="text-xs font-semibold text-error flex items-center gap-1.5" href="tel:1669"><span class="material-symbols-outlined text-sm">phone_in_talk</span>ศูนย์รับแจ้งเหตุฉุกเฉินแห่งชาติ: 1669</a><div class="text-xs text-on-surface flex items-center gap-1.5"><span class="material-symbols-outlined text-sm">support_agent</span>สายด่วนเภสัชกรเทเลแคร์: <a href="tel:021234567">02-123-4567</a></div></div><p class="text-[11px] text-outline leading-tight">ใบอนุญาตสถานพยาบาลและเทเลเมดิซีนเลขที่ ภ.ส. 10294/2567</p></div></div><div class="max-w-7xl mx-auto px-6 lg:px-12 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-outline gap-4"><p>© 2025 TeleCare Terra Co., Ltd. สงวนลิขสิทธิ์ทุกประการ</p><div class="flex flex-wrap items-center justify-center gap-6"><a class="hover:text-on-surface cursor-pointer" data-action="privacy" href="#">นโยบายความเป็นส่วนตัวของข้อมูลสุขภาพ</a><a class="hover:text-on-surface cursor-pointer" data-action="terms" href="#">ข้อกำหนดการใช้งานระบบการแพทย์ทางไกล</a></div></div></footer>
+<script src="/js/app.js"></script><script src="/js/pages/care-plus.js"></script></body></html>

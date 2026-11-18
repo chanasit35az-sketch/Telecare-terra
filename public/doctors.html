@@ -1,0 +1,181 @@
+<!DOCTYPE html><html lang="th"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><title>TeleCare Terra</title><link rel="icon" href="/assets/logo.svg" type="image/svg+xml"/><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..700&amp;family=Nunito+Sans:ital,opsz,wght@0,6..12,300..800;1,6..12,300..800&amp;family=Prompt:wght@300;400;500;600&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>::-webkit-scrollbar{display:none;}</style><link href="/css/tailwind.css" rel="stylesheet"/><link href="/css/app.css" rel="stylesheet"/></head><body class="bg-surface font-body text-on-surface antialiased"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(46,50,48,0.05)]"><div class="h-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex items-center justify-between gap-2 sm:gap-4"><a class="flex items-center gap-3 shrink-0" href="/"><img alt="TeleCare Terra Logo" class="h-9 w-auto object-contain" src="/assets/logo.svg"/><div class="hidden min-[400px]:flex flex-col"><span class="font-headline font-bold text-lg text-primary leading-tight tracking-tight">TeleCare Terra</span><span class="text-xs text-on-surface-variant font-medium tracking-wide">เทเลแคร์</span></div></a><nav class="hidden xl:flex items-center gap-1" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a class="px-3.5 py-2 text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all rounded-lg" data-path="หน้าแรก" href="/">หน้าแรก</a><a class="px-3.5 py-2 text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all rounded-lg" data-path="ร้านยาและคลินิกใกล้บ้าน" href="/pharmacies">ร้านยาและคลินิกใกล้บ้าน</a><a aria-current="page" class="px-3.5 py-2 transition-all bg-primary-container text-on-primary-container font-semibold rounded-lg" data-path="พบแพทย์เฉพาะทาง" href="/doctors">พบแพทย์เฉพาะทาง</a><a class="px-3.5 py-2 text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all rounded-lg" data-path="ประวัติการรักษาและใบสั่งยา" href="/records">ประวัติการรักษาและใบสั่งยา</a><a class="px-3.5 py-2 text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all rounded-lg" data-path="ติดตามการจัดส่ง" href="/orders">ติดตามการจัดส่ง</a><a class="px-3.5 py-2 text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all rounded-lg" data-path="แพ็กเกจสมาชิก" href="/care-plus">แพ็กเกจสมาชิก</a></nav><div class="flex items-center gap-1 sm:gap-3 shrink-0"><div class="relative hidden sm:block" id="global-search-wrap"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg">search</span><input autocomplete="off" class="w-48 lg:w-60 pl-9 pr-4 py-2 bg-surface-container-low text-xs rounded-xl text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all" id="global-search" placeholder="ค้นหายา แพทย์ อาการ..." type="search"/><div class="hidden absolute right-0 top-full mt-2 w-80 max-h-[70vh] overflow-y-auto bg-surface-container-lowest rounded-xl shadow-xl p-2 z-50" id="global-search-results"></div></div><a class="hidden md:flex items-center gap-1.5 px-3 py-1.5 bg-error-container text-error rounded-xl text-xs font-semibold hover:bg-error hover:text-on-error transition-colors" href="tel:1669"><span class="material-symbols-outlined text-base">emergency</span><span>ฉุกเฉิน 1669</span></a><div class="relative" id="notif-wrap"><button aria-label="การแจ้งเตือน" class="relative p-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" id="notif-btn" type="button"><span class="material-symbols-outlined text-xl">notifications</span><span class="hidden absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error" id="notif-dot"></span></button><div class="hidden absolute right-0 top-full mt-2 w-80 max-w-[calc(100vw-2rem)] bg-surface-container-lowest rounded-xl shadow-xl z-50 overflow-hidden" id="notif-panel"></div></div><div class="relative flex items-center pl-1 sm:pl-2 sm:ml-1" id="profile-slot"><a class="px-3 py-2 rounded-xl bg-primary text-on-primary text-xs font-semibold hover:bg-primary/90 transition-colors whitespace-nowrap" href="/login">เข้าสู่ระบบ</a></div><button aria-label="เมนู" class="xl:hidden p-2 rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors" id="mobile-menu-btn" type="button"><span class="material-symbols-outlined text-xl">menu</span></button></div></div><div class="hidden xl:hidden bg-surface-container-lowest shadow-lg px-4 pb-4 pt-2 flex-col gap-1 max-h-[calc(100vh-5rem)] overflow-y-auto" id="mobile-nav"><div class="relative sm:hidden mb-2"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg">search</span><input class="w-full pl-9 pr-4 py-2.5 bg-surface-container-low text-sm rounded-xl text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary/40" id="mobile-search" placeholder="ค้นหายา แพทย์ อาการ..." type="search"/></div><a class="px-4 py-3 rounded-lg text-sm text-on-surface hover:bg-surface-container" href="/">หน้าแรก</a><a class="px-4 py-3 rounded-lg text-sm text-on-surface hover:bg-surface-container" href="/pharmacies">ร้านยาและคลินิกใกล้บ้าน</a><a class="px-4 py-3 rounded-lg text-sm bg-primary-container text-on-primary-container font-semibold" href="/doctors">พบแพทย์เฉพาะทาง</a><a class="px-4 py-3 rounded-lg text-sm text-on-surface hover:bg-surface-container" href="/records">ประวัติการรักษาและใบสั่งยา</a><a class="px-4 py-3 rounded-lg text-sm text-on-surface hover:bg-surface-container" href="/orders">ติดตามการจัดส่ง</a><a class="px-4 py-3 rounded-lg text-sm text-on-surface hover:bg-surface-container" href="/care-plus">แพ็กเกจสมาชิก</a><a class="md:hidden mt-1 px-4 py-3 rounded-lg text-sm bg-error-container text-error font-semibold flex items-center gap-2" href="tel:1669"><span class="material-symbols-outlined text-base">emergency</span>ฉุกเฉิน 1669</a></div></header><main class="w-full pt-20 bg-surface min-h-[calc(100vh-5rem)]"><div class="flex flex-col w-full">
+<div class="max-w-7xl mx-auto w-full px-6 lg:px-12 py-8 md:py-12 space-y-12">
+<!-- Header Section with Terra Warmth & Authority -->
+<div class="relative overflow-hidden rounded-2xl bg-surface-container-low p-8 md:p-12 shadow-sm">
+<div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-primary/5 blur-3xl pointer-events-none"></div>
+<div class="absolute -left-12 -bottom-12 w-64 h-64 rounded-full bg-tertiary/5 blur-2xl pointer-events-none"></div>
+<div class="relative z-10 max-w-3xl space-y-4">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-fixed text-on-primary-fixed text-xs font-semibold tracking-wide">
+<span class="material-symbols-outlined text-sm leading-none" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span>บริการโทรเวชกรรมมาตรฐานความปลอดภัยสูงสุด (Telemedicine Standard)</span>
+</div>
+<h1 class="font-headline text-2xl sm:text-3xl lg:text-4xl text-on-surface font-semibold tracking-tight leading-snug">
+          ปรึกษาแพทย์เฉพาะทางออนไลน์ (Telemedicine)
+        </h1>
+<p class="text-sm md:text-base text-on-surface-variant leading-relaxed">
+          พบแพทย์ผู้เชี่ยวชาญจากโรงพยาบาลและคลินิกชั้นนำ วิดีโอคอลส่วนตัว ปลอดภัย พร้อมออกใบรับรองแพทย์และใบสั่งยาเพื่อรับยาที่ร้านยาใกล้บ้านได้ทันที
+        </p>
+</div>
+<!-- Quick Metrics Strip -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-8 bg-surface-container/60 rounded-xl p-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-xl">person_check</span>
+</div>
+<div>
+<div class="font-headline text-lg font-bold text-on-surface">120+</div>
+<div class="text-[11px] text-on-surface-variant font-medium">แพทย์เฉพาะทางคัดสรร</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-xl">schedule</span>
+</div>
+<div>
+<div class="font-headline text-lg font-bold text-on-surface">&lt; 3 นาที</div>
+<div class="text-[11px] text-on-surface-variant font-medium">เวลารอคิวเฉลี่ย</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-xl">prescriptions</span>
+</div>
+<div>
+<div class="font-headline text-lg font-bold text-on-surface">100%</div>
+<div class="text-[11px] text-on-surface-variant font-medium">ใบสั่งยาถูกต้องตามกม.</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-xl">star</span>
+</div>
+<div>
+<div class="font-headline text-lg font-bold text-on-surface">4.96 / 5</div>
+<div class="text-[11px] text-on-surface-variant font-medium">ความพึงพอใจคนไข้</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Specialty Category Filter Pills -->
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<span class="text-xs uppercase tracking-wider font-semibold text-secondary">เลือกแผนกการรักษาที่ต้องการ</span>
+<span class="text-xs text-primary font-medium cursor-pointer hover:underline" id="reset-filters">รีเซ็ตตัวกรอง</span>
+</div>
+<div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none" id="specialty-filters">
+<button class="specialty-btn shrink-0 px-4 py-2 rounded-xl text-xs font-semibold bg-primary text-on-primary transition-all duration-200 shadow-sm" data-category="all" type="button">
+          ทั้งหมด
+        </button>
+<button class="specialty-btn shrink-0 px-4 py-2 rounded-xl text-xs font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant transition-all duration-200" data-category="internal" type="button">
+          อายุรกรรม (Internal Medicine)
+        </button>
+<button class="specialty-btn shrink-0 px-4 py-2 rounded-xl text-xs font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant transition-all duration-200" data-category="peds" type="button">
+          กุมารเวช (Pediatrics)
+        </button>
+<button class="specialty-btn shrink-0 px-4 py-2 rounded-xl text-xs font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant transition-all duration-200" data-category="derma" type="button">
+          ผิวหนัง (Dermatology)
+        </button>
+<button class="specialty-btn shrink-0 px-4 py-2 rounded-xl text-xs font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant transition-all duration-200" data-category="psych" type="button">
+          สุขภาพใจ/จิตแพทย์ (Psychiatry)
+        </button>
+<button class="specialty-btn shrink-0 px-4 py-2 rounded-xl text-xs font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant transition-all duration-200" data-category="obgyn" type="button">
+          สูตินรีเวช (OB-GYN)
+        </button>
+<button class="specialty-btn shrink-0 px-4 py-2 rounded-xl text-xs font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant transition-all duration-200" data-category="ortho" type="button">
+          กระดูกและข้อ (Orthopedics)
+        </button>
+</div>
+</div>
+<!-- Featured Doctor Profile Spotlight -->
+<div id="featured-doctor"><div class="tct-skeleton h-80"></div></div>
+<!-- Section Title & Search/Sort Bar -->
+<div class="space-y-4 pt-4">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div>
+<h3 class="font-headline text-xl text-on-surface font-semibold" id="grid-title">แพทย์เฉพาะทางพร้อมให้บริการ</h3>
+<p class="text-xs text-on-surface-variant">แพทย์ทุกท่านผ่านการตรวจสอบใบอนุญาตประกอบวิชาชีพเวชกรรมอย่างถูกต้อง</p>
+</div>
+<div class="flex items-center gap-2 text-xs">
+<span class="text-on-surface-variant shrink-0">เรียงตาม:</span>
+<select id="sort-select" class="px-3 py-1.5 rounded-lg bg-surface-container text-on-surface text-xs focus:outline-none focus:ring-2 focus:ring-primary/30">
+<option value="availability">ความพร้อมให้บริการเร็วที่สุด</option>
+<option value="rating">คะแนนรีวิวสูงสุด</option>
+<option value="price">ค่าบริการ (น้อยไปมาก)</option>
+</select>
+</div>
+</div>
+<!-- Doctor Grid (3 Qualified Specialists) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="doctor-grid">
+<div class="tct-skeleton h-72"></div><div class="tct-skeleton h-72"></div><div class="tct-skeleton h-72"></div>
+</div>
+</div>
+<!-- Workflow Steps: How TeleCare Specialist Works -->
+<div class="p-8 rounded-2xl bg-surface-container-low space-y-6">
+<div class="text-center max-w-xl mx-auto space-y-1">
+<h3 class="font-headline text-lg md:text-xl font-bold text-on-surface">3 ขั้นตอนง่ายๆ ในการปรึกษาแพทย์เฉพาะทาง</h3>
+<p class="text-xs text-on-surface-variant">รวดเร็ว ปลอดภัย ประหยัดเวลาการเดินทาง ไม่ต้องรอคิวโรงพยาบาลหลายชั่วโมง</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+<div class="flex items-start gap-4 p-4 rounded-xl bg-surface">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-headline font-bold text-base shrink-0">
+            1
+          </div>
+<div class="space-y-1">
+<h4 class="text-sm font-semibold text-on-surface">เลือกแพทย์และช่วงเวลา</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed">
+              ระบุอาการเบื้องต้น แนบภาพถ่ายรอยโรคหรือประวัติยาเดิมเพื่อการวินิจฉัยที่แม่นยำ
+            </p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-xl bg-surface">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-headline font-bold text-base shrink-0">
+            2
+          </div>
+<div class="space-y-1">
+<h4 class="text-sm font-semibold text-on-surface">วิดีโอคอลปรึกษาแพทย์</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed">
+              สนทนาส่วนตัวผ่านระบบที่ปลอดภัยสูง ได้รับคำแนะนำการรักษาและข้อปฏิบัติตนที่ชัดเจน
+            </p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-xl bg-surface">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-headline font-bold text-base shrink-0">
+            3
+          </div>
+<div class="space-y-1">
+<h4 class="text-sm font-semibold text-on-surface">รับยาและใบรับรองแพทย์</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed">
+              ระบบส่งใบสั่งยาไปยังร้านยาใกล้บ้านพร้อมจัดส่งถึงมือ หรือรับยาด้วยตนเองทันที
+            </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Safety & Compliance Notice (HIPAA & Ministry of Public Health) -->
+<div class="rounded-2xl bg-secondary-container/40 p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface flex items-center justify-center text-primary shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<div class="space-y-1.5">
+<div class="flex items-center gap-2">
+<h4 class="font-headline text-base font-bold text-on-surface">มาตรฐานความปลอดภัยและการรักษาความลับของข้อมูลสุขภาพ</h4>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-primary text-on-primary">HIPAA COMPLIANT</span>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed max-w-3xl">
+            ข้อมูลการปรึกษาทุกครั้งและการบันทึกเวชระเบียนอิเล็กทรอนิกส์ถูกเข้ารหัสแบบ End-to-End Encryption ตามมาตรฐานสากล HIPAA และพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล (PDPA) ใบสั่งยาที่ออกโดยแพทย์สามารถส่งตรงไปยังเครือข่ายเภสัชกรรมชุมชน TeleCare Terra กว่า 500 แห่ง เพื่อการตรวจสอบความปลอดภัยของยาและการจัดส่งที่รวดเร็ว
+          </p>
+</div>
+</div>
+<div class="shrink-0 flex md:flex-col items-center md:items-end gap-2 w-full md:w-auto">
+<button data-action="privacy" class="w-full md:w-auto px-4 py-2 rounded-xl bg-surface hover:bg-surface-container-high text-on-surface text-xs font-semibold transition-all" type="button">
+          อ่านนโยบายความปลอดภัย
+        </button>
+</div>
+</div>
+</div>
+</div>
+</main><footer class="w-full bg-surface-container-low py-16 text-on-surface-variant mt-20"><div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-4 gap-10"><div class="space-y-4"><a class="flex items-center gap-3" href="/"><img alt="TeleCare Terra Logo" class="h-8 w-auto object-contain" src="/assets/logo.svg"/><span class="font-headline font-bold text-lg text-primary">TeleCare Terra</span></a><p class="text-xs leading-relaxed text-on-surface-variant">แพลตฟอร์มการแพทย์ทางไกลและระบบส่งยาเภสัชกรรมชุมชน ดูแลสุขภาพด้วยความอุ่นใจ เข้าถึงได้ง่ายและยั่งยืน</p><div class="flex items-center gap-2 pt-2"><span class="material-symbols-outlined text-primary text-base">verified</span><span class="text-xs text-on-surface font-medium">รับรองมาตรฐานวิชาชีพเวชกรรมและเภสัชกรรมสภา</span></div></div><div><h4 class="font-headline text-sm font-semibold text-on-surface mb-4">บริการสุขภาพ</h4><ul class="space-y-2.5 text-xs"><li><a class="hover:text-primary transition-colors cursor-pointer" href="/doctors">นัดหมายแพทย์เฉพาะทางออนไลน์</a></li><li><a class="hover:text-primary transition-colors cursor-pointer" href="/orders">จัดส่งยาตามใบสั่งแพทย์ด่วน</a></li><li><a class="hover:text-primary transition-colors cursor-pointer" href="/pharmacies">ปรึกษาเภสัชกรชุมชน 24 ชม.</a></li><li><a class="hover:text-primary transition-colors cursor-pointer" href="/care-plus">แผนตรวจสุขภาพประจำปี</a></li></ul></div><div><h4 class="font-headline text-sm font-semibold text-on-surface mb-4">เครือข่ายและพันธมิตร</h4><ul class="space-y-2.5 text-xs"><li><a class="hover:text-primary transition-colors cursor-pointer" href="/pharmacies">เครือข่ายร้านยาคุณภาพกว่า 500 แห่ง</a></li><li><a class="hover:text-primary transition-colors cursor-pointer" href="/pharmacies?filters=rx">โรงพยาบาลและคลินิกพันธมิตร</a></li><li><a class="hover:text-primary transition-colors cursor-pointer" href="/provider">สำหรับแพทย์และบุคลากรทางการแพทย์</a></li><li><a class="hover:text-primary transition-colors cursor-pointer" data-action="partner" href="#">ร่วมเป็นพันธมิตรร้านยากับเทเลแคร์</a></li></ul></div><div><h4 class="font-headline text-sm font-semibold text-on-surface mb-4">สายด่วนสุขภาพ &amp; ติดต่อ</h4><div class="p-4 rounded-xl bg-surface-container space-y-2 mb-3"><a class="text-xs font-semibold text-error flex items-center gap-1.5" href="tel:1669"><span class="material-symbols-outlined text-sm">phone_in_talk</span>ศูนย์รับแจ้งเหตุฉุกเฉินแห่งชาติ: 1669</a><div class="text-xs text-on-surface flex items-center gap-1.5"><span class="material-symbols-outlined text-sm">support_agent</span>สายด่วนเภสัชกรเทเลแคร์: <a href="tel:021234567">02-123-4567</a></div></div><p class="text-[11px] text-outline leading-tight">ใบอนุญาตสถานพยาบาลและเทเลเมดิซีนเลขที่ ภ.ส. 10294/2567</p></div></div><div class="max-w-7xl mx-auto px-6 lg:px-12 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-outline gap-4"><p>© 2025 TeleCare Terra Co., Ltd. สงวนลิขสิทธิ์ทุกประการ</p><div class="flex flex-wrap items-center justify-center gap-6"><a class="hover:text-on-surface cursor-pointer" data-action="privacy" href="#">นโยบายความเป็นส่วนตัวของข้อมูลสุขภาพ</a><a class="hover:text-on-surface cursor-pointer" data-action="terms" href="#">ข้อกำหนดการใช้งานระบบการแพทย์ทางไกล</a></div></div></footer>
+
+<script src="/js/app.js"></script><script src="/js/pages/doctors.js"></script></body></html>

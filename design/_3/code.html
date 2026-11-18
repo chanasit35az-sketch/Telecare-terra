@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+
+<html lang="th"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>TeleCare Terra</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..700&amp;family=Nunito+Sans:ital,opsz,wght@0,6..12,300..800;1,6..12,300..800&amp;family=Prompt:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;font-family:'Prompt','Nunito Sans',sans-serif;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"inverse-on-surface":"#f5f0e8","inverse-surface":"#2e3230","surface-bright":"#faf6f0","error-container":"#ffdad8","on-secondary-fixed-variant":"#4a4538","on-primary-fixed-variant":"#2a6038","surface-variant":"#e4e0d8","primary-fixed-dim":"#8ecf9e","surface-container-lowest":"#ffffff","on-surface-variant":"#4a4e4a","on-error":"#ffffff","outline":"#74796e","tertiary-container":"#c4a66a","on-primary-container":"#d8f0de","primary":"#4a7c59","on-error-container":"#690005","secondary-fixed-dim":"#d4ccbf","outline-variant":"#c4c8bc","surface-container-low":"#f5f1ea","error":"#b83230","primary-container":"#78a886","tertiary-fixed-dim":"#dcc48e","surface-container":"#f0ece4","inverse-primary":"#8ecf9e","on-tertiary-container":"#554020","secondary":"#6b6358","surface-container-high":"#eae6de","on-secondary":"#ffffff","on-secondary-fixed":"#1e1a13","on-background":"#2e3230","tertiary":"#705c30","secondary-fixed":"#f0e8db","surface":"#faf6f0","surface-container-highest":"#e4e0d8","surface-tint":"#4a7c59","primary-fixed":"#c8e8d0","tertiary-fixed":"#f8e0a8","on-tertiary-fixed":"#221a05","on-primary":"#ffffff","secondary-container":"#f0e8db","on-secondary-container":"#5e5548","on-tertiary-fixed-variant":"#554020","background":"#faf6f0","on-surface":"#2e3230","on-primary-fixed":"#002110","surface-dim":"#dbd7cf","on-tertiary":"#ffffff"},"borderRadius":{"DEFAULT":"0.5rem","lg":"1rem","xl":"1.5rem","full":"9999px"},"spacing":{},"fontFamily":{"headline":["Literata"],"display":["Literata"],"body":["Nunito Sans"],"label":["Nunito Sans"]},"fontSize":{}}}}</script></head><body class="bg-surface font-body text-on-surface antialiased"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(46,50,48,0.05)]"><div class="h-20 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-4"><div class="flex items-center gap-3 shrink-0"><img alt="TelePharma Terra Logo" class="h-9 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrBJVeZoULwasqZVK0GTgSih12soivh4SDdtb5grWa2Y2E-PjMo9GumhAM7hdx79MI1bTbPFpwBJWIE5custEwAJ1ofDVnTnDBK86uz7DpB4yiuTZW-8Fpyy-mGxWadg-3AoGZophzvf-C9G6n1aqyqqU8ezqZTQxQNYoJyT3Iz7BQNvt00JxPlFxJzlnSvaPVWhS4P0L7238t801BlW1HbdPD1kwPVSS7Tx5kQ026I"/><div class="flex flex-col"><span class="font-headline font-bold text-lg text-primary leading-tight tracking-tight">TeleCare Terra</span><span class="text-xs text-on-surface-variant font-medium tracking-wide">เทเลแคร์</span></div></div><nav class="hidden xl:flex items-center gap-1" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a class="px-3.5 py-2 text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all rounded-lg" data-path="หน้าแรก" href="#">หน้าแรก</a><a class="px-3.5 py-2 text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all rounded-lg" data-path="ร้านยาและคลินิกใกล้บ้าน" href="#">ร้านยาและคลินิกใกล้บ้าน</a><a class="px-3.5 py-2 text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all rounded-lg" data-path="พบแพทย์เฉพาะทาง" href="#">พบแพทย์เฉพาะทาง</a><a class="px-3.5 py-2 text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all rounded-lg" data-path="ประวัติการรักษาและใบสั่งยา" href="#">ประวัติการรักษาและใบสั่งยา</a><a class="px-3.5 py-2 text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all rounded-lg" data-path="ติดตามการจัดส่ง" href="#">ติดตามการจัดส่ง</a></nav><div class="flex items-center gap-3 shrink-0"><div class="relative hidden sm:block"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg">search</span><input class="w-48 lg:w-60 pl-9 pr-4 py-2 bg-surface-container-low text-xs rounded-xl text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all" placeholder="ค้นหายา แพทย์ อาการ..." type="text"/></div><a class="hidden md:flex items-center gap-1.5 px-3 py-1.5 bg-error-container text-error rounded-xl text-xs font-semibold hover:bg-error hover:text-on-error transition-colors" href="tel:1669"><span class="material-symbols-outlined text-base">emergency</span><span>ฉุกเฉิน 1669</span></a><button aria-label="การแจ้งเตือน" class="relative p-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span></button><div class="flex items-center pl-2 ml-1"><img alt="Profile" class="w-9 h-9 rounded-full object-cover ring-2 ring-primary/20 hover:ring-primary transition-all cursor-pointer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBg9aHif9DuZEfMi7vNihyt9YwvaMpfG_hvEsEUI8Mwa1sK-OKPd6lBDlQ6qXHDHzXqXA3q1Axt8IrrUPzrLWMqCUa2FLd-uRK1jUIk9koH0PjA63bCtLNg2ljeWQMmFOiDgW93tW228ZeDUX4n5ztz1t2Xvyw3A1MT2_BKGzhMmuPdiJ-bKkVy1XXebkCLmJrRMsM75b1vPTWqQ-EjEpnRQwhpYzHzWnY1fMXdbA"/></div></div></div></header><main class="w-full pt-20 bg-surface min-h-[calc(100vh-5rem)]"><div class="flex flex-col w-full">
+<!-- Status & Session Banner -->
+<div class="w-full bg-surface-container-low px-6 lg:px-12 py-3">
+<div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+          ห้องตรวจออนไลน์สด (Active Consultation)
+        </span>
+<span class="text-xs text-on-surface-variant hidden sm:inline">รหัสการรักษา: <strong class="font-mono text-on-surface">TC-84920B</strong></span>
+</div>
+<!-- Live Consultation Timer & Emergency Callout -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 px-3 py-1 rounded-xl bg-surface-container text-xs font-medium text-on-surface">
+<span class="material-symbols-outlined text-primary text-sm">schedule</span>
+<span>เวลาปรึกษาคงเหลือ</span>
+<span class="font-mono font-bold text-primary" id="session-timer">14:28</span>
+</div>
+<button class="flex items-center gap-1 text-xs font-semibold text-error hover:bg-error-container/60 px-2.5 py-1 rounded-lg transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">call_end</span>
+<span>สิ้นสุดการปรึกษา</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Main 3-Column Consultation Grid -->
+<div class="w-full max-w-7xl mx-auto px-4 lg:px-8 py-6">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- ================= LEFT COLUMN: Doctor Info & Patient Summary (3 cols) ================= -->
+<div class="lg:col-span-3 flex flex-col gap-5">
+<!-- Doctor Profile Card -->
+<div class="bg-surface-container-low rounded-2xl p-5 shadow-sm">
+<div class="relative flex flex-col items-center text-center">
+<div class="relative mb-3">
+<img alt="พญ. ณภัสสร จิตติวัฒนา" class="w-20 h-20 rounded-full object-cover shadow-sm ring-4 ring-surface" data-alt="Close up professional portrait of a warm and friendly Thai female physician wearing white doctor coat with stethoscope, soft warm background lighting, organic tones, high resolution, clinical warmth" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCx-JA3h1oW0f6Xt7qrzNVc8dP6-TX5ytx9Ex7EfA56e73FVnvI6jtTUaTwDclJQkQRDFkQmO2H4WBdtZD_MMb5QSV4ZfP5ObRgFtIbAshHraoCC-Pr2-C-sulK_o6RvNS3FLEG1v8CXgKXLyI9WbQheatjOfqWtwUVI1BU-yDbSV-3nSaxiPYg3NaV02n4KUdIO28wlC7nn9K0UF_zZNnPvLAe07a3rbqwU5BDTA"/>
+<span class="absolute bottom-0 right-1 w-4 h-4 rounded-full bg-primary border-2 border-surface" title="สถานะพร้อมสนทนา"></span>
+</div>
+<div class="flex items-center gap-1 text-primary text-xs font-semibold mb-0.5">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span>แพทย์รับรอง ว. 48291</span>
+</div>
+<h2 class="font-headline font-bold text-base text-on-surface">พญ. ณภัสสร จิตติวัฒนา</h2>
+<p class="text-xs text-on-surface-variant mt-1 leading-snug">
+              อายุรกรรมโรคต่อมไร้ท่อและเบาหวาน<br/>
+<span class="text-outline">โรงพยาบาลจุฬาลงกรณ์</span>
+</p>
+<!-- Video Call Transition Button -->
+<button class="w-full mt-4 flex items-center justify-center gap-2 py-2.5 px-4 bg-primary text-on-primary rounded-xl text-xs font-semibold hover:bg-primary/90 transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-base">videocam</span>
+<span>สลับเป็นวิดีโอคอลทันที</span>
+</button>
+</div>
+<div class="mt-4 pt-4 bg-surface-container/60 rounded-xl p-3 flex flex-col gap-2">
+<div class="flex items-center justify-between text-xs text-on-surface-variant">
+<span>คะแนนความพึงพอใจ</span>
+<span class="font-semibold text-tertiary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span> 4.98 (420+ รีวิว)
+              </span>
+</div>
+<div class="flex items-center justify-between text-xs text-on-surface-variant">
+<span>ความเร็วเฉลี่ยตอบกลับ</span>
+<span class="font-semibold text-on-surface">&lt; 1 นาที</span>
+</div>
+</div>
+</div>
+<!-- Pre-consultation Symptom Intake Summary -->
+<div class="bg-surface-container-low rounded-2xl p-5 shadow-sm">
+<div class="flex items-center justify-between mb-3">
+<span class="font-headline font-semibold text-xs tracking-wider text-outline uppercase">บันทึกคัดกรองเบื้องต้น</span>
+<span class="material-symbols-outlined text-primary text-base">clinical_notes</span>
+</div>
+<div class="bg-surface rounded-xl p-3 mb-3">
+<span class="text-[11px] font-semibold text-primary block mb-1">อาการสำคัญ (Chief Complaint):</span>
+<p class="text-xs text-on-surface leading-relaxed">
+              มีไข้ 38.2°C, ปวดเมื่อยตัวตามข้อ, มีเสมหะสีขาวใส คลื่นไส้เล็กน้อย ป่วยเป็นมาแล้ว 2 วัน
+            </p>
+</div>
+<div class="grid grid-cols-2 gap-2 text-xs">
+<div class="bg-surface rounded-lg p-2.5">
+<span class="text-[10px] text-outline block">อุณหภูมิกาย</span>
+<span class="font-bold text-error text-sm">38.2 °C</span>
+</div>
+<div class="bg-surface rounded-lg p-2.5">
+<span class="text-[10px] text-outline block">ความดัน (BP)</span>
+<span class="font-bold text-on-surface text-sm">124/82</span>
+</div>
+</div>
+<button class="w-full mt-3 py-2 px-3 text-xs font-semibold text-primary bg-primary/10 hover:bg-primary/20 rounded-xl transition-colors flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-sm">history_edu</span>
+<span>ดูประวัติการตรวจในอดีต</span>
+</button>
+</div>
+<!-- Secure Standard Badge -->
+<div class="p-3.5 rounded-xl bg-surface-container flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl shrink-0">shield_lock</span>
+<div class="text-[11px] leading-tight text-on-surface-variant">
+            การปรึกษาเป็นความลับมาตรฐาน <strong>PDPA &amp; HIPAA</strong> เข้ารหัสแบบจุดต่อจุด
+          </div>
+</div>
+</div>
+<!-- ================= CENTER COLUMN: LINE-Style Chat Interface (6 cols) ================= -->
+<div class="lg:col-span-6 flex flex-col bg-surface-container-lowest rounded-3xl shadow-sm overflow-hidden min-h-[720px] max-h-[820px] relative">
+<!-- Chat Header (Within panel) -->
+<div class="px-5 py-3.5 bg-surface-container-low flex items-center justify-between shadow-[0_1px_4px_rgba(46,50,48,0.04)]">
+<div class="flex items-center gap-3">
+<div class="w-2.5 h-2.5 rounded-full bg-primary animate-ping"></div>
+<div>
+<h3 class="font-headline font-semibold text-sm text-on-surface leading-tight">พญ. ณภัสสร (กำลังสนทนา)</h3>
+<p class="text-[11px] text-outline">แพทย์กำลังพิมพ์สรุปคำแนะนำ...</p>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-2 rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors" title="โทรเสียง" type="button">
+<span class="material-symbols-outlined text-lg">call</span>
+</button>
+<button class="p-2 rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors" title="ค้นหาในแชท" type="button">
+<span class="material-symbols-outlined text-lg">search</span>
+</button>
+<button class="p-2 rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors" title="ตั้งค่าการสนทนา" type="button">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Chat Stream Body -->
+<div class="flex-1 overflow-y-auto px-4 py-6 space-y-5 bg-gradient-to-b from-surface/40 to-surface-container-lowest" id="chat-messages">
+<!-- Date Pill -->
+<div class="flex justify-center">
+<span class="px-3.5 py-1 rounded-full bg-surface-container text-[11px] font-medium text-outline">
+              วันนี้, 25 ตุลาคม 2567
+            </span>
+</div>
+<!-- System Encrypted Pill -->
+<div class="flex justify-center">
+<div class="max-w-md px-3.5 py-1.5 rounded-xl bg-surface-container-low text-center text-[11px] text-on-surface-variant flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-xs">lock</span>
+<span>เริ่มการปรึกษาทางไกลแบบปลอดภัย ข้อมูลได้รับการปกป้องตาม พ.ร.บ. สุขภาพ</span>
+</div>
+</div>
+<!-- Doctor Message 1 -->
+<div class="flex items-end gap-2.5 max-w-[85%]">
+<img alt="หมอณภัสสร" class="w-8 h-8 rounded-full object-cover shrink-0 mb-1" data-alt="Portrait avatar of female doctor in medical uniform, warm friendly expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlJ1sB-i8gQYp0FbOVMtZeh5L5sPcVOpLxC4pLq34doEKjVzlbhie03KqtbnQj4ecQcOd6OHWkmfU015COBZbp2YukKKRtKmXY-kFMZ1W5GnoWOqXXVK1RFHKPaviW66gqC7olgBB6LJEy0261K_S-qMz9jzgKPd2arEUZi_uoFhB04kEoIbwt9zZ00DFyjZTKDh3JDHEw1AuWswUMqnvsPsc3Uxf46KpKV9xLoQ"/>
+<div class="flex flex-col gap-1 items-start">
+<span class="text-[10px] text-outline ml-1">พญ. ณภัสสร จิตติวัฒนา</span>
+<div class="p-3.5 rounded-2xl rounded-bl-sm bg-surface-container-lowest text-on-surface text-xs leading-relaxed shadow-sm">
+                สวัสดีค่ะคุณธนภัทร วันนี้คุณหมอดูข้อมูลอาการเบื้องต้นแล้วนะคะ มีไข้และไอ มีอาการเจ็บหน้าอก หายใจลำบาก หรือเหนื่อยหอบเวลาเดินร่วมด้วยไหมคะ?
+              </div>
+</div>
+<div class="text-[10px] text-outline shrink-0 pb-1">15:30 น.</div>
+</div>
+<!-- Patient Message 1 -->
+<div class="flex items-end justify-end gap-2 max-w-[85%] ml-auto">
+<div class="flex flex-col items-end shrink-0 pb-1">
+<span class="text-[9px] text-primary font-medium">อ่านแล้ว</span>
+<span class="text-[10px] text-outline">15:31 น.</span>
+</div>
+<div class="p-3.5 rounded-2xl rounded-br-sm bg-primary text-on-primary text-xs leading-relaxed shadow-sm">
+              สวัสดีครับคุณหมอ ไม่มีอาการแน่นหน้าอกครับ หายใจได้ปกติ แต่มีอาการไอแห้งๆ สลับกับมีเสมหะใสปนช่วงตื่นนอนตอนเช้า และรู้สึกครั่นเนื้อครั่นตัวมากครับ
+            </div>
+</div>
+<!-- Patient Photo Upload Message (Thermometer) -->
+<div class="flex items-end justify-end gap-2 max-w-[80%] ml-auto">
+<div class="flex flex-col items-end shrink-0 pb-1">
+<span class="text-[9px] text-primary font-medium">อ่านแล้ว</span>
+<span class="text-[10px] text-outline">15:32 น.</span>
+</div>
+<div class="p-2 rounded-2xl rounded-br-sm bg-primary text-on-primary shadow-sm flex flex-col gap-2">
+<div class="relative rounded-xl overflow-hidden">
+<img alt="ภาพผลวัดอุณหภูมิร่างกาย" class="w-64 h-44 object-cover rounded-xl" data-alt="Digital clinical medical thermometer displaying 38.2 degrees Celsius resting on a warm wooden nightstand, clear crisp numbers, soft ambient room light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVHQ_PE0gOGoIH306wMMDdLFxSwE2PQQzkudknNlzOfWWxRfG57bSTUY0y74JzZR99XNTfNSA4Wa4RBpkQQYPDpLj6HcD3ecofRTkS8NProVY7Me6wUuP2ymAuTobna2_DJiSgJWh2zMb9VVeVUtmNg6pNDK3DGETHBrntUZaIJAGI36ULLx_5ncmpkIFPjVFwYFG2JH4cTD8NC923JpuaSi2m52XUnOjbVEcFxQ"/>
+<div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-inverse-surface/80 text-[10px] text-inverse-on-surface font-mono">
+                  38.2 °C
+                </div>
+</div>
+<p class="text-xs px-1.5 pb-1 text-on-primary/95">
+                วัดไข้ล่าสุดเมื่อบ่ายสองครับ ทานน้ำอุ่นเยอะแล้วแต่ไข้ยังไม่ค่อยลด
+              </p>
+</div>
+</div>
+<!-- Doctor Message 2 -->
+<div class="flex items-end gap-2.5 max-w-[85%]">
+<img alt="หมอณภัสสร" class="w-8 h-8 rounded-full object-cover shrink-0 mb-1" data-alt="Doctor thumbnail avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfTIcsntyP56BAnPNZjEX78nsNNPbEj5cHQuZDfjlTatkIDk_LlWRQUcMpvpC4jINQk76puhdlypUMAYMNFrU6Qip8SBMFYJGqhYDyPaMmKlScoXab8nXzOwDermvRbuM_P-zlkBwy5jn2YrdZgmGo823QBSvbGb4M_RpImVQWt6D9sam3O7-58PMOjJFuaLLG4Fj6XlYXHJbNysg8De1lXVJKU3RQgekLmLZ0pg"/>
+<div class="flex flex-col gap-1 items-start">
+<div class="p-3.5 rounded-2xl rounded-bl-sm bg-surface-container-lowest text-on-surface text-xs leading-relaxed shadow-sm">
+                รับทราบค่ะ จากประวัติคุณธนภัทรมีประวัติ<strong>แพ้ยา Penicillin</strong> นะคะ หมอจัดยาบรรเทาอาการไข้หวัดกลุ่มที่ไม่เกี่ยวข้องให้เรียบร้อย และออกใบสั่งยาอิเล็กทรอนิกส์เข้าสู่ระบบร้านยาใกล้บ้านให้ทันทีค่ะ
+              </div>
+</div>
+<div class="text-[10px] text-outline shrink-0 pb-1">15:33 น.</div>
+</div>
+<!-- Interactive e-Prescription Bubble in Stream -->
+<div class="flex items-end gap-2.5 max-w-[90%]">
+<img alt="หมอณภัสสร" class="w-8 h-8 rounded-full object-cover shrink-0 mb-1" data-alt="Doctor thumbnail avatar small" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxtSJemlitKxz3A2oQ_IMb940WZkm31J1y_wZnwKcgiSKJoJULjKHcfWxWd-W4hPLk_3xyuXlP8h160VGZkhpSeS5fBwXTs7zWB91Pn_soZNGssKBJBPsqX29ESvFhZBtQAu2QinXP35e0FJrWvGF8G_n1U8eDMYf5xSYfBrPrm-M7IMGHbzAzbGu-dEg7zfl9figC9Qybj33lV4K_ieramzELSbkdedLEPAbyaA"/>
+<div class="flex flex-col gap-1 w-full">
+<!-- e-Prescription Card -->
+<div class="p-4 rounded-2xl bg-surface-container-low text-on-surface shadow-sm">
+<div class="flex items-center justify-between pb-3 bg-surface-container/50 px-3 py-2 rounded-xl mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">prescriptions</span>
+<div>
+<h4 class="font-headline font-bold text-xs text-on-surface">ใบสั่งยาอิเล็กทรอนิกส์ (e-Prescription)</h4>
+<span class="text-[10px] text-outline">อนุมัติโดย พญ. ณภัสสร • วันนี้</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-primary/20 text-primary text-[10px] font-bold">รอการยืนยัน</span>
+</div>
+<!-- Medicines List -->
+<div class="space-y-2 mb-4">
+<div class="p-2.5 bg-surface rounded-xl flex items-center justify-between text-xs">
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center text-primary font-bold text-[10px]">
+                        Rx 1
+                      </div>
+<div>
+<strong class="font-medium text-on-surface block">Paracetamol 500 mg</strong>
+<span class="text-[11px] text-outline">ทานครั้งละ 1 เม็ด ทุก 4-6 ชั่วโมง เวลามีไข้ (10 เม็ด)</span>
+</div>
+</div>
+<span class="font-semibold text-on-surface text-xs">฿45</span>
+</div>
+<div class="p-2.5 bg-surface rounded-xl flex items-center justify-between text-xs">
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center text-primary font-bold text-[10px]">
+                        Rx 2
+                      </div>
+<div>
+<strong class="font-medium text-on-surface block">Bromhexine 8 mg (ละลายเสมหะ)</strong>
+<span class="text-[11px] text-outline">ทานครั้งละ 1 เม็ด หลังอาหาร 3 มื้อ (15 เม็ด)</span>
+</div>
+</div>
+<span class="font-semibold text-on-surface text-xs">฿85</span>
+</div>
+<div class="p-2.5 bg-surface rounded-xl flex items-center justify-between text-xs">
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center text-primary font-bold text-[10px]">
+                        Rx 3
+                      </div>
+<div>
+<strong class="font-medium text-on-surface block">เกลือแร่ ORS กลิ่นส้ม</strong>
+<span class="text-[11px] text-outline">ชงดื่มจิบเรื่อยๆ ระหว่างวัน 1 ซองต่อน้ำ 250 มล. (4 ซอง)</span>
+</div>
+</div>
+<span class="font-semibold text-on-surface text-xs">฿30</span>
+</div>
+</div>
+<!-- Delivery Destination Highlight -->
+<div class="p-2.5 rounded-xl bg-secondary-container/60 text-on-secondary-container flex items-center justify-between text-xs mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-base">local_shipping</span>
+<span class="text-[11px]">ร้านยาจัดส่ง: <strong>ฟาร์มาแคร์ พลัส อารีย์</strong> (ส่งด่วน 45 นาที)</span>
+</div>
+<span class="text-xs font-bold text-primary">ยอดรวม ฿160</span>
+</div>
+<!-- Action Button in Card -->
+<button class="w-full py-2.5 px-4 bg-primary text-on-primary rounded-xl text-xs font-semibold hover:bg-primary/90 transition-all flex items-center justify-center gap-2 shadow-sm" type="button">
+<span class="material-symbols-outlined text-base">check_circle</span>
+<span>ยืนยันรับยาและส่งต่อร้านยาใกล้บ้าน</span>
+</button>
+</div>
+</div>
+<div class="text-[10px] text-outline shrink-0 pb-1">15:34 น.</div>
+</div>
+</div>
+<!-- LINE-Style Input & Quick Action Bar -->
+<div class="p-3.5 bg-surface-container-low shadow-[0_-1px_6px_rgba(46,50,48,0.04)]">
+<!-- Quick Reply Suggestion Pills -->
+<div class="flex items-center gap-2 overflow-x-auto pb-2 mb-2 no-scrollbar">
+<span class="text-[10px] text-outline font-semibold uppercase tracking-wider shrink-0">คำถามด่วน:</span>
+<button class="px-3 py-1 bg-surface rounded-full text-xs text-on-surface-variant hover:text-primary hover:bg-primary/10 transition-colors shrink-0" type="button">
+              อาการดีขึ้นแล้วครับ
+            </button>
+<button class="px-3 py-1 bg-surface rounded-full text-xs text-on-surface-variant hover:text-primary hover:bg-primary/10 transition-colors shrink-0" type="button">
+              ขอใบรับรองแพทย์อิเล็กทรอนิกส์
+            </button>
+<button class="px-3 py-1 bg-surface rounded-full text-xs text-on-surface-variant hover:text-primary hover:bg-primary/10 transition-colors shrink-0" type="button">
+              สอบถามวิธีทานยาก่อนนอน
+            </button>
+<button class="px-3 py-1 bg-surface rounded-full text-xs text-on-surface-variant hover:text-primary hover:bg-primary/10 transition-colors shrink-0" type="button">
+              ต้องตรวจซ้ำเมื่อไหร่ครับ?
+            </button>
+</div>
+<!-- Main Input Field & Attachments -->
+<div class="flex items-center gap-2 bg-surface rounded-2xl p-1.5 shadow-inner">
+<!-- Attachment Icons -->
+<button class="p-2 text-outline hover:text-primary hover:bg-surface-container rounded-xl transition-colors" title="แนบไฟล์ผลตรวจ/ภาพถ่าย" type="button">
+<span class="material-symbols-outlined text-xl">add_circle</span>
+</button>
+<button class="p-2 text-outline hover:text-primary hover:bg-surface-container rounded-xl transition-colors" title="ถ่ายภาพด่วน" type="button">
+<span class="material-symbols-outlined text-xl">photo_camera</span>
+</button>
+<button class="p-2 text-outline hover:text-primary hover:bg-surface-container rounded-xl transition-colors" title="บันทึกเสียง" type="button">
+<span class="material-symbols-outlined text-xl">mic</span>
+</button>
+<!-- Text Input -->
+<input class="flex-1 bg-transparent border-0 text-xs text-on-surface placeholder:text-outline focus:outline-none px-2 py-2" id="message-input" placeholder="พิมพ์ข้อความสอบถามคุณหมอ..." type="text"/>
+<!-- Send Button -->
+<button class="w-10 h-10 rounded-xl bg-primary text-on-primary flex items-center justify-center hover:bg-primary/90 transition-all shrink-0 shadow-sm" id="send-button" title="ส่งข้อความ" type="button">
+<span class="material-symbols-outlined text-lg">send</span>
+</button>
+</div>
+</div>
+</div>
+<!-- ================= RIGHT COLUMN: Patient Snapshot & Pharmacy Route (3 cols) ================= -->
+<div class="lg:col-span-3 flex flex-col gap-5">
+<!-- Patient Health Snapshot Card -->
+<div class="bg-surface-container-low rounded-2xl p-5 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<h4 class="font-headline font-semibold text-xs tracking-wider text-outline uppercase">ประวัติการแพทย์ผู้รับคำปรึกษา</h4>
+<span class="material-symbols-outlined text-primary text-base">person</span>
+</div>
+<div class="flex items-center gap-3 pb-3 mb-3 bg-surface p-3 rounded-xl">
+<img alt="นายธนภัทร สุวรรณสิทธิ์" class="w-11 h-11 rounded-full object-cover ring-2 ring-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUWpJS2m5FSAClvNeX3im8hjw3JBSho1B3kr7HJM6Dpem_2OAznaOuj5La7GrNeecsYJ18hyWywXH1p7Wp5VH0eCIw7IzYjFdBTDc5eBg8Li1mmDcspNUNKZq_8hJc8o7Y0b7fUfjuhbSOb6UTll45AsZ--sdJZankXW909xOMoKkhiabuC7VOgjgncx9hrMyaJ7ANhTOrzsUArf1tAh6QQDMOJ1PTZYApNvgnRw"/>
+<div>
+<h5 class="text-xs font-bold text-on-surface">นายธนภัทร สุวรรณสิทธิ์</h5>
+<p class="text-[11px] text-outline">อายุ 34 ปี • ชาย</p>
+</div>
+</div>
+<!-- Crucial Alerts: Allergy & Chronic -->
+<div class="space-y-2 mb-4">
+<div class="p-2.5 rounded-xl bg-error-container text-error flex items-start gap-2">
+<span class="material-symbols-outlined text-sm shrink-0 mt-0.5">warning</span>
+<div class="text-[11px] leading-tight">
+<span class="font-bold block">ประวัติแพ้ยา (Allergy)</span>
+                Penicillin, Amoxicillin (ผื่นคัน, แน่นหน้าอก)
+              </div>
+</div>
+<div class="p-2.5 rounded-xl bg-surface text-on-surface flex items-start gap-2">
+<span class="material-symbols-outlined text-tertiary text-sm shrink-0 mt-0.5">medical_information</span>
+<div class="text-[11px] leading-tight text-on-surface-variant">
+<span class="font-semibold text-on-surface block">โรคประจำตัว</span>
+                ความดันโลหิตสูง (HTN) ควบคุมได้ดี
+              </div>
+</div>
+<div class="grid grid-cols-2 gap-2 text-center text-xs">
+<div class="p-2 rounded-xl bg-surface">
+<span class="text-[10px] text-outline block">หมู่เลือด</span>
+<span class="font-bold text-on-surface">O Rh+</span>
+</div>
+<div class="p-2 rounded-xl bg-surface">
+<span class="text-[10px] text-outline block">สิทธิการรักษา</span>
+<span class="font-bold text-primary">ประกันสุขภาพ</span>
+</div>
+</div>
+</div>
+<a class="text-xs font-semibold text-primary hover:underline flex items-center justify-between" href="#">
+<span>ดูบันทึกเวชระเบียนแบบเต็ม</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</div>
+<!-- Pharmacy & Dispatch Partner Card -->
+<div class="bg-surface-container-low rounded-2xl p-5 shadow-sm">
+<div class="flex items-center justify-between mb-3">
+<h4 class="font-headline font-semibold text-xs tracking-wider text-outline uppercase">ร้านยาเครือข่ายส่งด่วน</h4>
+<span class="material-symbols-outlined text-primary text-base">local_pharmacy</span>
+</div>
+<div class="relative rounded-xl overflow-hidden mb-3">
+<!-- Simulated Location Map Component -->
+<div class="w-full h-28 bg-cover bg-center rounded-xl relative" data-alt="Modern neighborhood community pharmacy store front in Ari Bangkok, warm wooden and green exterior with clean glass windows and pharmacy green cross sign" data-location="PharmaCare Plus Ari Bangkok" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuClIAMRuNAf3zI_oEy9SYT0bcbDBGIRrWxihQzCyBlLKWXGuPQHAUZAjarWlYTz50InIMuMHfkRi3JPXJD-ufKJflHVpS2N3HX9q59HyY7I9vnhavXGj5yiOlN8A_jNuc75iAfMsvZPFH86ptEafY2dCaGZlA1HARwB6Eh35ufMh3iiK6Qnyz7fcPOnWMzJJffO3T9FqTnvb0YNwjk_HICveTzBIQtYkZA7IgGJ8g')">
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/70 via-transparent to-transparent"></div>
+<div class="absolute bottom-2 left-2 text-inverse-on-surface text-[11px] font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary-fixed">pin_drop</span>
+                ห่างจากจุดที่คุณอยู่ 1.2 กม.
+              </div>
+</div>
+</div>
+<h5 class="text-xs font-bold text-on-surface">ฟาร์มาแคร์ พลัส (สาขาอารีย์ ซอย 2)</h5>
+<p class="text-[11px] text-on-surface-variant mt-0.5 leading-tight">
+            มีเภสัชกรประจำตลอด 24 ชม. • ยาพร้อมส่งทันที
+          </p>
+<div class="mt-3 pt-3 bg-surface rounded-xl p-2.5 flex items-center justify-between text-xs">
+<span class="text-outline">ระยะเวลาจัดส่งโดยประมาณ</span>
+<span class="font-bold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">moped</span> ~35-45 นาที
+            </span>
+</div>
+</div>
+<!-- Hotline Emergency Card -->
+<div class="bg-surface-container p-4 rounded-2xl">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-error text-lg">emergency</span>
+<span class="text-xs font-bold text-on-surface">พบอาการวิกฤตเฉียบพลัน?</span>
+</div>
+<p class="text-[11px] text-on-surface-variant leading-relaxed mb-3">
+            หากมีอาการหายใจขัด แน่นหน้าอกรุนแรง หรือหมดสติ กดเรียกรถพยาบาลฉุกเฉินทันที
+          </p>
+<a class="w-full py-2 px-3 rounded-xl bg-error-container text-error text-xs font-bold flex items-center justify-center gap-1.5 hover:bg-error hover:text-on-error transition-colors" href="tel:1669">
+<span class="material-symbols-outlined text-sm">phone_in_talk</span>
+<span>โทรสายด่วนฉุกเฉิน 1669</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple interactive consultation chat micro-interactions
+  (function initChat() {
+    const input = document.getElementById('message-input');
+    const sendBtn = document.getElementById('send-button');
+    const chatContainer = document.getElementById('chat-messages');
+    const timerElem = document.getElementById('session-timer');
+
+    // Countdown Timer micro-simulation
+    let timeLeft = 14 * 60 + 28;
+    setInterval(() => {
+      if (timeLeft > 0) {
+        timeLeft--;
+        const mins = Math.floor(timeLeft / 60).toString().padStart(2, '0');
+        const secs = (timeLeft % 60).toString().padStart(2, '0');
+        if (timerElem) timerElem.textContent = `${mins}:${secs}`;
+      }
+    }, 1000);
+
+    function sendMessage() {
+      if (!input || !input.value.trim()) return;
+      const text = input.value.trim();
+      input.value = '';
+
+      const now = new Date();
+      const timeStr = `${now.getHours()}:${now.getMinutes().toString().padStart(2, '0')} น.`;
+
+      // Create new LINE style user bubble
+      const msgWrapper = document.createElement('div');
+      msgWrapper.className = 'flex items-end justify-end gap-2 max-w-[85%] ml-auto animate-fade-in';
+      msgWrapper.innerHTML = `
+        <div class="flex flex-col items-end shrink-0 pb-1">
+          <span class="text-[9px] text-primary font-medium">ส่งแล้ว</span>
+          <span class="text-[10px] text-outline">${timeStr}</span>
+        </div>
+        <div class="p-3.5 rounded-2xl rounded-br-sm bg-primary text-on-primary text-xs leading-relaxed shadow-sm">
+          ${text}
+        </div>
+      `;
+
+      chatContainer.appendChild(msgWrapper);
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+
+      // Simulated automated reassuring doctor echo
+      setTimeout(() => {
+        const docWrapper = document.createElement('div');
+        docWrapper.className = 'flex items-end gap-2.5 max-w-[85%] animate-fade-in';
+        docWrapper.innerHTML = `
+          <div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-xs shrink-0 mb-1">
+            พญ.
+          </div>
+          <div class="flex flex-col gap-1 items-start">
+            <span class="text-[10px] text-outline ml-1">พญ. ณภัสสร จิตติวัฒนา</span>
+            <div class="p-3.5 rounded-2xl rounded-bl-sm bg-surface-container-lowest text-on-surface text-xs leading-relaxed shadow-sm">
+              คุณหมอได้รับข้อความเรียบร้อยค่ะ กำลังบันทึกลงในเวชระเบียนและระบบจัดส่งยาให้นะคะ
+            </div>
+          </div>
+          <div class="text-[10px] text-outline shrink-0 pb-1">${timeStr}</div>
+        `;
+        chatContainer.appendChild(docWrapper);
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+      }, 1200);
+    }
+
+    if (sendBtn) {
+      sendBtn.addEventListener('click', sendMessage);
+    }
+
+    if (input) {
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          sendMessage();
+        }
+      });
+    }
+
+    // Quick pills hook
+    document.querySelectorAll('.no-scrollbar button').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        if (input) {
+          input.value = btn.innerText.trim();
+          input.focus();
+        }
+      });
+    });
+  })();
+</script></main><footer class="w-full bg-surface-container-low py-16 text-on-surface-variant mt-20"><div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-4 gap-10"><div class="space-y-4"><div class="flex items-center gap-3"><img alt="TelePharma Terra Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrBJVeZoULwasqZVK0GTgSih12soivh4SDdtb5grWa2Y2E-PjMo9GumhAM7hdx79MI1bTbPFpwBJWIE5custEwAJ1ofDVnTnDBK86uz7DpB4yiuTZW-8Fpyy-mGxWadg-3AoGZophzvf-C9G6n1aqyqqU8ezqZTQxQNYoJyT3Iz7BQNvt00JxPlFxJzlnSvaPVWhS4P0L7238t801BlW1HbdPD1kwPVSS7Tx5kQ026I"/><span class="font-headline font-bold text-lg text-primary">TeleCare Terra</span></div><p class="text-xs leading-relaxed text-on-surface-variant">แพลตฟอร์มการแพทย์ทางไกลและระบบส่งยาเภสัชกรรมชุมชน ดูแลสุขภาพด้วยความอุ่นใจ เข้าถึงได้ง่ายและยั่งยืน</p><div class="flex items-center gap-2 pt-2"><span class="material-symbols-outlined text-primary text-base">verified</span><span class="text-xs text-on-surface font-medium">รับรองมาตรฐานวิชาชีพเวชกรรมและเภสัชกรรมสภา</span></div></div><div><h4 class="font-headline text-sm font-semibold text-on-surface mb-4">บริการสุขภาพ</h4><ul class="space-y-2.5 text-xs"><li class="hover:text-primary transition-colors cursor-pointer">นัดหมายแพทย์เฉพาะทางออนไลน์</li><li class="hover:text-primary transition-colors cursor-pointer">จัดส่งยาตามใบสั่งแพทย์ด่วน</li><li class="hover:text-primary transition-colors cursor-pointer">ปรึกษาเภสัชกรชุมชน 24 ชม.</li><li class="hover:text-primary transition-colors cursor-pointer">แผนตรวจสุขภาพประจำปี</li></ul></div><div><h4 class="font-headline text-sm font-semibold text-on-surface mb-4">เครือข่ายและพันธมิตร</h4><ul class="space-y-2.5 text-xs"><li class="hover:text-primary transition-colors cursor-pointer">เครือข่ายร้านยาคุณภาพกว่า 500 แห่ง</li><li class="hover:text-primary transition-colors cursor-pointer">โรงพยาบาลและคลินิกพันธมิตร</li><li class="hover:text-primary transition-colors cursor-pointer">สำหรับแพทย์และบุคลากรทางการแพทย์</li><li class="hover:text-primary transition-colors cursor-pointer">ร่วมเป็นพันธมิตรร้านยากับเทเลแคร์</li></ul></div><div><h4 class="font-headline text-sm font-semibold text-on-surface mb-4">สายด่วนสุขภาพ &amp; ติดต่อ</h4><div class="p-4 rounded-xl bg-surface-container space-y-2 mb-3"><div class="text-xs font-semibold text-error flex items-center gap-1.5"><span class="material-symbols-outlined text-sm">phone_in_talk</span>ศูนย์รับแจ้งเหตุฉุกเฉินแห่งชาติ: 1669</div><div class="text-xs text-on-surface flex items-center gap-1.5"><span class="material-symbols-outlined text-sm">support_agent</span>สายด่วนเภสัชกรเทเลแคร์: <a href="tel:02-123-4567">02-123-4567</a></div></div><p class="text-[11px] text-outline leading-tight">ใบอนุญาตสถานพยาบาลและเทเลเมดิซีนเลขที่ ภ.ส. 10294/2567</p></div></div><div class="max-w-7xl mx-auto px-6 lg:px-12 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-outline gap-4"><p>© 2025 TeleCare Terra Co., Ltd. สงวนลิขสิทธิ์ทุกประการ</p><div class="flex items-center gap-6"><span class="hover:text-on-surface cursor-pointer">นโยบายความเป็นส่วนตัวของข้อมูลสุขภาพ</span><span class="hover:text-on-surface cursor-pointer">ข้อกำหนดการใช้งานระบบการแพทย์ทางไกล</span></div></div></footer>
+</body></html>

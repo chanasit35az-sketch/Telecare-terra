@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+
+<html lang="th"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>TeleCare Terra</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..700&amp;family=Nunito+Sans:ital,opsz,wght@0,6..12,300..800;1,6..12,300..800&amp;family=Prompt:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;font-family:'Prompt','Nunito Sans',sans-serif;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"inverse-on-surface":"#f5f0e8","inverse-surface":"#2e3230","surface-bright":"#faf6f0","error-container":"#ffdad8","on-secondary-fixed-variant":"#4a4538","on-primary-fixed-variant":"#2a6038","surface-variant":"#e4e0d8","primary-fixed-dim":"#8ecf9e","surface-container-lowest":"#ffffff","on-surface-variant":"#4a4e4a","on-error":"#ffffff","outline":"#74796e","tertiary-container":"#c4a66a","on-primary-container":"#d8f0de","primary":"#4a7c59","on-error-container":"#690005","secondary-fixed-dim":"#d4ccbf","outline-variant":"#c4c8bc","surface-container-low":"#f5f1ea","error":"#b83230","primary-container":"#78a886","tertiary-fixed-dim":"#dcc48e","surface-container":"#f0ece4","inverse-primary":"#8ecf9e","on-tertiary-container":"#554020","secondary":"#6b6358","surface-container-high":"#eae6de","on-secondary":"#ffffff","on-secondary-fixed":"#1e1a13","on-background":"#2e3230","tertiary":"#705c30","secondary-fixed":"#f0e8db","surface":"#faf6f0","surface-container-highest":"#e4e0d8","surface-tint":"#4a7c59","primary-fixed":"#c8e8d0","tertiary-fixed":"#f8e0a8","on-tertiary-fixed":"#221a05","on-primary":"#ffffff","secondary-container":"#f0e8db","on-secondary-container":"#5e5548","on-tertiary-fixed-variant":"#554020","background":"#faf6f0","on-surface":"#2e3230","on-primary-fixed":"#002110","surface-dim":"#dbd7cf","on-tertiary":"#ffffff"},"borderRadius":{"DEFAULT":"0.5rem","lg":"1rem","xl":"1.5rem","full":"9999px"},"spacing":{},"fontFamily":{"headline":["Literata"],"display":["Literata"],"body":["Nunito Sans"],"label":["Nunito Sans"]},"fontSize":{}}}}</script></head><body class="bg-surface font-body text-on-surface antialiased"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(46,50,48,0.05)]"><div class="h-20 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-4"><div class="flex items-center gap-3 shrink-0"><img alt="TelePharma Terra Logo" class="h-9 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrBJVeZoULwasqZVK0GTgSih12soivh4SDdtb5grWa2Y2E-PjMo9GumhAM7hdx79MI1bTbPFpwBJWIE5custEwAJ1ofDVnTnDBK86uz7DpB4yiuTZW-8Fpyy-mGxWadg-3AoGZophzvf-C9G6n1aqyqqU8ezqZTQxQNYoJyT3Iz7BQNvt00JxPlFxJzlnSvaPVWhS4P0L7238t801BlW1HbdPD1kwPVSS7Tx5kQ026I"/><div class="flex flex-col"><span class="font-headline font-bold text-lg text-primary leading-tight tracking-tight">TeleCare Terra</span><span class="text-xs text-on-surface-variant font-medium tracking-wide">เทเลแคร์</span></div></div><nav class="hidden xl:flex items-center gap-1" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a class="px-3.5 py-2 text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all rounded-lg" data-path="หน้าแรก" href="#">หน้าแรก</a><a class="px-3.5 py-2 text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all rounded-lg" data-path="ร้านยาและคลินิกใกล้บ้าน" href="#">ร้านยาและคลินิกใกล้บ้าน</a><a class="px-3.5 py-2 text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all rounded-lg" data-path="พบแพทย์เฉพาะทาง" href="#">พบแพทย์เฉพาะทาง</a><a aria-current="page" class="px-3.5 py-2 transition-all bg-primary-container text-on-primary-container font-semibold rounded-lg" data-path="ประวัติการรักษาและใบสั่งยา" href="#">ประวัติการรักษาและใบสั่งยา</a></nav><div class="flex items-center gap-3 shrink-0"><div class="relative hidden sm:block"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg">search</span><input class="w-48 lg:w-60 pl-9 pr-4 py-2 bg-surface-container-low text-xs rounded-xl text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all" placeholder="ค้นหายา แพทย์ อาการ..." type="text"/></div><a class="hidden md:flex items-center gap-1.5 px-3 py-1.5 bg-error-container text-error rounded-xl text-xs font-semibold hover:bg-error hover:text-on-error transition-colors" href="tel:1669"><span class="material-symbols-outlined text-base">emergency</span><span>ฉุกเฉิน 1669</span></a><button aria-label="การแจ้งเตือน" class="relative p-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span></button><div class="flex items-center pl-2 ml-1"><img alt="Profile" class="w-9 h-9 rounded-full object-cover ring-2 ring-primary/20 hover:ring-primary transition-all cursor-pointer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBg9aHif9DuZEfMi7vNihyt9YwvaMpfG_hvEsEUI8Mwa1sK-OKPd6lBDlQ6qXHDHzXqXA3q1Axt8IrrUPzrLWMqCUa2FLd-uRK1jUIk9koH0PjA63bCtLNg2ljeWQMmFOiDgW93tW228ZeDUX4n5ztz1t2Xvyw3A1MT2_BKGzhMmuPdiJ-bKkVy1XXebkCLmJrRMsM75b1vPTWqQ-EjEpnRQwhpYzHzWnY1fMXdbA"/></div></div></div></header><main class="w-full pt-20 bg-surface min-h-[calc(100vh-5rem)]"><div class="flex flex-col w-full">
+<div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-12 py-8 space-y-8">
+<!-- Top Alert: Medicine Refill Warning Banner (Subtle amber tint, high attention) -->
+<section class="relative overflow-hidden rounded-xl bg-tertiary-fixed text-on-tertiary-fixed p-5 sm:p-6 shadow-sm">
+<div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-start gap-4">
+<div class="p-2.5 bg-tertiary-container/60 text-on-tertiary-container rounded-xl shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">notifications_active</span>
+</div>
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="text-xs uppercase tracking-wider font-semibold text-tertiary">การแจ้งเตือนเภสัชกรรมต่อเนื่อง</span>
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+<span class="text-xs font-medium text-error">เหลือ 5 วันสุดท้าย</span>
+</div>
+<h2 class="font-headline text-lg sm:text-xl font-bold tracking-tight text-on-surface">
+              ยาความดันโลหิตของคุณ (Amlodipine 5mg) ใกล้หมดรอบนี้
+            </h2>
+<p class="text-xs sm:text-sm text-on-surface-variant max-w-2xl leading-relaxed">
+              ต้องการให้เภสัชกรเครือข่ายโทรตรวจสอบอาการปัจจุบัน และประสานร้านยาใกล้บ้านเพื่อจัดส่งรอบใหม่โดยไม่ต้องรอคิวหรือไม่?
+            </p>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0 self-end md:self-center">
+<button class="px-3.5 py-2 text-xs font-semibold text-on-tertiary-fixed-variant hover:text-on-surface transition-colors" type="button">
+            เตือนภายหลัง
+          </button>
+<button class="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-on-primary text-xs sm:text-sm font-semibold shadow-sm hover:bg-primary/90 transition-all" id="refill-confirm-btn" onclick="confirmRefill(this)" type="button">
+<span class="material-symbols-outlined text-base">local_shipping</span>
+<span>ยืนยันการจัดส่งรอบใหม่</span>
+</button>
+</div>
+</div>
+<div class="absolute -right-8 -bottom-8 w-44 h-44 bg-tertiary-container/20 rounded-full blur-2xl pointer-events-none"></div>
+</section>
+<!-- Patient Header Card -->
+<header class="bg-surface-container-lowest rounded-xl p-6 sm:p-8 shadow-sm">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+<div class="flex flex-col sm:flex-row sm:items-center gap-5">
+<div class="relative w-20 h-20 rounded-xl overflow-hidden shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A warm, natural portrait of a calm middle-aged Thai gentleman smiling gently wearing casual earthy olive clothing in soft natural morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAa4Dxpr1UCAoFEBzgxd7cOrknDit4Kwnlzw2BLZZT1IHeFX0T6LcmJShMLbw8dW54IbQZfRzG51jMOdi9kMDR3C--eALtmD2tvSuGSurVPI6d30u8eS96ksIF4EEueUe99_YyPy4vMaLnja3i6-5qYRsAilQHV8n_OA75H42jVheacy1KjV9eudKOlCMLSeyeiEt7zrhh9jjT2Nu0Ax8AnRYQTb-k-z6r2QyZaBw"/>
+<span class="absolute bottom-1 right-1 w-3.5 h-3.5 rounded-full bg-primary ring-2 ring-surface-container-lowest" title="ใช้งานล่าสุดในระบบ"></span>
+</div>
+<div class="space-y-2">
+<div class="flex flex-wrap items-center gap-2.5">
+<h1 class="font-headline text-2xl sm:text-3xl font-bold text-on-surface tracking-tight">
+                คุณธนภัทร สุขสมบูรณ์
+              </h1>
+<span class="px-2.5 py-1 rounded-lg bg-surface-container text-xs font-mono font-medium text-on-surface-variant">
+                HN: 67-00921
+              </span>
+<span class="px-2.5 py-1 rounded-lg bg-primary-fixed text-on-primary-fixed-variant text-xs font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">verified_user</span> บัตรทอง / ประกัน TeleCare
+              </span>
+</div>
+<p class="text-xs text-on-surface-variant flex flex-wrap items-center gap-3">
+<span>อายุ: 48 ปี 6 เดือน</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span>เพศ: ชาย</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span>ปรับปรุงล่าสุด: วันนี้ 09:30 น.</span>
+</p>
+<!-- Health Badges & Critical Alerts -->
+<div class="flex flex-wrap items-center gap-2 pt-1">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-surface-container text-xs font-medium text-on-surface">
+<span class="material-symbols-outlined text-sm text-tertiary">bloodtype</span>
+                กรุ๊ปเลือด O Rh+
+              </span>
+<!-- Allergy Highlight - High Visibility Warm Coral/Amber Warning -->
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-error-container text-error text-xs font-bold shadow-[0_2px_8px_rgba(184,50,48,0.12)]">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">warning</span>
+                แพ้ยา: Penicillin (เพนิซิลลิน)
+              </span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-surface-container text-xs font-medium text-on-surface">
+<span class="material-symbols-outlined text-sm text-primary">favorite</span>
+                โรคประจำตัว: ความดันโลหิตสูง (HTN)
+              </span>
+</div>
+</div>
+</div>
+<!-- Quick actions -->
+<div class="flex flex-wrap sm:flex-nowrap items-center gap-3 shrink-0 self-start lg:self-center">
+<button class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-surface-container text-on-surface text-xs sm:text-sm font-semibold hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-lg text-primary">qr_code_2</span>
+<span>บัตรประจำตัวผู้ป่วย</span>
+</button>
+<button class="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-on-primary text-xs sm:text-sm font-semibold shadow-sm hover:bg-primary/90 transition-all" type="button">
+<span class="material-symbols-outlined text-lg">add_a_photo</span>
+<span>+ อัปโหลดผลตรวจ/ใบสั่งยาเดิม</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Key Metrics & Active Reminders Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Metric 1: Today's Pill Checklist -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="p-2 rounded-xl bg-primary-fixed text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">medication</span>
+</span>
+<div>
+<h3 class="font-headline text-base font-bold text-on-surface">ยาที่ต้องทานวันนี้</h3>
+<span class="text-xs text-on-surface-variant">ประจำวันที่ 25 ต.ค. 2567</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-xs font-semibold text-primary" id="tracker-counter">1 จาก 3 ครบแล้ว</span>
+</div>
+<div class="space-y-3 pt-1" id="pill-checklist-widget">
+<label class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors">
+<div class="flex items-center gap-3">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-primary accent-primary" onchange="togglePill(this)" type="checkbox"/>
+<div>
+<div class="text-xs font-semibold text-on-surface line-through text-outline">Amlodipine 5mg (1 เม็ด)</div>
+<div class="text-[11px] text-outline">เช้า (หลังอาหาร 08:00 น.) • รับประทานแล้วเมื่อ 08:15</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+</label>
+<label class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors">
+<div class="flex items-center gap-3">
+<input class="w-4 h-4 rounded text-primary focus:ring-primary accent-primary" onchange="togglePill(this)" type="checkbox"/>
+<div>
+<div class="text-xs font-semibold text-on-surface">Paracetamol 500mg (1 เม็ด)</div>
+<div class="text-[11px] text-on-surface-variant">เย็น (หลังอาหาร 19:00 น.) • เฉพาะเมื่อมีไข้</div>
+</div>
+</div>
+<span class="text-[11px] font-semibold text-tertiary bg-tertiary-fixed px-2 py-0.5 rounded">รอทาน</span>
+</label>
+<label class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors">
+<div class="flex items-center gap-3">
+<input class="w-4 h-4 rounded text-primary focus:ring-primary accent-primary" onchange="togglePill(this)" type="checkbox"/>
+<div>
+<div class="text-xs font-semibold text-on-surface">Bromhexine 8mg ขับเสมหะ</div>
+<div class="text-[11px] text-on-surface-variant">เย็น (หลังอาหาร 19:00 น.) • 1 เม็ด</div>
+</div>
+</div>
+<span class="text-[11px] font-semibold text-tertiary bg-tertiary-fixed px-2 py-0.5 rounded">รอทาน</span>
+</label>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-xs text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-primary">schedule</span>
+            รอบถัดไป: 19:00 น.
+          </span>
+<a class="text-primary font-semibold hover:underline" href="#med-schedule">ดูตารางเวลาทั้งหมด →</a>
+</div>
+</div>
+<!-- Metric 2: Latest Consultation Summary -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="p-2 rounded-xl bg-secondary-container text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">support_agent</span>
+</span>
+<div>
+<h3 class="font-headline text-base font-bold text-on-surface">การปรึกษาล่าสุด</h3>
+<span class="text-xs text-on-surface-variant">เมื่อวานนี้ 15:30 น. (22 นาที)</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-primary-fixed text-xs font-medium text-on-primary-fixed-variant">ออนไลน์</span>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low space-y-3">
+<div class="flex items-center gap-3">
+<img class="w-11 h-11 rounded-full object-cover" data-alt="Close up warm headshot of a friendly professional Thai male clinical pharmacist wearing eyeglasses and a clean laboratory consultation coat" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfOy74zx6xQxBlG0rCbsUPZ5Z2RjYsGmMr4fyimpTDgPzJgiIADaL3bskittCZSIUWiPTn3aYXGl5M0oaMntC1BGN6MOuTXkJpi9mTJUFBTjaf3YW5VtMK2JVGgOJs81F4wdZPQtWG7wQgDi3rKHqmPfbho3aNWIkrQPnu-c6q82zSnD9XZYHaJ6WVwHhjHCl7uAR7q9DWk-2fk5fnGgrJrCq8KmAokjGCTgwybw"/>
+<div>
+<h4 class="text-xs font-bold text-on-surface">ภก. ธีรภัทร เอกมงคล</h4>
+<p class="text-[11px] text-on-surface-variant">ภ.บ. เภสัชกรรมชุมชน (ร้านฟาร์มาแคร์ พลัส)</p>
+</div>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed bg-surface-container-lowest p-2.5 rounded-lg">
+              "ผู้ป่วยมีไข้ต่ำ 38.2°C ปวดกล้ามเนื้อ ได้จัดยาลดไข้และละลายเสมหะ พร้อมส่งด่วน ให้ดื่มน้ำอุ่นมากๆ พักผ่อนให้เพียงพอ"
+            </p>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between">
+<button class="text-xs text-primary font-semibold hover:underline flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-sm">chat</span> ส่งข้อความสอบถามเพิ่มเติม
+          </button>
+<button class="text-xs text-outline hover:text-on-surface transition-colors" type="button">
+            สรุปการสนทนา
+          </button>
+</div>
+</div>
+<!-- Metric 3: Active Delivery Tracker -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="p-2 rounded-xl bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">two_wheeler</span>
+</span>
+<div>
+<h3 class="font-headline text-base font-bold text-on-surface">ใบสั่งยาที่กำลังจัดส่ง</h3>
+<span class="text-xs text-on-surface-variant">คำสั่งเลขที่ #MED-2410-098</span>
+</div>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary-fixed text-primary text-xs font-bold animate-pulse">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span> กำลังนำส่ง
+            </span>
+</div>
+<div class="space-y-3">
+<div class="flex items-baseline justify-between">
+<span class="text-xs text-on-surface-variant">เวลาคาดการณ์ส่งถึง:</span>
+<span class="font-headline text-xl font-bold text-primary">อีก ~18 นาที</span>
+</div>
+<!-- Mini Progress bar -->
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full transition-all duration-700" style="width: 72%;"></div>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low flex items-center justify-between text-xs">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-base text-primary">storefront</span>
+<div>
+<div class="font-medium text-on-surface">ร้านฟาร์มาแคร์ พลัส สาขาสาทร</div>
+<div class="text-[11px] text-outline">ไรเดอร์: คุณสมชาย (GPX-9142)</div>
+</div>
+</div>
+<a class="p-2 rounded-lg bg-surface-container hover:bg-surface text-primary" href="tel:0891234567" title="โทรหาผู้จัดส่ง">
+<span class="material-symbols-outlined text-base">call</span>
+</a>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between">
+<button class="w-full py-2 rounded-lg bg-primary-fixed text-on-primary-fixed font-semibold text-xs text-center hover:bg-primary-container transition-colors" type="button">
+            ติดตามพิกัด GPS แบบสด
+          </button>
+</div>
+</div>
+</section>
+<!-- Main Content Split: Consultation History / Prescriptions & Pill Tracker -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Column: Detailed e-Prescriptions & Consultation History (8 cols) -->
+<section class="lg:col-span-8 space-y-6">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div>
+<span class="text-xs font-semibold uppercase tracking-wider text-primary">Medical &amp; Pharmacy Records</span>
+<h2 class="font-headline text-2xl font-bold text-on-surface tracking-tight">
+              ประวัติใบสั่งยาและการปรึกษาแพทย์/เภสัชกร
+            </h2>
+</div>
+<!-- Filter pill tabs -->
+<div class="flex items-center gap-1.5 p-1 bg-surface-container rounded-xl self-start sm:self-auto text-xs">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest text-primary font-semibold shadow-sm" type="button">ทั้งหมด (8)</button>
+<button class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface" type="button">ใบสั่งยาแพทย์</button>
+<button class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface" type="button">บันทึกร้านยา</button>
+</div>
+</div>
+<!-- Timeline / Record Cards -->
+<div class="space-y-4">
+<!-- Record 1: Latest - In Progress Delivery -->
+<article class="bg-surface-container-lowest rounded-xl p-6 sm:p-7 shadow-sm transition-all hover:shadow-md">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4">
+<div class="flex items-start gap-3.5">
+<div class="w-12 h-12 rounded-xl bg-primary-fixed flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-2xl">prescriptions</span>
+</div>
+<div>
+<div class="flex flex-wrap items-center gap-2">
+<h3 class="font-headline text-lg font-bold text-on-surface">ใบสั่งยาเทเลฟาร์มาซี (ปรึกษาอาการไข้หวัด)</h3>
+<span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-primary text-[11px] font-bold">
+                      กำลังจัดส่ง - อีก 18 นาที
+                    </span>
+</div>
+<p class="text-xs text-on-surface-variant mt-1">
+                    วันที่: 24 ต.ค. 2567 (15:30 น.) • ผู้ดูแล: <span class="font-semibold text-on-surface">ภก. ธีรภัทร เอกมงคล</span> (ภ.บ. 28941)
+                  </p>
+<p class="text-xs text-outline mt-0.5">สถานพยาบาล / เครือข่าย: ร้านยาฟาร์มาแคร์ พลัส สาทร</p>
+</div>
+</div>
+<span class="text-xs font-mono text-outline shrink-0">#RX-2024-8841</span>
+</div>
+<!-- Clinical Assessment & Chief Complaint -->
+<div class="my-4 p-4 rounded-xl bg-surface-container-low space-y-2">
+<div class="flex items-center gap-2 text-xs font-semibold text-on-surface">
+<span class="material-symbols-outlined text-sm text-tertiary">clinical_notes</span>
+<span>อาการเบื้องต้น &amp; ข้อมูลการซักประวัติ:</span>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">
+                ผู้ป่วยมีอาการไข้หนาวสั่น วัดอุณหภูมิได้ 38.2°C ปวดเมื่อยตามตัว มีเสมหะสีขาวใส ไอรบกวนการนอน ไม่มีประวัติเจ็บหน้าอกหรือหายใจหอบเหนื่อย แพ้ยา Penicillin
+              </p>
+</div>
+<!-- Prescribed Medications Detail -->
+<div class="space-y-2.5 mb-5">
+<span class="text-xs font-semibold text-on-surface">รายการยาและเวชภัณฑ์ที่ได้รับ (3 รายการ):</span>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+<div class="p-3 rounded-xl bg-surface-container text-xs space-y-1">
+<div class="font-semibold text-on-surface">1. Paracetamol 500mg</div>
+<div class="text-[11px] text-on-surface-variant">ทาน 1 เม็ด ทุก 4-6 ชม. เมื่อมีไข้หรือปวด (จำนวน 10 เม็ด)</div>
+</div>
+<div class="p-3 rounded-xl bg-surface-container text-xs space-y-1">
+<div class="font-semibold text-on-surface">2. ยาแก้ไอขับเสมหะ (Bromhexine)</div>
+<div class="text-[11px] text-on-surface-variant">ทาน 1 เม็ด หลังอาหาร เช้า-เย็น (จำนวน 10 เม็ด)</div>
+</div>
+<div class="p-3 rounded-xl bg-surface-container text-xs space-y-1">
+<div class="font-semibold text-on-surface">3. ผงเกลือแร่ ORS ชนิดซอง</div>
+<div class="text-[11px] text-on-surface-variant">ชงดื่มเมื่อรู้สึกอ่อนเพลีย จิบแทนน้ำเปล่า (จำนวน 4 ซอง)</div>
+</div>
+</div>
+</div>
+<!-- Footer Actions for Record 1 -->
+<div class="pt-4 flex flex-wrap items-center justify-between gap-3">
+<div class="flex items-center gap-2 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-primary">local_shipping</span>
+<span>ส่งด่วนผ่าน Delivery Express โดยเภสัชกรควบคุมการจัดส่ง</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3.5 py-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-xs font-semibold text-on-surface transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-base">pin_drop</span>
+<span>ดูรายละเอียดการจัดส่ง</span>
+</button>
+<button class="px-3.5 py-2 rounded-xl bg-primary text-on-primary text-xs font-semibold hover:bg-primary/90 transition-colors flex items-center gap-1.5 shadow-sm" type="button">
+<span class="material-symbols-outlined text-base">download</span>
+<span>ดาวน์โหลด e-Prescription PDF</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Record 2: Doctor Follow-up (Hypertension) -->
+<article class="bg-surface-container-lowest rounded-xl p-6 sm:p-7 shadow-sm transition-all hover:shadow-md">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4">
+<div class="flex items-start gap-3.5">
+<div class="w-12 h-12 rounded-xl bg-secondary-container flex items-center justify-center shrink-0 text-secondary">
+<span class="material-symbols-outlined text-2xl">stethoscope</span>
+</div>
+<div>
+<div class="flex flex-wrap items-center gap-2">
+<h3 class="font-headline text-lg font-bold text-on-surface">การตรวจติดตามโรคความดันโลหิตสูง (HTN Follow-up)</h3>
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant text-[11px] font-semibold">
+                      ส่งถึงแล้ว • การรักษาเสร็จสมบูรณ์
+                    </span>
+</div>
+<p class="text-xs text-on-surface-variant mt-1">
+                    วันที่: 10 ต.ค. 2567 (10:15 น.) • แพทย์: <span class="font-semibold text-on-surface">พญ. นภัสสร จิตติวัฒนา</span> (ว.ว. อายุรศาสตร์ทั่วไป)
+                  </p>
+<p class="text-xs text-outline mt-0.5">คลินิกการแพทย์ทางไกล โรงพยาบาลเทเลแคร์กรุงเทพ</p>
+</div>
+</div>
+<span class="text-xs font-mono text-outline shrink-0">#MD-2024-5219</span>
+</div>
+<div class="my-4 p-4 rounded-xl bg-surface-container-low grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+<div>
+<span class="text-outline block mb-0.5">การวินิจฉัยหลัก (ICD-10):</span>
+<span class="font-bold text-on-surface">Essential Hypertension (I10)</span>
+</div>
+<div>
+<span class="text-outline block mb-0.5">ความดันที่วัดได้ล่าสุด:</span>
+<span class="font-bold text-primary">128/82 mmHg (ควบคุมได้ดี)</span>
+</div>
+<div>
+<span class="text-outline block mb-0.5">การนัดหมายครั้งต่อไป:</span>
+<span class="font-bold text-on-surface">10 พ.ย. 2567 (นัดผ่านวิดีโอคอล)</span>
+</div>
+</div>
+<!-- Medication Table list -->
+<div class="p-3.5 rounded-xl bg-surface-container space-y-1.5 mb-5 text-xs">
+<div class="flex items-center justify-between font-semibold text-on-surface">
+<span>ยาประจำตัว: Amlodipine 5 mg (Norvasc generic)</span>
+<span class="text-primary font-mono">จำนวน 30 เม็ด</span>
+</div>
+<p class="text-[11px] text-on-surface-variant">
+                วิธีใช้: รับประทานวันละ 1 เม็ด หลังอาหารเช้า เวลาเดิมสม่ำเสมอทุกวัน ต่อเนื่อง 30 วัน
+              </p>
+</div>
+<!-- Actions -->
+<div class="pt-4 flex flex-wrap items-center justify-between gap-3">
+<div class="flex items-center gap-1.5 text-xs text-outline">
+<span class="material-symbols-outlined text-sm text-primary">check_circle</span>
+<span>จัดส่งสำเร็จเมื่อ 11 ต.ค. 2567 (รับยาเรียบร้อย)</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3.5 py-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-xs font-semibold text-on-surface transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-base">description</span>
+<span>ดูใบรับรองแพทย์</span>
+</button>
+<button class="px-3.5 py-2 rounded-xl bg-primary-fixed text-on-primary-fixed-variant text-xs font-semibold hover:bg-primary-container transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-base">autorenew</span>
+<span>ขอเติมยาเดิม (Refill)</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Record 3: Contact Dermatitis consultation -->
+<article class="bg-surface-container-lowest rounded-xl p-6 sm:p-7 shadow-sm transition-all hover:shadow-md opacity-90 hover:opacity-100">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4">
+<div class="flex items-start gap-3.5">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center shrink-0 text-on-surface-variant">
+<span class="material-symbols-outlined text-2xl">healing</span>
+</div>
+<div>
+<div class="flex flex-wrap items-center gap-2">
+<h3 class="font-headline text-lg font-bold text-on-surface">ปรึกษาปัญหาผื่นแพ้สัมผัสทางผิวหนัง</h3>
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant text-[11px] font-semibold">
+                      เสร็จสมบูรณ์
+                    </span>
+</div>
+<p class="text-xs text-on-surface-variant mt-1">
+                    วันที่: 15 ก.ย. 2567 (18:20 น.) • เภสัชกร: <span class="font-semibold text-on-surface">ภก. ศิริพร ปัญญาดี</span>
+</p>
+<p class="text-xs text-outline mt-0.5">เครือข่ายร้านยากรุงเทพใจดี สาขาประชาชื่น</p>
+</div>
+</div>
+<span class="text-xs font-mono text-outline shrink-0">#RX-2024-3105</span>
+</div>
+<p class="text-xs text-on-surface-variant mb-4 leading-relaxed">
+              ผู้ป่วยมีผื่นคันแดงบริเวณท่อนแขนหลังจากสัมผัสน้ำยาทำความสะอาด ไม่มีแผลติดเชื้อ ให้ยาทาแก้แพ้ Hydrocortisone cream 1% และยาทาน Cetirizine 10mg
+            </p>
+<div class="pt-4 flex items-center justify-between text-xs text-outline">
+<span>สถานะ: ผู้ป่วยรายงานอาการหายเป็นปกติแล้วในการติดตามผลวันที่ 18 ก.ย.</span>
+<button class="text-primary hover:underline font-semibold flex items-center gap-1" type="button">
+<span>ดูรายละเอียด</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</article>
+</div>
+</section>
+<!-- Right Column: Pill Tracker & Vitals Sparkline Widget (4 cols) -->
+<aside class="lg:col-span-4 space-y-6">
+<!-- Medication Schedule Tracker Box -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm space-y-5" id="med-schedule">
+<div class="flex items-center justify-between">
+<div>
+<span class="text-[11px] font-semibold uppercase tracking-wider text-primary">Daily Routine</span>
+<h3 class="font-headline text-lg font-bold text-on-surface">ตารางการทานยาประจำวัน</h3>
+</div>
+<div class="p-2 rounded-xl bg-surface-container text-primary">
+<span class="material-symbols-outlined text-xl">event_repeat</span>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Morning Slot -->
+<div class="p-4 rounded-xl bg-surface-container-low space-y-2">
+<div class="flex items-center justify-between">
+<span class="flex items-center gap-1.5 text-xs font-bold text-on-surface">
+<span class="material-symbols-outlined text-base text-tertiary">wb_sunny</span>
+                  เช้า (หลังอาหาร 08:00 น.)
+                </span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-primary text-on-primary">ทานแล้ว</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-lowest flex items-center justify-between text-xs">
+<div>
+<div class="font-semibold text-on-surface">Amlodipine 5mg</div>
+<div class="text-[11px] text-outline">ควบคุมความดัน • 1 เม็ด</div>
+</div>
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+</div>
+</div>
+<!-- Noon Slot -->
+<div class="p-4 rounded-xl bg-surface-container-low space-y-2 opacity-60">
+<div class="flex items-center justify-between">
+<span class="flex items-center gap-1.5 text-xs font-semibold text-on-surface">
+<span class="material-symbols-outlined text-base text-outline">light_mode</span>
+                  กลางวัน (หลังอาหาร 12:30 น.)
+                </span>
+<span class="text-[11px] text-outline">ไม่มีรายการยา</span>
+</div>
+<div class="text-xs text-outline italic text-center py-1">
+                - ไม่มีมื้อยาในช่วงเวลานี้ -
+              </div>
+</div>
+<!-- Evening Slot -->
+<div class="p-4 rounded-xl bg-surface-container-low space-y-2">
+<div class="flex items-center justify-between">
+<span class="flex items-center gap-1.5 text-xs font-bold text-on-surface">
+<span class="material-symbols-outlined text-base text-secondary">dark_mode</span>
+                  เย็น (หลังอาหาร 19:00 น.)
+                </span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-tertiary-fixed text-on-tertiary-fixed">รอทาน</span>
+</div>
+<div class="space-y-1.5">
+<div class="p-2.5 rounded-lg bg-surface-container-lowest flex items-center justify-between text-xs">
+<div>
+<div class="font-semibold text-on-surface">Paracetamol 500mg</div>
+<div class="text-[11px] text-on-surface-variant">บรรเทาไข้หวัด • 1 เม็ด (เฉพาะมีไข้)</div>
+</div>
+<span class="material-symbols-outlined text-outline text-lg">radio_button_unchecked</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-lowest flex items-center justify-between text-xs">
+<div>
+<div class="font-semibold text-on-surface">Bromhexine 8mg</div>
+<div class="text-[11px] text-on-surface-variant">ขับเสมหะ • 1 เม็ด</div>
+</div>
+<span class="material-symbols-outlined text-outline text-lg">radio_button_unchecked</span>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-semibold transition-colors flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-base">alarm</span>
+<span>ตั้งเวลาแจ้งเตือนเข้าสมาร์ตโฟน</span>
+</button>
+</div>
+<!-- Inline Health Trend Chart (BP Stability over 4 weeks) -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm space-y-4">
+<div class="flex items-center justify-between">
+<div>
+<span class="text-[11px] font-semibold uppercase tracking-wider text-primary">Biometric Insights</span>
+<h3 class="font-headline text-base font-bold text-on-surface">แนวโน้มความดันโลหิต (4 สัปดาห์)</h3>
+</div>
+<span class="text-xs font-bold text-primary">เฉลี่ย 126/82</span>
+</div>
+<!-- Inline SVG Chart under 2KB -->
+<div class="pt-2">
+<svg aria-label="แผนภูมิแนวโน้มความดันโลหิต 4 สัปดาห์" class="w-full h-28 overflow-visible" viewbox="0 0 320 120">
+<!-- Horizontal Guideline -->
+<line class="text-outline-variant" stroke="currentColor" stroke-dasharray="3,3" stroke-width="1" x1="10" x2="310" y1="30" y2="30"></line>
+<line class="text-outline-variant" stroke="currentColor" stroke-dasharray="3,3" stroke-width="1" x1="10" x2="310" y1="70" y2="70"></line>
+<text class="text-[9px] text-outline" fill="currentColor" x="315" y="33">135 max</text>
+<text class="text-[9px] text-outline" fill="currentColor" x="315" y="73">120 target</text>
+<!-- Shaded safe area -->
+<path class="text-primary/10" d="M 20 65 L 100 58 L 180 52 L 260 48 L 300 45 L 300 95 L 260 95 L 180 95 L 100 95 L 20 95 Z" fill="currentColor"></path>
+<!-- Systolic trend line -->
+<path class="text-primary" d="M 20 65 Q 60 55 100 58 T 180 52 T 260 48 T 300 45" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="3"></path>
+<!-- Data dots -->
+<circle class="text-primary" cx="20" cy="65" fill="currentColor" r="4"></circle>
+<circle class="text-primary" cx="100" cy="58" fill="currentColor" r="4"></circle>
+<circle class="text-primary" cx="180" cy="52" fill="currentColor" r="4"></circle>
+<circle class="text-primary" cx="260" cy="48" fill="currentColor" r="4"></circle>
+<circle class="text-primary ring-2 ring-surface" cx="300" cy="45" fill="currentColor" r="5"></circle>
+<!-- Label X -->
+<text class="text-[10px] text-outline" fill="currentColor" x="15" y="115">W1 (132)</text>
+<text class="text-[10px] text-outline" fill="currentColor" x="95" y="115">W2 (130)</text>
+<text class="text-[10px] text-outline" fill="currentColor" x="175" y="115">W3 (127)</text>
+<text class="text-[10px] text-primary font-bold" fill="currentColor" x="255" y="115">W4 (126)</text>
+</svg>
+</div>
+<div class="p-3 rounded-xl bg-surface-container flex items-center gap-2.5 text-xs text-on-surface">
+<span class="material-symbols-outlined text-primary text-base">insights</span>
+<span>ระดับความดันอยู่ในเกณฑ์ปกติ ตอบสนองต่อการทานยาต่อเนื่องดีเยี่ยม</span>
+</div>
+</div>
+<!-- Community Pharmacy Partner Box -->
+<div class="bg-surface-container-low rounded-xl p-6 space-y-4">
+<div class="flex items-center gap-3">
+<div class="p-2.5 rounded-xl bg-surface-container text-primary">
+<span class="material-symbols-outlined text-xl">home_health</span>
+</div>
+<div>
+<h4 class="text-xs font-bold text-on-surface">ร้านยาประจำตัวของคุณ</h4>
+<p class="text-[11px] text-on-surface-variant">ฟาร์มาแคร์ พลัส สาทร (ห่าง 1.2 กม.)</p>
+</div>
+</div>
+<div class="text-xs text-on-surface-variant leading-relaxed">
+            มีบริการจัดส่งยาถึงบ้านภายใน 30 นาที และสามารถนำ e-Prescription ไปรับที่เคาน์เตอร์ได้ทันที
+          </div>
+<div class="flex items-center gap-2">
+<button class="w-full py-2 rounded-lg bg-surface-container hover:bg-surface text-on-surface text-xs font-semibold transition-colors" type="button">
+              เปลี่ยนร้านยาประจำ
+            </button>
+<button class="w-full py-2 rounded-lg bg-surface-container hover:bg-surface text-primary text-xs font-semibold transition-colors" type="button">
+              โทรหาร้านยา
+            </button>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</div>
+<script>
+  function confirmRefill(btn) {
+    btn.disabled = true;
+    btn.innerHTML = `
+      <span class="material-symbols-outlined text-base animate-spin">refresh</span>
+      <span>กำลังส่งคำขอไปยังเภสัชกร...</span>
+    `;
+    setTimeout(() => {
+      btn.className = "flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary-fixed text-on-primary-fixed font-semibold text-xs sm:text-sm";
+      btn.innerHTML = `
+        <span class="material-symbols-outlined text-base">check</span>
+        <span>ส่งคำขอสำเร็จ เภสัชกรจะติดต่อกลับ</span>
+      `;
+    }, 900);
+  }
+
+  function togglePill(checkbox) {
+    const parent = checkbox.closest('label');
+    const labelText = parent.querySelector('div > div:first-child');
+    const badge = parent.querySelector('span');
+
+    if (checkbox.checked) {
+      labelText.classList.add('line-through', 'text-outline');
+      if (badge && !badge.classList.contains('material-symbols-outlined')) {
+        badge.outerHTML = '<span class="material-symbols-outlined text-primary text-sm">check_circle</span>';
+      }
+    } else {
+      labelText.classList.remove('line-through', 'text-outline');
+    }
+
+    const allChecked = document.querySelectorAll('#pill-checklist-widget input[type="checkbox"]:checked').length;
+    const total = document.querySelectorAll('#pill-checklist-widget input[type="checkbox"]').length;
+    const counter = document.getElementById('tracker-counter');
+    if (counter) {
+      counter.textContent = `${allChecked} จาก ${total} ครบแล้ว`;
+    }
+  }
+</script></main><footer class="w-full bg-surface-container-low py-16 text-on-surface-variant mt-20"><div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-4 gap-10"><div class="space-y-4"><div class="flex items-center gap-3"><img alt="TelePharma Terra Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrBJVeZoULwasqZVK0GTgSih12soivh4SDdtb5grWa2Y2E-PjMo9GumhAM7hdx79MI1bTbPFpwBJWIE5custEwAJ1ofDVnTnDBK86uz7DpB4yiuTZW-8Fpyy-mGxWadg-3AoGZophzvf-C9G6n1aqyqqU8ezqZTQxQNYoJyT3Iz7BQNvt00JxPlFxJzlnSvaPVWhS4P0L7238t801BlW1HbdPD1kwPVSS7Tx5kQ026I"/><span class="font-headline font-bold text-lg text-primary">TeleCare Terra</span></div><p class="text-xs leading-relaxed text-on-surface-variant">แพลตฟอร์มการแพทย์ทางไกลและระบบส่งยาเภสัชกรรมชุมชน ดูแลสุขภาพด้วยความอุ่นใจ เข้าถึงได้ง่ายและยั่งยืน</p><div class="flex items-center gap-2 pt-2"><span class="material-symbols-outlined text-primary text-base">verified</span><span class="text-xs text-on-surface font-medium">รับรองมาตรฐานวิชาชีพเวชกรรมและเภสัชกรรมสภา</span></div></div><div><h4 class="font-headline text-sm font-semibold text-on-surface mb-4">บริการสุขภาพ</h4><ul class="space-y-2.5 text-xs"><li class="hover:text-primary transition-colors cursor-pointer">นัดหมายแพทย์เฉพาะทางออนไลน์</li><li class="hover:text-primary transition-colors cursor-pointer">จัดส่งยาตามใบสั่งแพทย์ด่วน</li><li class="hover:text-primary transition-colors cursor-pointer">ปรึกษาเภสัชกรชุมชน 24 ชม.</li><li class="hover:text-primary transition-colors cursor-pointer">แผนตรวจสุขภาพประจำปี</li></ul></div><div><h4 class="font-headline text-sm font-semibold text-on-surface mb-4">เครือข่ายและพันธมิตร</h4><ul class="space-y-2.5 text-xs"><li class="hover:text-primary transition-colors cursor-pointer">เครือข่ายร้านยาคุณภาพกว่า 500 แห่ง</li><li class="hover:text-primary transition-colors cursor-pointer">โรงพยาบาลและคลินิกพันธมิตร</li><li class="hover:text-primary transition-colors cursor-pointer">สำหรับแพทย์และบุคลากรทางการแพทย์</li><li class="hover:text-primary transition-colors cursor-pointer">ร่วมเป็นพันธมิตรร้านยากับเทเลแคร์</li></ul></div><div><h4 class="font-headline text-sm font-semibold text-on-surface mb-4">สายด่วนสุขภาพ &amp; ติดต่อ</h4><div class="p-4 rounded-xl bg-surface-container space-y-2 mb-3"><div class="text-xs font-semibold text-error flex items-center gap-1.5"><span class="material-symbols-outlined text-sm">phone_in_talk</span>ศูนย์รับแจ้งเหตุฉุกเฉินแห่งชาติ: 1669</div><div class="text-xs text-on-surface flex items-center gap-1.5"><span class="material-symbols-outlined text-sm">support_agent</span>สายด่วนเภสัชกรเทเลแคร์: 02-123-4567</div></div><p class="text-[11px] text-outline leading-tight">ใบอนุญาตสถานพยาบาลและเทเลเมดิซีนเลขที่ ภ.ส. 10294/2567</p></div></div><div class="max-w-7xl mx-auto px-6 lg:px-12 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-outline gap-4"><p>© 2025 TeleCare Terra Co., Ltd. สงวนลิขสิทธิ์ทุกประการ</p><div class="flex items-center gap-6"><span class="hover:text-on-surface cursor-pointer">นโยบายความเป็นส่วนตัวของข้อมูลสุขภาพ</span><span class="hover:text-on-surface cursor-pointer">ข้อกำหนดการใช้งานระบบการแพทย์ทางไกล</span></div></div></footer></body></html>

@@ -1,0 +1,23 @@
+{
+  "name": "telecare-terra",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TeleCare Terra — telepharmacy & telemedicine web platform (patients, pharmacies, doctors, e-prescriptions, delivery tracking).",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "build:css": "tailwindcss -c tailwind.config.js -i styles/tailwind.css -o public/css/tailwind.css --minify",
+    "test": "node --test test/*.test.js",
+    "reset-db": "node scripts/reset-db.js"
+  },
+  "engines": {
+    "node": ">=18.17"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
