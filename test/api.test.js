@@ -51,7 +51,7 @@ test.after(async () => {
 
 test('pages are served and protected pages redirect to login', async () => {
   const c = client();
-  for (const p of ['/', '/login', '/doctors', '/pharmacies', '/care-plus']) assert.strictEqual((await c.get(p)).status, 200, p);
+  for (const p of ['/', '/login', '/doctors', '/pharmacies', '/care-plus', '/privacy', '/terms']) assert.strictEqual((await c.get(p)).status, 200, p);
   const r = await c.get('/records');
   assert.strictEqual(r.status, 302);
   assert.match(r.headers.get('location'), /^\/login\?next=/);

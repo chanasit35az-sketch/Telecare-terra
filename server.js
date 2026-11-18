@@ -91,6 +91,7 @@ function createApp() {
   const pages = {
     '/': 'index.html', '/login': 'login.html', '/pharmacies': 'pharmacies.html', '/doctors': 'doctors.html',
     '/care-plus': 'care-plus.html', '/records': 'records.html', '/orders': 'orders.html', '/provider': 'provider.html',
+    '/privacy': 'privacy.html', '/terms': 'terms.html',
   };
   const protectedPages = new Set(['/records', '/orders', '/provider', '/consult', '/video']);
   const guard = (route) => (req, res, next) => {
