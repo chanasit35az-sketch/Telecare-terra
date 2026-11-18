@@ -201,7 +201,26 @@
   TC.on = (evt, fn) => { (listeners[evt] = listeners[evt] || []).push(fn); };
   const emit = (evt, data) => (listeners[evt] || []).forEach((fn) => { try { fn(data); } catch (e) { console.error(e); } });
   TC.emit = emit;
+  // Serverless hosting (e.g. Vercel) cannot keep a stream open, so poll for events instead.
+  function pollEvents() {
+    let cursor = 0;
+    let opened = false;
+    const seen = new Set();
+    const fast = /^\/(consult|video)\//.test(location.pathname);
+    const loop = async () => {
+      try {
+        const d = await TC.get(`/api/events?since=${cursor}`);
+        if (!opened) { opened = true; emit('stream-open'); }
+        d.events.forEach((e) => { if (!seen.has(e.id)) { seen.add(e.id); emit(e.event, e.data); } });
+        cursor = d.cursor || cursor;
+      } catch (e) { /* retry on next tick */ }
+      setTimeout(loop, document.hidden ? 10000 : fast ? 1500 : 4000);
+    };
+    loop();
+  }
+
   function connectStream() {
+    if (TC.state.config.realtime === 'poll') return pollEvents();
     const es = new EventSource('/api/stream');
     ['message', 'typing', 'read', 'consultation', 'note', 'rtc', 'order', 'notification'].forEach((evt) => {
       es.addEventListener(evt, (e) => emit(evt, JSON.parse(e.data)));

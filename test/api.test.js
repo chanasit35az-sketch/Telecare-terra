@@ -11,9 +11,11 @@ process.env.DEMO_MODE = 'true';
 const db = require('../server/db');
 const { seed } = require('../server/seed');
 const { createApp } = require('../server');
+const jobs = require('../server/jobs');
 const { promptPayPayload } = require('../server/payments');
 
 let server;
+let ticker;
 let base;
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -34,11 +36,13 @@ function client() {
 test.before(async () => {
   db.load();
   seed();
+  ticker = jobs.startTicker();
   server = createApp().listen(0);
   await new Promise((r) => server.once('listening', r));
   base = `http://127.0.0.1:${server.address().port}`;
 });
 test.after(async () => {
+  clearInterval(ticker);
   server.close();
   await wait(3500); // let pending demo replies finish writing
   db.flushNow();

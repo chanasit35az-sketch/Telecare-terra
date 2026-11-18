@@ -70,6 +70,21 @@ npm start            # http://localhost:3000
 | `TURN_URL`, `TURN_USERNAME`, `TURN_CREDENTIAL` | – | TURN server สำหรับวิดีโอคอลผ่าน NAT/เครือข่ายองค์กร |
 | `DEMO_PASSWORD`, `PROVIDER_PASSWORD` | `demo1234`, `provider1234` | รหัสผ่านบัญชีตัวอย่างตอนสร้างข้อมูลครั้งแรก |
 
+## Deploy บน Vercel
+
+โปรเจกต์มี `vercel.json` และ `api/index.js` พร้อมแล้ว: ไฟล์ใน `public/` เสิร์ฟผ่าน CDN ส่วนหน้าเว็บและ API รันเป็น serverless function
+
+1. Import repo นี้ใน Vercel (Framework Preset: **Other**) แล้วกด Deploy
+2. **เชื่อมฐานข้อมูล (สำคัญ):** Vercel ไม่มีดิสก์ถาวร ให้ไปที่ Project → **Storage** → **Upstash for Redis** (แพ็กเกจฟรี) → Connect to Project
+   ระบบจะเพิ่มตัวแปร `KV_REST_API_URL` และ `KV_REST_API_TOKEN` ให้เอง แล้ว **Redeploy** หนึ่งครั้ง
+   - ถ้าไม่เชื่อม Redis เว็บยังใช้งานได้ แต่ข้อมูลอยู่ในหน่วยความจำชั่วคราว จะถูกล้างเมื่อ function เริ่มใหม่ และอาจถูกออกจากระบบเป็นระยะ
+3. ตั้ง Environment Variables เพิ่ม: `COOKIE_SECURE=true` (และ `DEMO_MODE=false` เมื่อใช้งานจริง)
+
+ความต่างจากการรันบนเซิร์ฟเวอร์ปกติ (ปรับให้อัตโนมัติเมื่อพบตัวแปร `VERCEL`):
+- แชทและการแจ้งเตือนใช้การ polling ทุก 1.5–4 วินาทีแทน Server-Sent Events
+- งานหน่วงเวลา (ข้อความตอบกลับอัตโนมัติ, แจ้งเตือนสถานะจัดส่ง) ทำงานเมื่อมี request ถัดไปเข้ามา
+- ไฟล์อัปโหลดเก็บใน Redis และขนาด request สูงสุดของ Vercel คือ 4.5MB (รูปภาพถูกย่อขนาดอัตโนมัติก่อนอัปโหลด)
+
 ## สิ่งที่ต้องเชื่อมต่อเพิ่มก่อนเปิดให้บริการจริง
 
 ระบบทำงานครบทุกขั้นตอน แต่บางส่วนต้องใช้บริการภายนอกที่ต้องมีสัญญา/บัญชีของบริษัท:

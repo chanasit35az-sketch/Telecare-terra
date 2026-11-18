@@ -6,6 +6,7 @@ const db = require('./db');
 const realtime = require('./realtime');
 const C = require('./consult');
 const { medicineById } = require('./catalog');
+const jobs = require('./jobs');
 
 const enabled = () => process.env.DEMO_MODE !== 'false';
 
@@ -60,28 +61,39 @@ function replyFor(c, patientMsg) {
   return { text: `${isDoctor ? 'คุณหมอ' : 'เภสัชกร'}ได้รับข้อความเรียบร้อย${ending} กำลังบันทึกลงในเวชระเบียนและระบบจัดส่งยาให้นะ${ending}` };
 }
 
+// Replies are scheduled as jobs (not setTimeout) so they also work on serverless hosts.
+jobs.register('bot-typing', ({ consultationId }) => {
+  const c = db.byId('consultations', consultationId);
+  if (c && c.status === 'active') realtime.send(c.userId, 'typing', { consultationId });
+});
+
+jobs.register('bot-reply', ({ consultationId, msg }) => {
+  const fresh = db.byId('consultations', consultationId);
+  if (!fresh || fresh.status !== 'active' || realtime.isOnline(C.providerUserId(fresh))) return;
+  fresh.messages.filter((m) => m.from === 'patient').forEach((m) => { m.read = true; });
+  C.broadcast(fresh, 'read', { consultationId: fresh.id });
+  const r = replyFor(fresh, msg);
+  C.addMessage(fresh, 'provider', { text: r.text, auto: true });
+  if (r.note) C.setNote(fresh, r.note);
+  if (r.prescribe) jobs.schedule('bot-rx', 1200, { consultationId });
+});
+
+jobs.register('bot-rx', ({ consultationId }) => {
+  const fresh = db.byId('consultations', consultationId);
+  if (!fresh || fresh.status !== 'active' || fresh.prescription) return;
+  const items = pickPrescription(fresh, db.byId('users', fresh.userId));
+  if (items.length) C.issuePrescription(fresh, items);
+});
+
 function onPatientMessage(c, msg) {
   if (!enabled() || realtime.isOnline(C.providerUserId(c)) || c.status !== 'active') return;
-  const delay = 1500 + Math.random() * 1500;
-  setTimeout(() => realtime.send(c.userId, 'typing', { consultationId: c.id }), 400);
-  setTimeout(() => {
-    const fresh = db.byId('consultations', c.id);
-    if (!fresh || fresh.status !== 'active') return;
-    fresh.messages.filter((m) => m.from === 'patient').forEach((m) => { m.read = true; });
-    C.broadcast(fresh, 'read', { consultationId: fresh.id });
-    const r = replyFor(fresh, msg);
-    C.addMessage(fresh, 'provider', { text: r.text, auto: true });
-    if (r.note) C.setNote(fresh, r.note);
-    if (r.prescribe) {
-      const items = pickPrescription(fresh, db.byId('users', fresh.userId));
-      if (items.length) setTimeout(() => C.issuePrescription(fresh, items), 1200);
-    }
-  }, delay);
+  jobs.schedule('bot-typing', 400, { consultationId: c.id });
+  jobs.schedule('bot-reply', 1500 + Math.random() * 1500, { consultationId: c.id, msg: { type: msg.type, text: msg.text || '' } });
 }
 
 function onConsultationStarted(c) {
   if (!enabled() || realtime.isOnline(C.providerUserId(c))) return;
-  if (c.complaint) setTimeout(() => onPatientMessage(c, { type: 'text', text: c.complaint }), 800);
+  if (c.complaint) jobs.schedule('bot-reply', 800, { consultationId: c.id, msg: { type: 'text', text: c.complaint } });
 }
 
 module.exports = { onPatientMessage, onConsultationStarted };

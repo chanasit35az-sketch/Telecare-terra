@@ -1,7 +1,5 @@
 'use strict';
 const express = require('express');
-const fs = require('fs');
-const path = require('path');
 const crypto = require('crypto');
 const db = require('./db');
 const T = require('./time');
@@ -51,6 +49,7 @@ router.get('/auth/me', (req, res) => {
     config: {
       demoMode: DEMO(),
       oauth: { google: Boolean(process.env.GOOGLE_CLIENT_ID), line: Boolean(process.env.LINE_CHANNEL_ID) },
+      realtime: realtime.mode(),
       images: { mapPharmacy: IMG.mapPharmacy, mapChat: IMG.mapChat, careHero: IMG.careHero },
       iceServers: [
         { urls: (process.env.STUN_URLS || 'stun:stun.l.google.com:19302,stun:stun1.l.google.com:19302').split(',') },
@@ -193,7 +192,7 @@ function saveDataUrl(userId, dataUrl, name, extra = {}) {
   const buf = Buffer.from(m[2], 'base64');
   if (buf.length > 10 * 1024 * 1024) throw fail(413, 'ไฟล์ใหญ่เกิน 10MB');
   const id = db.id('f_');
-  fs.writeFileSync(path.join(db.UPLOAD_DIR, `${id}.${ext}`), buf);
+  db.putFile(id, ext, buf).catch((err) => console.error('[upload]', err));
   return db.insert('uploads', { id, userId, mime, ext, name: str(name, 120), size: buf.length, createdAt: Date.now(), ...extra });
 }
 
@@ -207,9 +206,12 @@ router.get('/files/:id', requireAuth, (req, res) => {
     allowed = db.table('consultations').some((c) => c.userId === f.userId && C.canAccess(req.user, c));
   }
   if (!allowed) return res.status(403).end();
-  res.setHeader('Content-Type', f.mime);
-  res.setHeader('Cache-Control', 'private, max-age=86400');
-  res.sendFile(path.join(db.UPLOAD_DIR, `${f.id}.${f.ext}`));
+  db.getFile(f.id, f.ext).then((buf) => {
+    if (!buf) return res.status(404).end();
+    res.setHeader('Content-Type', f.mime);
+    res.setHeader('Cache-Control', 'private, max-age=86400');
+    res.send(buf);
+  }).catch(() => res.status(500).end());
 });
 
 // ===================================================================== catalogue
@@ -795,7 +797,24 @@ router.get('/provider/queue', requireProvider, (req, res) => {
 });
 
 // ===================================================================== realtime stream
-router.get('/stream', requireAuth, (req, res) => realtime.connect(req, res, req.user.id));
+router.get('/stream', requireAuth, (req, res) => {
+  if (db.serverless) return res.status(204).end(); // serverless: clients poll /api/events instead
+  db.touch(req.user.id);
+  realtime.connect(req, res, req.user.id);
+});
+
+// Polling fallback for serverless hosting: returns events newer than `since`.
+router.get('/events', requireAuth, wrap(async (req, res) => {
+  db.touch(req.user.id);
+  const since = Number(req.query.since) || 0;
+  const all = db.serverless ? await db.readEvents(req.user.id) : [];
+  res.setHeader('Cache-Control', 'no-store');
+  // First poll only establishes the cursor so old events are not replayed.
+  const latest = all.length ? all[all.length - 1].id : 0;
+  if (!since) return res.json({ events: [], cursor: Math.max(latest, Date.now() * 1000 - 5e6) });
+  const events = all.filter((e) => e.id > since);
+  res.json({ events, cursor: Math.max(since, latest) });
+}));
 
 // ===================================================================== errors
 router.use((req, res) => res.status(404).json({ error: 'ไม่พบ API ที่ร้องขอ' }));
