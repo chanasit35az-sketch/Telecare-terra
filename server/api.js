@@ -59,6 +59,12 @@ router.get('/auth/me', (req, res) => {
   });
 });
 
+// Health check: reports which storage backend is active (no secrets).
+router.get('/health', (_req, res) => {
+  res.setHeader('Cache-Control', 'no-store');
+  res.json({ ok: true, storage: db.remote ? 'redis' : 'file', serverless: db.serverless, time: Date.now() });
+});
+
 router.post('/auth/register', wrap(async (req, res) => {
   const name = str(req.body.name, 120);
   const identifier = str(req.body.identifier, 200);
