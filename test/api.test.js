@@ -181,6 +181,7 @@ test('access control: users cannot read each other’s data', async () => {
 });
 
 test('provider console sees the patient queue and can prescribe', async () => {
+  db.update('pharmacies', 'ph-ari', { open24: true }); // keep the test independent of the time of day
   const p = client();
   await p.post('/api/auth/login', { identifier: 'teerapat@telecare.terra', password: 'provider1234' });
   const q = await p.get('/api/provider/queue');
