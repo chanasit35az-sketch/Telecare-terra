@@ -12,8 +12,8 @@ const router = express.Router();
 const PROVIDERS = {
   google: {
     enabled: () => Boolean(process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET),
-    clientId: () => process.env.GOOGLE_CLIENT_ID,
-    secret: () => process.env.GOOGLE_CLIENT_SECRET,
+    clientId: () => env('GOOGLE_CLIENT_ID'),
+    secret: () => env('GOOGLE_CLIENT_SECRET'),
     authorize: 'https://accounts.google.com/o/oauth2/v2/auth',
     token: 'https://oauth2.googleapis.com/token',
     scope: 'openid email profile',
@@ -25,13 +25,13 @@ const PROVIDERS = {
   },
   line: {
     enabled: () => Boolean(process.env.LINE_CHANNEL_ID && process.env.LINE_CHANNEL_SECRET),
-    clientId: () => process.env.LINE_CHANNEL_ID,
-    secret: () => process.env.LINE_CHANNEL_SECRET,
+    clientId: () => env('LINE_CHANNEL_ID'),
+    secret: () => env('LINE_CHANNEL_SECRET'),
     authorize: 'https://access.line.me/oauth2/v2.1/authorize',
     token: 'https://api.line.me/oauth2/v2.1/token',
     scope: 'profile openid email',
     async profile(tokens) {
-      const body = new URLSearchParams({ id_token: tokens.id_token, client_id: process.env.LINE_CHANNEL_ID });
+      const body = new URLSearchParams({ id_token: tokens.id_token, client_id: env('LINE_CHANNEL_ID') });
       const r = await fetch('https://api.line.me/oauth2/v2.1/verify', { method: 'POST', body });
       const p = await r.json();
       return { sub: p.sub, email: p.email, name: p.name, avatar: p.picture };
@@ -39,7 +39,9 @@ const PROVIDERS = {
   },
 };
 
-const baseUrl = (req) => process.env.PUBLIC_URL || `${req.protocol}://${req.get('host')}`;
+// Values pasted into hosting dashboards often carry stray spaces, quotes or a trailing slash.
+const env = (k) => String(process.env[k] || '').trim().replace(/^['"]|['"]$/g, '').trim();
+const baseUrl = (req) => (env('PUBLIC_URL') || `${req.protocol}://${req.get('host')}`).replace(/\/+$/, '');
 
 router.get('/:provider', (req, res) => {
   const p = PROVIDERS[req.params.provider];
