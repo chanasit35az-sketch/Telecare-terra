@@ -184,7 +184,7 @@ ${r.name ? `<div class="p-4 rounded-xl bg-surface-container space-y-3.5"><div cl
         m.close();
         const member = TC.state.user.isMember;
         const discount = member ? Math.round(subtotal * 0.15) : 0;
-        const fee = member || subtotal >= 200 ? 0 : 30;
+        const fee = 0; // free delivery for everyone
         const total = subtotal - discount + fee;
         const order = await TC.checkout({
           title: 'ยืนยันคำสั่งซื้อยา', amount: total, allowCod: true, submitLabel: 'ยืนยันสั่งซื้อ',

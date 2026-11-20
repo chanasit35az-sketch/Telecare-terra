@@ -291,7 +291,7 @@ router.get('/payments/promptpay', (req, res) => {
 function appointmentView(a) {
   const d = db.byId('doctors', a.doctorId);
   const start = T.toTs(a.date, a.time);
-  return { ...a, doctor: d && { id: d.id, name: d.name, photo: d.photo, specialtyLabel: d.specialtyLabel, duration: d.duration },
+  return { ...a, doctor: d && { id: d.id, name: d.name, photo: d.photo, specialtyLabel: d.specialtyLabel, duration: L.doctorMinutes(d) },
     startsAt: start, dateLabel: L.thaiShortDate(a.date), joinable: a.status === 'booked' && Date.now() > start - 10 * MIN && Date.now() < start + 60 * MIN };
 }
 
@@ -357,7 +357,8 @@ function createConsultation(user, b) {
   const member = L.membershipActive(user);
   const fee = providerType === 'doctor' && !b.prepaid && !member ? doctor.fee : 0;
   const payment = b.prepaid ? { method: 'appointment', status: 'paid', amount: 0 } : pay.processPayment(b.payment, fee);
-  const durationMins = providerType === 'doctor' ? (member ? 60 : doctor.duration) : (member ? 60 : 15);
+  // Doctors: at least 1 hour, unlimited (null) for Terra Care+ members. Pharmacists unchanged.
+  const durationMins = providerType === 'doctor' ? (member ? null : L.doctorMinutes(doctor)) : (member ? 60 : 15);
   const vitals = b.vitals || {};
   const now = Date.now();
   const c = db.insert('consultations', {
@@ -528,8 +529,8 @@ function quote(user, items, pharmacyId) {
   const subtotal = items.reduce((s, i) => s + i.price, 0);
   const member = L.membershipActive(user);
   const discount = member ? Math.round(subtotal * 0.15) : 0;
-  const deliveryFee = member || subtotal >= 200 ? 0 : 30;
-  const deliveryNote = member ? 'ฟรี (สิทธิ์สมาชิก Terra Care+)' : deliveryFee === 0 ? 'ฟรี (ยอดเกิน ฿200)' : '฿30';
+  const deliveryFee = 0; // delivery is free for everyone
+  const deliveryNote = 'ฟรี';
   const pharmacy = db.byId('pharmacies', pharmacyId);
   return { subtotal, discount, deliveryFee, deliveryNote, total: subtotal - discount + deliveryFee, pharmacy };
 }
@@ -777,7 +778,7 @@ router.post('/membership/subscribe', requireAuth, wrap(async (req, res) => {
   const now = Date.now();
   const membership = { plan: 'care-plus', price: PLAN_PRICE, startedAt: now, expiresAt: now + 30 * DAY, cancelAtPeriodEnd: false, payments: [payment] };
   db.update('users', req.user.id, { membership });
-  L.notify(req.user.id, { icon: 'workspace_premium', title: 'ยินดีต้อนรับสู่ Terra Care+', body: 'สิทธิ์ปรึกษาแพทย์ไม่จำกัด 60 นาที/ครั้ง ส่งยาฟรี และส่วนลดยา 15% เริ่มใช้ได้ทันที', link: '/care-plus' });
+  L.notify(req.user.id, { icon: 'workspace_premium', title: 'ยินดีต้อนรับสู่ Terra Care+', body: 'สิทธิ์ปรึกษาแพทย์ไม่จำกัดครั้งและเวลา และส่วนลดยา 15% เริ่มใช้ได้ทันที', link: '/care-plus' });
   res.json({ user: L.userView(db.byId('users', req.user.id)) });
 }));
 

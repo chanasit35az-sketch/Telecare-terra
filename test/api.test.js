@@ -81,12 +81,27 @@ test('password reset flow', async () => {
 
 test('catalogue: doctors, pharmacies, search', async () => {
   const c = client();
+  const all = await c.get('/api/doctors');
+  assert.ok(all.body.doctors.every((x) => x.duration >= 60), 'specialist consultations last at least 1 hour');
+  const slots = (await c.get('/api/doctors/dr-pimmada')).body.days.flatMap((d) => d.slots.map((s) => s.time));
+  assert.ok(slots.every((t) => t.endsWith(':00')), 'hourly slots so 1-hour bookings never overlap');
   const d = await c.get('/api/doctors?category=derma');
   assert.ok(d.body.doctors.length >= 2 && d.body.doctors.every((x) => x.category === 'derma'));
   const p = await c.get('/api/pharmacies?filters=open24');
   assert.ok(p.body.pharmacies.every((x) => x.open24));
   const s = await c.get('/api/search?q=' + encodeURIComponent('ผื่น'));
   assert.ok(s.body.specialties.some((x) => x.id === 'derma'));
+});
+
+test('non-member doctor consultation lasts 1 hour', async () => {
+  const c = client();
+  await c.post('/api/auth/register', { name: 'ทั่วไป ทดสอบ', identifier: 'general@example.com', password: 'password123', acceptTerms: true });
+  db.update('doctors', 'dr-pimmada', { schedule: { days: [0, 1, 2, 3, 4, 5, 6], start: '00:00', end: '23:59' } }); // time-independent
+  const r = await c.post('/api/consultations', { providerType: 'doctor', doctorId: 'dr-pimmada', mode: 'chat', complaint: 'ปวดหัว', payment: { method: 'promptpay' } });
+  assert.strictEqual(r.status, 201);
+  assert.strictEqual(r.body.consultation.durationMins, 60);
+  assert.ok(r.body.consultation.remainingSeconds > 59 * 60);
+  await c.post(`/api/consultations/${r.body.consultation.id}/end`);
 });
 
 test('pharmacist chat → demo reply → e-prescription → order', async () => {
@@ -126,7 +141,7 @@ test('prescription-only medicine cannot be bought over the counter', async () =>
   assert.strictEqual(r.status, 400);
   const ok = await c.post('/api/orders', { items: [{ medId: 'ors', qty: 2 }], payment: { method: 'cod' } });
   assert.strictEqual(ok.status, 201);
-  assert.strictEqual(ok.body.order.deliveryFee, 30);
+  assert.strictEqual(ok.body.order.deliveryFee, 0, 'delivery is free for everyone');
 });
 
 test('appointments: book, double-book blocked, cancel', async () => {
@@ -151,8 +166,8 @@ test('membership gives free consults, discount and free delivery', async () => {
   const o = await c.post('/api/orders', { items: [{ medId: 'cetirizine' }], payment: { method: 'cod' } });
   assert.strictEqual(o.body.order.deliveryFee, 0);
   assert.strictEqual(o.body.order.discount, 9);
-  const cons = await c.post('/api/consultations', { providerType: 'doctor', doctorId: 'dr-pimmada', mode: 'video', complaint: 'ปวดหัว' });
-  if (cons.status === 201) { assert.strictEqual(cons.body.consultation.fee, 0); assert.strictEqual(cons.body.consultation.durationMins, 60); }
+  const cons = await c.post('/api/consultations', { providerType: 'doctor', doctorId: 'dr-pimmada', mode: 'video', complaint: 'ปวดหัว', payment: { method: 'promptpay' } });
+  if (cons.status === 201) { assert.strictEqual(cons.body.consultation.fee, 0); assert.strictEqual(cons.body.consultation.durationMins, null, 'members: unlimited time'); assert.strictEqual(cons.body.consultation.remainingSeconds, null); }
   await c.post('/api/membership/cancel');
   assert.strictEqual((await c.get('/api/auth/me')).body.user.membership.cancelAtPeriodEnd, true);
 });

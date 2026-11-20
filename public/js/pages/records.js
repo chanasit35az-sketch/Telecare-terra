@@ -34,7 +34,7 @@
     const subtotal = items.reduce((s, x) => s + x.price, 0);
     const member = S.user.isMember;
     const discount = member ? Math.round(subtotal * 0.15) : 0;
-    const fee = member || subtotal >= 200 ? 0 : 30;
+    const fee = 0; // free delivery for everyone
     const pharmacy = S.pharmacy;
     const order = await TC.checkout({
       title: 'ยืนยันการจัดส่งยารอบใหม่', amount: subtotal - discount + fee, allowCod: true, submitLabel: 'ยืนยันการจัดส่ง',
@@ -338,7 +338,7 @@ ${pts.map((p, i) => `<text class="text-[10px] ${i === pts.length - 1 ? 'text-pri
         const member = S.user.isMember;
         const sub = o.subtotal;
         const disc = member ? Math.round(sub * 0.15) : 0;
-        const fee = member || sub >= 200 ? 0 : 30;
+        const fee = 0; // free delivery for everyone
         const order = await TC.checkout({
           title: 'ขอเติมยาเดิม (Refill)', amount: sub - disc + fee, allowCod: true, submitLabel: 'ยืนยันสั่งซ้ำ',
           lines: [...o.items.map((i) => ({ label: i.name, value: TC.baht(i.price) })), ...(disc ? [{ label: 'ส่วนลดสมาชิก (15%)', value: `-${TC.baht(disc)}`, accent: true }] : []), { label: 'ค่าจัดส่ง', value: fee ? TC.baht(fee) : 'ฟรี', accent: !fee }],

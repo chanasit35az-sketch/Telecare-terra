@@ -47,6 +47,7 @@ function providerInfo(c) {
 
 function remainingSeconds(c) {
   if (c.status !== 'active') return 0;
+  if (c.durationMins == null) return null; // unlimited (Terra Care+ doctor consultations)
   return Math.max(0, Math.round((c.startedAt + c.durationMins * MIN - Date.now()) / 1000));
 }
 

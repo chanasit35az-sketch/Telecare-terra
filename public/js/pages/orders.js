@@ -170,7 +170,7 @@ ${cancelled ? '' : `<g id="rider" transform="translate(180, 115)"><circle fill="
   async function reorder(o) {
     const member = TC.state.user.isMember;
     const disc = member ? Math.round(o.subtotal * 0.15) : 0;
-    const fee = member || o.subtotal >= 200 ? 0 : 30;
+    const fee = 0; // free delivery for everyone
     const order = await TC.checkout({
       title: `สั่งซ้ำ #${o.id}`, amount: o.subtotal - disc + fee, allowCod: true, submitLabel: 'ยืนยันสั่งซ้ำ',
       lines: [...o.items.map((i) => ({ label: i.name, value: TC.baht(i.price) })), ...(disc ? [{ label: 'ส่วนลดสมาชิก (15%)', value: `-${TC.baht(disc)}`, accent: true }] : []), { label: 'ค่าจัดส่ง', value: fee ? TC.baht(fee) : 'ฟรี', accent: !fee }, { label: 'ร้านยา', value: o.pharmacy.name }],

@@ -162,7 +162,7 @@ ${ph ? `<div class="bg-surface-container-low rounded-2xl p-5 shadow-sm"><div cla
 
   // ---------------------------------------------------------------- timer
   setInterval(() => {
-    if (!C || C.status !== 'active') return;
+    if (!C || C.status !== 'active' || timerSec == null) return; // null = unlimited time
     timerSec = Math.max(0, timerSec - 1);
     $('#session-timer').textContent = TC.mmss(timerSec);
     $('#session-timer').classList.toggle('text-error', timerSec < 120);
@@ -248,11 +248,11 @@ ${ph ? `<div class="bg-surface-container-low rounded-2xl p-5 shadow-sm"><div cla
     const subtotal = rx.items.reduce((s, i) => s + i.price, 0);
     const member = TC.state.user.isMember;
     const discount = member ? Math.round(subtotal * 0.15) : 0;
-    const fee = member || subtotal >= 200 ? 0 : 30;
+    const fee = 0; // free delivery for everyone
     const order = await TC.checkout({
       title: 'ยืนยันรับยาและชำระเงิน', amount: subtotal - discount + fee, allowCod: true, submitLabel: 'ยืนยันและส่งต่อร้านยา',
       lines: [...rx.items.map((i) => ({ label: i.name, value: TC.baht(i.price) })), ...(discount ? [{ label: 'ส่วนลดสมาชิก Terra Care+ (15%)', value: `-${TC.baht(discount)}`, accent: true }] : []),
-        { label: 'ค่าจัดส่งด่วน', value: fee ? TC.baht(fee) : member ? 'ฟรี (สิทธิ์สมาชิก)' : 'ฟรี (ยอดเกิน ฿200)', accent: !fee }, { label: 'ร้านยา', value: C.pharmacy ? C.pharmacy.name : '-' },
+        { label: 'ค่าจัดส่งด่วน', value: 'ฟรี', accent: true }, { label: 'ร้านยา', value: C.pharmacy ? C.pharmacy.name : '-' },
         { label: 'จัดส่งไปที่', value: (TC.state.user.address || TC.state.user.location || {}).label || '-' }],
       submit: async (payment) => (await TC.post(`/api/consultations/${id}/confirm-rx`, { payment, pharmacyId: C.pharmacy && C.pharmacy.id })).order,
     });
@@ -432,7 +432,8 @@ ${ph ? `<div class="bg-surface-container-low rounded-2xl p-5 shadow-sm"><div cla
       C = d.consultation;
       me = C.viewerRole;
       timerSec = C.remainingSeconds;
-      $('#session-timer').textContent = TC.mmss(timerSec);
+      $('#session-timer').textContent = timerSec == null ? 'ไม่จำกัด' : TC.mmss(timerSec);
+      if (C.status === 'active') $('#timer-label').textContent = timerSec == null ? 'เวลาปรึกษา (สมาชิก Terra Care+)' : 'เวลาปรึกษาคงเหลือ';
       renderAll();
       if (C.unread) TC.post(`/api/consultations/${id}/read`).catch(() => {});
     } catch (e) {

@@ -29,7 +29,7 @@
     if (u.isMember) return manage();
     const user = await TC.checkout({
       title: 'สมัครสมาชิก Terra Care+', amount: PRICE, submitLabel: 'ชำระเงินและเริ่มใช้สิทธิ์',
-      lines: [{ label: 'แพ็กเกจ Terra Care+ (30 วัน)', value: TC.baht(PRICE) }, { label: 'ปรึกษาแพทย์เฉพาะทาง', value: 'ไม่จำกัด • 60 นาที/ครั้ง', accent: true }, { label: 'ค่าจัดส่งยา', value: 'ฟรีทุกครั้ง', accent: true }, { label: 'ส่วนลดค่ายา', value: '15% ทุกคำสั่งซื้อ', accent: true }],
+      lines: [{ label: 'แพ็กเกจ Terra Care+ (30 วัน)', value: TC.baht(PRICE) }, { label: 'ปรึกษาแพทย์เฉพาะทาง', value: 'ไม่จำกัดครั้งและเวลา', accent: true }, { label: 'ส่วนลดค่ายา', value: '15% ทุกคำสั่งซื้อ', accent: true }],
       submit: async (payment) => (await TC.post('/api/membership/subscribe', { payment })).user,
     });
     if (user) {

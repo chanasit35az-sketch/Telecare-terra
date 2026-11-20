@@ -6,6 +6,8 @@ const realtime = require('./realtime');
 const { SPECIALTIES } = require('./catalog');
 
 const MIN = 60 * 1000;
+const MIN_DOCTOR_MINS = 60; // every specialist consultation lasts at least 1 hour
+const doctorMinutes = (d) => Math.max(MIN_DOCTOR_MINS, d.duration || 0);
 const TIME_SCALE = Math.max(0.01, Number(process.env.ORDER_TIME_SCALE || 1));
 
 // ---------- geo ----------
@@ -57,9 +59,9 @@ function doctorBusy(doctorId) {
 
 function slotsFor(d, date, ts = Date.now()) {
   if (!d.schedule.days.includes(T.dowOf(date))) return [];
-  const step = 30;
+  const step = Math.max(30, doctorMinutes(d)); // one slot per consultation length, so bookings never overlap
   const start = T.minutesOfDay(d.schedule.start);
-  const end = T.minutesOfDay(d.schedule.end) - (d.duration || 15);
+  const end = T.minutesOfDay(d.schedule.end) - doctorMinutes(d);
   const booked = new Set(db.filter('appointments', (a) => a.doctorId === d.id && a.date === date && a.status === 'booked').map((a) => a.time));
   const out = [];
   for (let m = Math.ceil(start / step) * step; m <= end; m += step) {
@@ -86,7 +88,7 @@ function doctorView(d) {
   const next = nextSlot(d);
   const spec = SPECIALTIES.find((s) => s.id === d.category);
   return {
-    ...d, specialty: spec ? spec.short : d.specialtyLabel, availableNow, providerOnline: realtime.isOnline(d.userId),
+    ...d, duration: doctorMinutes(d), specialty: spec ? spec.short : d.specialtyLabel, availableNow, providerOnline: realtime.isOnline(d.userId),
     nextSlot: next,
     nextSlotLabel: next ? `${next.today ? 'วันนี้ ' : thaiShortDate(next.date) + ' '}${next.time} น.` : 'ไม่มีคิวว่าง',
     todayHours: d.schedule.days.includes(T.parts().dow) ? `${d.schedule.start} - ${d.schedule.end} น.` : 'วันนี้ไม่เปิดรับสาย',
@@ -191,5 +193,5 @@ function notify(userId, { icon = 'notifications', title, body = '', link = '' })
 
 module.exports = {
   distanceKm, DEFAULT_LOCATION, pharmacyOpen, pharmacyView, withinHours, slotsFor, nextSlot, doctorView,
-  thaiShortDate, membershipActive, ageOf, userView, orderStatus, orderView, notify, TIME_SCALE, MIN,
+  thaiShortDate, doctorMinutes, membershipActive, ageOf, userView, orderStatus, orderView, notify, TIME_SCALE, MIN,
 };

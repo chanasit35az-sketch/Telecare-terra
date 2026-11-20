@@ -44,7 +44,7 @@
     $('#local-name').textContent = `${isP ? 'คุณ' + pt.name.split(' ')[0] : p.name} (กล้องคุณ)`;
     $('#room-code').textContent = `รหัสห้อง: ${C.roomCode || C.id}`;
     $('#open-chat').href = `/consult/${C.id}`;
-    $('#timer-total').textContent = ` / ${C.durationMins}:00 นาที`;
+    $('#timer-total').textContent = C.durationMins == null ? ' ไม่จำกัดเวลา (Terra Care+)' : ` / ${C.durationMins}:00 นาที`;
     renderDrawer();
   }
 
@@ -323,7 +323,7 @@ ${ph ? `<div class="p-3 rounded-xl bg-secondary-container/60 space-y-2.5 text-xs
 
   // ---------------------------------------------------------------- timer & realtime
   setInterval(() => {
-    if (!C || C.status !== 'active') return;
+    if (!C || C.status !== 'active' || timerSec == null) return; // null = unlimited time
     timerSec = Math.max(0, timerSec - 1);
     $('#call-timer').textContent = TC.mmss(timerSec);
     $('#call-timer').classList.toggle('text-error', timerSec < 120);
@@ -340,7 +340,7 @@ ${ph ? `<div class="p-3 rounded-xl bg-secondary-container/60 space-y-2.5 text-xs
     C = d.consultation;
     me = C.viewerRole;
     timerSec = C.remainingSeconds;
-    $('#call-timer').textContent = TC.mmss(timerSec);
+    $('#call-timer').textContent = timerSec == null ? '∞' : TC.mmss(timerSec);
     renderInfo();
     if (C.status !== 'active') {
       hangup();
