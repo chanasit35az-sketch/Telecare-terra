@@ -102,7 +102,7 @@ function createApp() {
   Object.entries(pages).forEach(([route, file]) => app.get(route, guard(route), (req, res) => res.sendFile(path.join(pub, file))));
   app.get(['/consult', '/consult/:id'], guard('/consult'), (req, res) => res.sendFile(path.join(pub, 'consult.html')));
   app.get(['/video', '/video/:id'], guard('/video'), (req, res) => res.sendFile(path.join(pub, 'video.html')));
-  app.use(express.static(pub, { extensions: ['html'], maxAge: '1h' }));
+  app.use(express.static(pub, { extensions: ['html'], maxAge: 0 })); // always revalidate so new deploys show immediately
   app.use((req, res) => res.status(404).sendFile(path.join(pub, '404.html')));
   return app;
 }
